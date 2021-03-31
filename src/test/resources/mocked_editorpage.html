@@ -1,0 +1,478 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2021 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+<!DOCTYPE html>
+<html class="skipCoral2Validation" lang="en" data-i18n-dictionary-src="/libs/cq/i18n/dict.{+locale}.json">
+
+<head>
+  <title>Sites</title>
+  <script type="text/javascript" src="/etc.clientlibs/clientlibs/mocked_coral.js"></script>
+  <script type="text/javascript" src="/etc.clientlibs/clientlibs/mocked_editorpage.js"></script>
+</head>
+<body class="coral--light"><a class="granite-skipNavigationLinks" data-target-selector="main, [role=&#34;main&#34;]" tabindex="0">Skip to main content
+</a>
+<div class="foundation-authoring-ui-mode hidden"
+     data-classic-editor-url="/cf#"></div>
+
+<coral-dialog  id="aem-sites-rollout-schedule-dialog" class="foundation-toggleable" backdrop="static">
+  <coral-dialog-header>Rollout Page(s)</coral-dialog-header>
+  <coral-dialog-content><div  class="coral-Form-field schedule-rollout-options coral-RadioGroup coral-RadioGroup--vertical" role="radiogroup" aria-required="true" data-foundation-validation="" data-validation=""><coral-radio  class="schedule-rollout-options-now coral-Form-field" name="reportSchedule" value="now" checked="">
+    <coral-radio-label>Now</coral-radio-label>
+  </coral-radio><coral-radio  class="schedule-rollout-options-later coral-Form-field" name="reportSchedule" value="later">
+    <coral-radio-label>Later</coral-radio-label>
+  </coral-radio><input  class="foundation-field-related" type="hidden" name="reportSchedule@Delete"></div><coral-datepicker  class="coral-Form-field schedule-rollout-datepicker" type="datetime" name="scheduleDate" min="today" displayformat="
+YYYY-MM-DD HH:mm" valueformat="YYYY-MM-DD[T]HH:mm:ss.SSSZ" headerformat="MMMM YYYY" value="" placeholder="Select Date &amp; Time" data-foundation-validation="" data-validation=""></coral-datepicker><input  class="foundation-field-related" type="hidden" value="Date" name="scheduleDate@TypeHint"><p class="granite-datepicker-timezone granite-coral-Form-fieldlongdesc" data-granite-datepicker-timezone-server="120">
+    <coral-icon icon="alert" size="XS"></coral-icon>
+    <span>Your timezone (UTC<span class="granite-datepicker-timezone-client"></span>) will be used instead of the server setting (UTC+0200)</span>
+  </p></coral-dialog-content><coral-dialog-footer><button  coral-close="" class="schedule-rollout-cancel" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="cancel" tracking="ON">Cancel</button><button  coral-close="" class="schedule-rollout-done" type="button" autocomplete="off" is="coral-button" variant="primary" trackingfeature="" trackingelement="continue" tracking="ON">Continue</button></coral-dialog-footer></coral-dialog>
+<div class="foundation-content-path hidden"
+     data-foundation-content-path="/content/test_csayctjt/testPage.html"></div><div ><div  id="SidePanel" class="sidepanel sidepanel-closed" data-content-url="/mnt/overlay/wcm/core/content/editor/jcr:content/content/items/sidepanel.content.html/content/test_csayctjt/testPage.html">
+  <div class="sidepanel-header editor-GlobalBar"><div  class="granite-actionbar"><div ><div  class="granite-actionbar-centerwrapper"><div  class="granite-actionbar-center"><span  class="granite-title sidepanel-header-title"></span></div></div><div  class="granite-actionbar-right"><button  class="toggle-sidepanel header-action" type="button" autocomplete="off" is="coral-button" icon="close" variant="minimal" trackingfeature="" trackingelement="" tracking="ON"></button></div></div></div></div>
+
+</div>
+
+  <div  id="Content" role="main" class="editor-panel editor-panel-active">
+    <div  class="editor-GlobalBar js-editor-PanelHeader editor-panel-header"><coral-actionbar  class="header-main" hidden="">
+      <div class="editor-GlobalBar-pageTitle"></div>
+      <coral-actionbar-primary><coral-actionbar-item>
+        <button  id="sidepanel-toggle-button" class="toggle-sidepanel editor-GlobalBar-item js-editor-SidePanel-toggle" title="Toggle Side Panel" type="button" disabled="" autocomplete="off" is="coral-button" icon="railLeft" iconsize="S" variant="minimal" trackingfeature="" trackingelement="toggle side panel" tracking="ON"></button>
+      </coral-actionbar-item><coral-actionbar-item>
+        <a id="pageinfo-trigger" class="editor-GlobalBar-item foundation-toggleable-control" title="Page Information" data-foundation-toggleable-control-target="#pageinfo-popover" href="#pageinfo-popover" aria-label="Page Information" is="coral-anchorbutton" icon="properties" iconsize="S" variant="minimal" trackingelement="page information" tracking="ON"></a>
+      </coral-actionbar-item><coral-actionbar-item>
+        <coral-popover  id="pageinfo-popover" class="pageinfo foundation-toggleable" title="Page Information" placement="bottom" interaction="off">
+          <coral-popover-content><div  id="pageinfo-data" class="editor-PageInfo" data-path="/mnt/overlay/wcm/core/content/editor/jcr:content/content/items/content/header/items/headerbar/items/pageinfopopover/items/list"><span>Modified now by test_cSayctjt_VFkoXvhS<br/>Page is not published</span><button  class="js-editor-PageInfo-closePopover properties-activator" title="Open Properties" data-path="/mnt/overlay/wcm/core/content/sites/properties.html?item=/content/test_csayctjt/testPage" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="open properties" tracking="ON">Open Properties</button>
+            <button  class="js-editor-PageInfo-closePopover js-editor-WorkflowStart-activator" title="Start Workflow" data-path="/content/test_csayctjt/testPage.html" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="start workflow" tracking="ON">Start Workflow</button><button  class="js-editor-PageInfo-closePopover cq-author-lock-page" title="Lock Page" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="lock page" tracking="ON">Lock Page</button><button  class="js-editor-PageInfo-closePopover cq-authoring-actions-quickpublish-activator" title="Publish Page" data-references-url="/libs/wcm/core/content/reference.json" data-path="/content/test_csayctjt/testPage.html" data-later="false" data-edit="true" data-url="/libs/wcm/core/content/sites/publishpagewizard.html" data-replication-url="/bin/replicate.json" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="publish page" tracking="ON">Publish Page</button><button  class="js-editor-PageInfo-closePopover foundation-toggleable-control pageinfo-unpublish-activator" title="Unpublish Page" data-path="/content/test_csayctjt/testPage.html" data-foundation-toggleable-control-target=".pageinfo-unpublish-confirm" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="unpublish page" tracking="ON">Unpublish Page</button><button  class="js-editor-PageInfo-closePopover pageinfo-viewaspublished" title="View as Published" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="view as published" tracking="ON">View as Published</button><button  class="js-editor-PageInfo-closePopover pageinfo-adminview" title="View in Admin" data-path="/content/test_csayctjt/testPage.html" data-adminurl="/sites.html" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="view in admin" tracking="ON">View in Admin</button><button  class="js-editor-PageInfo-closePopover classicui-switcher" title="Open in Classic UI" hidden="" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="open in classic ui" tracking="ON">Open in Classic UI</button>
+
+
+
+
+
+            <button  class="js-editor-PageInfo-closePopover editor-shell-onboarding-trigger" title="Help" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="help" tracking="ON">Help</button></div>
+          </coral-popover-content>
+        </coral-popover>
+      </coral-actionbar-item><coral-actionbar-item>
+
+      </coral-actionbar-item><coral-actionbar-item>
+
+        <coral-popover class="editor-StyleSelector foundation-toggleable" placement="bottom" focusonshow=".editor-StyleSelector-selectList" data-editor-styleselector-type="page" data-editor-styleselector-src-uritemplate="/mnt/overlay/wcm/core/content/editor/jcr:content/content/items/content/header/items/headerbar/items/styleselectorpopover{.selector}.html{+item}?resourceType={resourceType}" data-editor-styleselector-popover within="#Content" id="editor-StyleSelector--page">
+          <coral-popover-header>
+            <span class="editor-StyleSelector-title">Styles</span>
+            <div class="editor-StyleSelector-actions">
+              <button class="editor-StyleSelector-action" is="coral-button" icon="close" iconsize="XS" variant="minimal" data-editor-styleselector-cancel></button>
+              <button class="editor-StyleSelector-action" is="coral-button" icon="check" iconsize="XS" variant="minimal" coral-close></button>
+            </div>
+          </coral-popover-header>
+          <coral-popover-content>
+
+            <form id="editor-styleselector-form" action="/content/test_csayctjt/testPage/_jcr_content" method="post" data-editor-styleselector-item-id="/content/test_csayctjt/testPage" class="foundation-form" data-foundation-form-ajax="true" data-editor-styleselector-form>
+
+
+              <input type="hidden" name="./sling:resourceType" value="wcm/foundation/components/page"/>
+              <input type="hidden" name="./cq:styleIds@Delete"/>
+              <input type="hidden" name="./cq:styleIds@TypeHint" value="String[]"/>
+            </form>
+
+          </coral-popover-content>
+        </coral-popover>
+
+      </coral-actionbar-item><coral-actionbar-item>
+        <button  class="editor-GlobalBar-item js-editor-ContextHubTrigger" title="ContextHub" type="button" disabled="" autocomplete="off" is="coral-button" icon="demographic" iconsize="S" variant="minimal" trackingfeature="" trackingelement="contexthub" tracking="ON"></button>
+      </coral-actionbar-item><coral-actionbar-item>
+        <button  id="unlock-page-trigger" class="cq-author-unlock-page editor-GlobalBar-item" title="Locked page" type="button" disabled="" autocomplete="off" aria-label="" is="coral-button" icon="lockOn" iconsize="S" variant="minimal" trackingfeature="" trackingelement="locked page" tracking="ON"></button>
+      </coral-actionbar-item><coral-actionbar-item>
+        <button  class="cq-History-control editor-GlobalBar-item hide" title="Undo" data-history-control="undo" type="button" autocomplete="off" aria-label="Undo" is="coral-button" icon="undo" variant="minimal" trackingfeature="" trackingelement="undo" tracking="ON"></button>
+      </coral-actionbar-item><coral-actionbar-item>
+        <button  class="cq-History-control editor-GlobalBar-item hide" title="Redo" data-history-control="redo" type="button" autocomplete="off" aria-label="Redo" is="coral-button" icon="redo" variant="minimal" trackingfeature="" trackingelement="redo" tracking="ON"></button>
+      </coral-actionbar-item><coral-actionbar-item>
+        <button  class="editor-GlobalBar-item js-editor-EmulatorBar-toggle" title="Emulator" type="button" disabled="" autocomplete="off" is="coral-button" icon="devices" iconsize="S" variant="minimal" trackingfeature="" trackingelement="emulator" tracking="ON"></button>
+      </coral-actionbar-item><coral-actionbar-item>
+        <coral-popover  id="selectlayer-popover" title="Select another mode" class="foundation-toggleable" placement="bottom" interaction="off">
+          <coral-popover-content><div  class="editor-GlobalBar-popoverContent editor-GlobalBar-layerSwitcherPopoverContent"></div></coral-popover-content>
+        </coral-popover>
+      </coral-actionbar-item></coral-actionbar-primary>
+      <coral-actionbar-secondary><coral-actionbar-item>
+        <button  class="editor-GlobalBar-item js-editor-GlobalBar-layerCurrent editor-GlobalBar-layerCurrent js-editor-LayerSwitcherTrigger" data-layer="Edit" type="button" autocomplete="off" is="coral-button" variant="minimal" trackingfeature="" trackingelement="edit" tracking="ON">Edit</button>
+      </coral-actionbar-item><coral-actionbar-item>
+        <a class="editor-GlobalBar-item foundation-toggleable-control editor-GlobalBar-layerSwitcher" title="Select another mode" data-foundation-toggleable-control-target="#selectlayer-popover" href="#selectlayer-popover" is="coral-anchorbutton" icon="chevronDown" iconsize="XS" variant="minimal" trackingelement="select another mode" tracking="ON"></a>
+      </coral-actionbar-item><coral-actionbar-item>
+        <button  class="editor-GlobalBar-item js-editor-LayerSwitcherTrigger editor-GlobalBar-previewTrigger js-editor-GlobalBar-previewTrigger" data-layer="Preview" type="button" autocomplete="off" is="coral-button" variant="minimal" trackingfeature="" trackingelement="preview" tracking="ON">Preview</button>
+      </coral-actionbar-item><coral-actionbar-item>
+        <button is="coral-button"  class="editor-GlobalBar-item editor-GlobalBar-badge js-editor-GlobalBar-badge js-editor-LayerSwitcherTrigger" icon="noteAdd" variant="minimal" data-layer="Annotate" data-align="right"></button>
+
+      </coral-actionbar-item></coral-actionbar-secondary>
+    </coral-actionbar>
+
+      <div class="editor-StatusBar" data-rootPath="/resource-status" data-statusType="editor"/>
+
+      <div class="editor-StatusBar-navigation js-editor-StatusBar-navigation">
+
+        <button class="editor-StatusBar-previous js-editor-StatusBar-previous" is="coral-button" variant="minimal" icon="accordionLeft" iconsize="XS" title="Show previous"></button><a class="editor-StatusBar-badge js-editor-StatusBar-badge"></a><button class="editor-StatusBar-next js-editor-StatusBar-next" is="coral-button" variant="minimal" icon="accordionRight" iconsize="XS" title="Show next"></button>
+      </div>
+      <coral-popover class="editor-StatusBar-popover js-editor-StatusBar-popover" placement="bottom" target=".editor-StatusBar-badge">
+        <coral-popover-content>
+          <coral-anchorlist class="editor-StatusBar-statusList js-editor-StatusBar-statusList">
+          </coral-anchorlist>
+        </coral-popover-content>
+      </coral-popover>
+      <coral-alert class="editor-StatusBar-status js-editor-StatusBar-status">
+        <coral-alert-header></coral-alert-header>
+        <coral-alert-content></coral-alert-content>
+      </coral-alert>
+    </div>
+    <div class="editor-EmulatorBar">
+      <div class="editor-EmulatorBar-toolbar">
+        <div class="editor-EmulatorBar-toolbar-actions"><button  class="foundation-toggleable-control" title="Select device" data-foundation-toggleable-control-target="#js-editor-EmulatorDevicePopover" type="button" autocomplete="off" aria-label="Select device" is="coral-button" icon="deviceDesktop" iconsize="S" variant="minimal" trackingfeature="" trackingelement="select device" tracking="ON"></button><button  class="js-EmulatorDeviceRotate editor-EmulatorDeviceRotate" title="Rotate device" data-device="native" type="button" autocomplete="off" aria-label="Rotate device" is="coral-button" icon="deviceRotatePortrait" iconsize="S" variant="minimal" trackingfeature="" trackingelement="rotate device" tracking="ON"></button></div>
+        <div class="editor-EmulatorBar-switcher editor-EmulatorBar-switcher--width is-visible"><button data-device="galaxys7" style="width:360px" class="js-EmulatorDeviceTrigger editor-EmulatorBar-switcher-device"><span class="editor-EmulatorBar-switcher-device-text">Galaxy S7</span></button><button data-device="iphone8plus" style="width:55px" class="js-EmulatorDeviceTrigger editor-EmulatorBar-switcher-device"><span class="editor-EmulatorBar-switcher-device-text">iPhone 8 Plus</span></button><button data-device="ipad3" style="width:353px" class="js-EmulatorDeviceTrigger editor-EmulatorBar-switcher-device"><span class="editor-EmulatorBar-switcher-device-text">iPad Retina</span></button><button data-device="native" style="left: 768px;width: calc(100% - 768px);" class="js-EmulatorDeviceTrigger editor-EmulatorBar-switcher-device editor-EmulatorBar-switcher-device--desktop">Desktop</button></div>
+        <div class="editor-EmulatorBar-switcher editor-EmulatorBar-switcher--height"><button data-device="galaxys7" style="width: 640px" class="js-EmulatorDeviceTrigger editor-EmulatorBar-switcher-device"><span class="editor-EmulatorBar-switcher-device-text">Galaxy S7</span></button><button data-device="iphone8plus" style="width: 98px" class="js-EmulatorDeviceTrigger editor-EmulatorBar-switcher-device"><span class="editor-EmulatorBar-switcher-device-text">iPhone 8 Plus</span></button><button data-device="iphonex" style="width: 74px" class="js-EmulatorDeviceTrigger editor-EmulatorBar-switcher-device"><span class="editor-EmulatorBar-switcher-device-text">iPhone X</span></button><button data-device="ipad3" style="width: 212px" class="js-EmulatorDeviceTrigger editor-EmulatorBar-switcher-device"><span class="editor-EmulatorBar-switcher-device-text">iPad Retina</span></button><button data-device="native" style="left: 1024px;width: calc(100% - 1024px)" class="js-EmulatorDeviceTrigger editor-EmulatorBar-switcher-device editor-EmulatorBar-switcher-device--desktop">Desktop</button></div>
+      </div>
+      <div class="editor-EmulatorBar-ruler">
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="0"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="50"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="100"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="150"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="200"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="250"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="300"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="350"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="400"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="450"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="500"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="550"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="600"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="650"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="700"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="750"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="800"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="850"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="900"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="950"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1000"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1050"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1100"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1150"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1200"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1250"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1300"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1350"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1400"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1450"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1500"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1550"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1600"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1650"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1700"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1750"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1800"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1850"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1900"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="1950"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2000"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2050"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2100"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2150"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2200"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2250"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2300"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2350"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2400"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2450"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2500"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2550"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2600"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2650"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2700"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2750"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2800"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2850"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2900"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="2950"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3000"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3050"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3100"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3150"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3200"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3250"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3300"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3350"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3400"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3450"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3500"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3550"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3600"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3650"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3700"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3750"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3800"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3850"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3900"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="3950"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4000"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4050"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4100"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4150"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4200"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4250"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4300"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4350"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4400"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4450"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4500"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4550"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4600"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4650"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4700"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4750"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4800"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4850"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4900"></div>
+
+        <div class="editor-EmulatorBar-ruler-block js-EmulatorBar-rulerMarker" data-display="4950"></div>
+
+      </div>
+    </div>
+
+    <coral-popover  id="js-editor-EmulatorDevicePopover" class="foundation-toggleable" placement="bottom" interaction="off">
+      <coral-popover-content><coral-selectlist class="js-editor-EmulatorDeviceList"><coral-selectlist-item value="native">Desktop</coral-selectlist-item><coral-selectlist-item value="galaxys7">Galaxy S7</coral-selectlist-item><coral-selectlist-item value="ipad3">iPad Retina</coral-selectlist-item><coral-selectlist-item value="iphone8">iPhone 8</coral-selectlist-item><coral-selectlist-item value="iphone8plus">iPhone 8 Plus</coral-selectlist-item><coral-selectlist-item value="iphonex">iPhone X</coral-selectlist-item></coral-selectlist>
+      </coral-popover-content>
+    </coral-popover></div>
+
+  <div  id="ContentScrollView" class="editor-panel-content editor-panel-content-with-header"><div id="ContentWrapper">
+    <div id='FullScreenMask'></div>
+    <iframe id="ContentFrame" frameborder="0" width="100%" height="500" allowfullscreen></iframe>
+  </div>
+    <div id="OverlayWrapper" class="is-hidden">
+      <div id="EditableToolbar" role="toolbar"></div>
+    </div>
+    <div id="InlineEditingUI">
+    </div>
+    <img class="cq-dd-default" style="display: none;" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QMtaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjMtYzAxMSA2Ni4xNDU2NjEsIDIwMTIvMDIvMDYtMTQ6NTY6MjcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkNCMTZERjlCMDFBMTFFMjhBQzE4N0U2QUEwNDcxNTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkNCMTZERkFCMDFBMTFFMjhBQzE4N0U2QUEwNDcxNTUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQ0IxNkRGN0IwMUExMUUyOEFDMTg3RTZBQTA0NzE1NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQ0IxNkRGOEIwMUExMUUyOEFDMTg3RTZBQTA0NzE1NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/uAA5BZG9iZQBkwAAAAAH/2wCEAAEBAQEBAQEBAQEBAQEBAQEB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"/>
+
+    <coral-dialog class="js-cq-WorkflowStart" closable="on">
+      <form action="/var/workflow/instances" method="post" class="coral-Form coral-Form--vertical">
+        <coral-dialog-header>
+          Start Workflow
+        </coral-dialog-header>
+        <coral-dialog-content>
+          <input type="hidden" name="_charset_" value="utf-8">
+          <input type="hidden" name=":status" value="browser">
+          <input type="hidden" name="payloadType" value="JCR_PATH">
+          <input type="hidden" name="payload" value="/content/test_csayctjt/testPage">
+          <coral-select name="model" class="js-cq-WorkflowStart-select coral-Form-field" placeholder="Select a Workflow Model"><coral-select-item value="/var/workflow/models/dam/adddamsize">Add Asset Size</coral-select-item><coral-select-item value="/var/workflow/models/ac-newsletter-workflow-simple">Approve for Adobe Campaign</coral-select-item><coral-select-item value="/var/workflow/models/dam/cloud_post_processing">Assets Cloud Post-Processing</coral-select-item><coral-select-item value="/var/workflow/models/dam/batch-thumbnails">Batch Thumbnails</coral-select-item><coral-select-item value="/var/workflow/models/dam/process_subasset">DAM Process Sub-Asset</coral-select-item><coral-select-item value="/var/workflow/models/dam/dam-autotag-assets">DAM Smart Tag Assets</coral-select-item><coral-select-item value="/var/workflow/models/dam/update_asset">DAM Update Asset</coral-select-item><coral-select-item value="/var/workflow/models/cloudservices/DTM_bundle_download">Default DTM Bundle Download</coral-select-item><coral-select-item value="/var/workflow/models/dam/dam_download_asset">Download Asset</coral-select-item><coral-select-item value="/var/workflow/models/dam/dynamic-media-video-thumbnail-replacement">Dynamic Media Video Thumbnail Replacement</coral-select-item><coral-select-item value="/var/workflow/models/dam/dynamic-media-video-user-uploaded-thumbnail">Dynamic Media Video User Uploaded Thumbnail Process</coral-select-item><coral-select-item value="/var/workflow/models/InboxRequest">InboxRequest</coral-select-item><coral-select-item value="/var/workflow/models/launch-review">Launch Review</coral-select-item><coral-select-item value="/var/workflow/models/projects/approval_workflow">Project Approval Workflow</coral-select-item><coral-select-item value="/var/workflow/models/publish_example">Publish Example</coral-select-item><coral-select-item value="/var/workflow/models/publish_to_campaign">Publish to Adobe Campaign</coral-select-item><coral-select-item value="/var/workflow/models/s7dam/request_to_publish_to_youtube">Publish to YouTube</coral-select-item><coral-select-item value="/var/workflow/models/projects/request_copy">Request Copy</coral-select-item><coral-select-item value="/var/workflow/models/request_for_activation">Request for Activation</coral-select-item><coral-select-item value="/var/workflow/models/request_for_deactivation">Request for Deactivation</coral-select-item><coral-select-item value="/var/workflow/models/request_for_deletion">Request for Deletion</coral-select-item><coral-select-item value="/var/workflow/models/request_for_deletion_without_deactivation">Request for Deletion w/o Deactivation</coral-select-item><coral-select-item value="/var/workflow/models/request_to_complete_move_operation">Request to complete Move operation</coral-select-item><coral-select-item value="/var/workflow/models/scene7_reprocess_assets">Scene7: Reprocess Assets</coral-select-item><coral-select-item value="/var/workflow/models/s7dam/request_to_remove_from_youtube">Unpublish from YouTube</coral-select-item>
+          </coral-select>
+          <input is="coral-textfield" type="text" name="workflowTitle" class="js-cq-WorkflowStart-title coral-Form-field" placeholder="Enter title of workflow">
+        </coral-dialog-content>
+        <coral-dialog-footer>
+          <button is="coral-button" type="reset" class="js-cq-WorkflowStart-reset" coral-close data-dismiss="modal">Close</button>
+          <button is="coral-button" type="button" variant="primary" class="js-cq-WorkflowStart-submit" data-dismiss="modal" disabled="disabled">Start Workflow</button>
+        </coral-dialog-footer>
+      </form>
+    </coral-dialog>
+    <coral-dialog  class="foundation-toggleable pageinfo-unpublish-confirm" variant="warning" closable="on">
+      <coral-dialog-header>Unpublish Page</coral-dialog-header>
+      <coral-dialog-content>
+        <p>You are going to unpublish:</p>
+        <p>Test Page Title</p>
+      </coral-dialog-content>
+      <coral-dialog-footer>
+        <button is="coral-button" coral-close="">Cancel</button>
+        <button is="coral-button" variant="primary" class="cq-authoring-actions-quickunpublish-activator"  data-replication-url="/bin/replicate.json" data-references-url="/bin/wcm/references.json" data-url="/libs/wcm/core/content/sites/unpublishpagewizard.html" data-path="/content/test_csayctjt/testPage" data-edit="true" data-later="false">Confirm</button>
+      </coral-dialog-footer>
+    </coral-dialog>
+
+    <coral-dialog  class="foundation-toggleable pageinfo-requestunpublish-confirm" variant="warning" closable="on">
+      <coral-dialog-header>Unpublish Page</coral-dialog-header>
+      <coral-dialog-content>
+        <p>You are going to unpublish:</p>
+        <p>Test Page Title</p>
+      </coral-dialog-content>
+      <coral-dialog-footer>
+        <button is="coral-button" coral-close="">Cancel</button>
+        <button is="coral-button" variant="primary" class="cq-authoring-actions-quickunpublish-activator"  data-replication-url="/bin/replicate.json" data-references-url="/bin/wcm/references.json" data-url="/libs/wcm/core/content/sites/unpublishpagewizard.html" data-path="/content/test_csayctjt/testPage" data-edit="true" data-later="true">Confirm</button>
+      </coral-dialog-footer>
+    </coral-dialog>
+    <coral-dialog  class="js-editor-TimewarpDialog foundation-toggleable" closable="on" backdrop="static">
+      <coral-dialog-header>Timewarp</coral-dialog-header>
+      <coral-dialog-content><form class="coral-Form coral-Form--vertical"><div  class="coral-Form-fieldwrapper"><label id="label_b5907f37-0650-47f1-94cf-fcf27841d06d" class="coral-Form-fieldlabel">Date</label><coral-datepicker  class="coral-Form-field" type="datetime" displayformat="YYYY-MM-DD HH:mm" valueformat="YYYY-MM-DD[T]HH:mm:ss.SSSZ" headerformat="MMMM YYYY" labelledby="label_b5907f37-0650-47f1-94cf-fcf27841d06d" value="" data-foundation-validation="" data-validation=""></coral-datepicker></div></form></coral-dialog-content><coral-dialog-footer><button  coral-close="" type="button" autocomplete="off" is="coral-button" trackingfeature="" trackingelement="cancel" tracking="ON">Cancel</button><button  coral-close="" type="button" disabled="" autocomplete="off" is="coral-button" variant="primary" trackingfeature="" trackingelement="set date" tracking="ON">Set Date</button></coral-dialog-footer></coral-dialog>
+    <coral-popover class="editor-StyleSelector foundation-toggleable" placement="bottom" focusonshow=".editor-StyleSelector-selectList" data-editor-styleselector-type="component" data-editor-styleselector-src-uritemplate="/mnt/overlay/wcm/core/content/editor/jcr:content/content/items/content/content/items/styleselector{.selector}.html{+item}?resourceType={resourceType}" data-editor-styleselector-popover within="#ContentScrollView" id="editor-StyleSelector--component">
+      <coral-popover-header>
+        <span class="editor-StyleSelector-title">Styles</span>
+        <div class="editor-StyleSelector-actions">
+          <button class="editor-StyleSelector-action" is="coral-button" icon="close" iconsize="XS" variant="minimal" data-editor-styleselector-cancel></button>
+          <button class="editor-StyleSelector-action" is="coral-button" icon="check" iconsize="XS" variant="minimal" coral-close></button>
+        </div>
+      </coral-popover-header>
+      <coral-popover-content>
+
+        <form id="editor-styleselector-form" action="/content/test_csayctjt/testPage/_jcr_content" method="post" data-editor-styleselector-item-id="/content/test_csayctjt/testPage" class="foundation-form" data-foundation-form-ajax="true" data-editor-styleselector-form>
+
+
+          <input type="hidden" name="./sling:resourceType" value="wcm/foundation/components/page"/>
+          <input type="hidden" name="./cq:styleIds@Delete"/>
+          <input type="hidden" name="./cq:styleIds@TypeHint" value="String[]"/>
+        </form>
+
+      </coral-popover-content>
+    </coral-popover>
+  </div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="/etc.clientlibs/clientlibs/granite/coralui2/optional/imageeditor.min.js"></script>
+<script type="text/javascript" src="/libs/clientlibs/granite/richtext.min.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/clientlibs/granite/lawnchair.min.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/foundation/clientlibs/jquery.min.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/foundation/clientlibs/shared.min.js"></script>
+<script type="text/javascript" src="/libs/cq/gui/components/authoring/editors/clientlibs/utils.min.js"></script>
+<script type="text/javascript" src="/libs/cq/gui/components/authoring/editors/clientlibs/core.min.js"></script>
+<script type="text/javascript" src="/libs/granite/ui/clientlibs/annotations.min.js"></script>
+<script type="text/javascript" src="/libs/cq/ups/rte/plugin.min.js"></script>
+<script type="text/javascript" src="/libs/cq/gui/components/authoring/searchfield/clientlibs/searchfield.min.js"></script>
+<script type="text/javascript" src="/libs/cq/contentinsight/clientlibs/editor.min.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/tsdk/handlebars.min.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/cq/personalization/clientlib/underscore.min.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/cq/personalization/clientlib/backbone.min.js"></script>
+<script type="text/javascript" src="/libs/cq/gui/components/authoring/editors/clientlibs/sites/page.min.js"></script>
+
+
+
+<script type="text/javascript" src="/libs/cq/gui/components/authoring/dialog/clientlibs/all.min.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  (function() {
+    var cfg = {"enabled":true,"maxUndoSteps":20,"persistenceMode":"step","whitelist":["foundation/components/text","foundation/components/download","foundation/components/image","foundation/components/slideshow","foundation/components/textimage","foundation/components/title","foundation/components/chart","foundation/components/external","foundation/components/flash","foundation/components/login","foundation/components/mvt","foundation/components/reference","foundation/components/search","foundation/components/sitemap","foundation/components/slideshow","foundation/components/table","foundation/components/video","foundation/components/carousel","foundation/components/mobileimage","foundation/components/mobilelist","foundation/components/mobilereference","foundation/components/mobiletextimage","foundation/components/account/passwordreset","foundation/components/form/start","foundation/components/form/address","foundation/components/form/checkbox","foundation/components/form/dropdown","foundation/components/form/hidden","foundation/components/form/captcha","foundation/components/form/image","foundation/components/form/imagebutton","foundation/components/form/password","foundation/components/form/radio","foundation/components/form/submit","foundation/components/form/text","foundation/components/form/upload","foundation/components/form/link","foundation/components/form/tags","foundation/components/account/accountname","cq/tagging/components/tagcloud","collab/forum/components/topic","collab/forum/components/post","collab/forum/components/forum","collab/commons/components/comments","collab/blog/components/archive","collab/blog/components/authors","collab/blog/components/categories","collab/blog/components/pages","collab/blog/components/search","collab/blog/components/workflow/blogsearchpingprocess","collab/blog/components/workflow/checkspamprocess","collab/forum/components/search","collab/forum/components/workflow/forumsubscribeprocess","collab/calendar/components/exportlink","collab/calendar/components/form/eventbasics","collab/calendar/components/form/icslink","collab/calendar/components/form/organizer","collab/calendar/components/form/pushworkflow","collab/calendar/components/form/recurrence","collab/calendar/components/workflow/calendarsubscriptionprocess","collab/commons/components/feedlink","collab/commons/components/toggle","collab/commons/components/ratings","cq/workflow/components/form/workflow_submit","fd/af/components/actions/nextitemnav","fd/af/components/actions/previtemnav","fd/af/components/actions/submit","fd/af/components/actions/reset","fd/af/components/guidebutton","fd/af/components/guidechart","fd/af/components/guidecheckbox","fd/af/components/guidedateinput","fd/af/components/guidedatepicker","fd/af/components/guidedropdownlist","fd/af/components/guidefileupload","fd/af/components/guideimage","fd/af/components/guideimagechoice","fd/af/components/guidenumericbox","fd/af/components/guidenumericstepper","fd/af/components/guidepasswordbox","fd/af/components/guideradiobutton","fd/af/components/guideseparator","fd/af/components/guidescribble","fd/af/components/guideswitch","fd/af/components/guidetermsandconditions","fd/af/components/guidetextbox","fd/af/components/guidetextdraw","fd/af/components/table","fd/af/components/toolbar","fd/af/components/panel","fd/afaddon/components/adobeSignBlock","fd/afaddon/components/esign","fd/afaddon/components/echosign","fd/afaddon/components/summary","fd/afaddon/components/verify","fd/af/components/aemform","fd/af/components/actions/fileattachmentlisting","fd/af/components/guideCaptcha","fd/af/components/guideContainer","fd/af/components/guideContainerWrapper","fd/af/components/guideemail","fd/af/components/guidefield","fd/af/components/guidefooter","fd/af/components/guideformtitle","fd/af/components/guideFragmentContainer","fd/af/components/guideheader","fd/af/components/guidePage","fd/af/components/guideseperator","fd/af/components/guidetelephone","fd/af/components/rootPanel","fd/af/components/tableHeader","fd/af/components/tableRow","fd/afaddon/components/actions/emailpdf","fd/afaddon/components/actions/lcprocess","fd/afaddon/components/actions/storepdf","fd/adaddon/components/guideAdModule","fd/adaddon/components/guideAdModuleGroup","fd/fp/components/actions/saveGuideDraft","fd/af/components/afFormTitle"],"blacklist":["foundation/components/form/start:removeParagraph","collab/forum/components/topic:insertParagraph","collab/forum/components/topic:removeParagraph","collab/forum/components/post:insertParagraph","collab/forum/components/post:removeParagraph","foundation/components/form/address:updateParagraph","foundation/components/form/checkbox:updateParagraph","foundation/components/form/dropdown:updateParagraph","foundation/components/form/captcha:updateParagraph","foundation/components/form/image:updateParagraph","foundation/components/form/imagebutton:updateParagraph","foundation/components/form/text:updateParagraph","foundation/components/form/upload:updateParagraph","foundation/components/form/link:updateParagraph","foundation/components/form/tags:updateParagraph","foundation/components/form/password:updateParagraph","foundation/components/form/radio:updateParagraph","collab/blog/components/break","collab/calendar/components/calendar:removeParagraph","collab/calendar/components/event:updateParagraph","collab/calendar/components/lenses/agenda:removeParagraph","collab/calendar/components/lenses/month:removeParagraph"]};
+
+
+    cfg.pagePath = "\/content\/test_csayctjt\/testPage.html";
+
+    Granite.author.history.Manager.init(cfg);
+    $(document).ready(function() {
+      Granite.author.history.Manager.detectCachedPage(1590760366446);
+    });
+
+    // Set the language for moment.js
+    moment.locale(Granite.I18n.getLocale());
+  })();
+</script>
+</body>
+
+<script type="text/javascript">if (typeof _satellite !== 'undefined') {_satellite.pageBottom();}</script>
+</html>
+

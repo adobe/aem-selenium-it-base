@@ -1,0 +1,273 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2021 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<!DOCTYPE html>
+<html  class="skipCoral2Validation" lang="en" data-i18n-dictionary-src="/libs/cq/i18n/dict.{+locale}.json">
+<head>
+    <title>AEM Start</title>
+    <script type="text/javascript" src="/etc.clientlibs/clientlibs/mocked_coral.js"></script>
+</head>
+<body class="coral--light">
+<coral-shell>
+
+    <coral-shell-header role="region" aria-label="Header Bar"
+                        class="coral--dark"><coral-shell-header-home  class="globalnav-toggle" data-globalnav-toggle-href="/mnt/overlay/granite/ui/content/shell/globalnav.html">
+        <a is="coral-shell-homeanchor" icon="adobeExperienceManagerColor" href="#">Adobe Experience Manager</a>
+    </coral-shell-header-home>
+
+        <coral-shell-header-actions>
+            <coral-shell-menubar><coral-shell-menubar-item  id="granite-omnisearch-trigger" title="Search" icon="search" data-foundation-tracking-event="{&#34;feature&#34;:&#34;shell&#34;,&#34;element&#34;:&#34;search&#34;,&#34;type&#34;:&#34;button&#34;,&#34;widget&#34;:{&#34;name&#34;:null,&#34;type&#34;:&#34;button&#34;}}"></coral-shell-menubar-item><coral-shell-menubar-item  class="foundation-toggleable-control" title="Solutions" data-foundation-toggleable-control-src="/mnt/overlay/granite/ui/content/shell/solutionswitcher.html" icon="apps" data-foundation-tracking-event="{&#34;feature&#34;:&#34;shell&#34;,&#34;element&#34;:&#34;solutions&#34;,&#34;type&#34;:&#34;button&#34;,&#34;widget&#34;:{&#34;name&#34;:null,&#34;type&#34;:&#34;button&#34;}}"></coral-shell-menubar-item><coral-shell-menubar-item  class="foundation-toggleable-control" title="Help" data-foundation-toggleable-control-src="/mnt/overlay/granite/ui/content/shell/help.html" icon="helpCircle" data-foundation-tracking-event="{&#34;feature&#34;:&#34;shell&#34;,&#34;element&#34;:&#34;help&#34;,&#34;type&#34;:&#34;button&#34;,&#34;widget&#34;:{&#34;name&#34;:null,&#34;type&#34;:&#34;button&#34;}}"></coral-shell-menubar-item><coral-shell-menubar-item  title="Inbox" icon="bell" class="granite-shell-badge" data-granite-shell-badge-src="/mnt/overlay/granite/ui/content/shell/header/actions/pulse.data.json" data-granite-shell-badge-console="/aem/inbox" data-granite-shell-badge-user="admin"></coral-shell-menubar-item><coral-shell-menubar-item data-foundation-tracking-event="{&#34;feature&#34;:&#34;shell&#34;,&#34;element&#34;:&#34;user&#34;,&#34;type&#34;:&#34;button&#34;,&#34;widget&#34;:{&#34;name&#34;:null,&#34;type&#34;:&#34;button&#34;}}" class="foundation-toggleable-control granite-user-icon" title="User" data-foundation-toggleable-control-src="/mnt/overlay/granite/ui/content/shell/userproperties.html" icon="userCircleColor" iconsize="M"></coral-shell-menubar-item></coral-shell-menubar>
+        </coral-shell-header-actions>
+    </coral-shell-header>
+
+    <coral-shell-content class="foundation-content" role="main">
+        <div class="foundation-content-current foundation-layout-util-maximized-alt">
+            <div class="foundation-layout-panel">
+                <div class="foundation-layout-panel-header"></div>
+                <div class="foundation-layout-panel-bodywrapper">
+                    <div class="foundation-layout-panel-body"><div class="foundation-layout-panel-content"  data-granite-layout-content-min-width="100"><div  class="globalnav-overlay">
+                        <coral-tabview  orientation="vertical" maximized="">
+                            <coral-tablist  size="L"><coral-tab  icon="compass" title="Navigation" data-foundation-tracking-event="{&#34;feature&#34;:null,&#34;element&#34;:&#34;navigation&#34;,&#34;type&#34;:&#34;tab&#34;,&#34;widget&#34;:{&#34;name&#34;:&#34;tabs&#34;,&#34;type&#34;:&#34;tab list&#34;}}"></coral-tab><coral-tab  icon="hammer" title="Tools" data-foundation-tracking-event="{&#34;feature&#34;:null,&#34;element&#34;:&#34;tools&#34;,&#34;type&#34;:&#34;tab&#34;,&#34;widget&#34;:{&#34;name&#34;:&#34;tabs&#34;,&#34;type&#34;:&#34;tab list&#34;}}"></coral-tab></coral-tablist>
+                            <coral-panelstack  maximized=""><coral-panel>
+                                <betty-titlebar>
+                                    <betty-titlebar-title>
+                                        <span class="granite-title" role="heading" aria-level="1">Navigation</span>
+                                    </betty-titlebar-title>
+                                    <betty-titlebar-primary></betty-titlebar-primary>
+                                    <betty-titlebar-secondary></betty-titlebar-secondary>
+                                </betty-titlebar>
+                                <div>
+                                    <button class="globalnav-navigator-backbutton" is="coral-button" variant="minimal" hidden>
+                                        <coral-icon icon="chevronLeft" class="globalnav-navigator-backbutton-icon"></coral-icon>
+                                        Navigation
+                                    </button><betty-breadcrumbs  hidden="" class="granite-collection-navigator globalnav-navigator" data-granite-collection-navigator-target="#globalnav-start-home-collection">
+                                    <betty-breadcrumbs-item data-granite-collection-navigator-collectionid="/mnt/overlay/cq/core/content/nav">Navigation</betty-breadcrumbs-item>
+                                </betty-breadcrumbs>
+                                </div>
+                                <div class="globalnav-collection-container">
+                                    <coral-masonry  id="globalnav-start-home-collection" class="foundation-collection foundation-layout-masonry" data-foundation-collection-id="/mnt/overlay/cq/core/content/nav" data-foundation-collection-src="/mnt/overlay/granite/ui/content/shell/start/content/cq/items/tabs/items/home/content{.offset,limit}.html{+id}" layout="fixed-centered" columnwidth="222" spacing="16" data-foundation-layout-masonry-hasmore="false" data-foundation-layout="{&#34;name&#34;:&#34;foundation-layout-masonry&#34;,&#34;selectionMode&#34;:false,&#34;limit&#34;:20,&#34;itemReorderAction&#34;:null,&#34;layoutId&#34;:&#34;content&#34;,&#34;autoDefaultMode&#34;:true,&#34;trackingFeature&#34;:null,&#34;trackingElement&#34;:null}"><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/projects" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/projects" data-datasource-index="0">
+                                        <div  class="foundation-collection-navigator globalnav-homecard" data-foundation-collection-navigator-href="/projects.html/content/projects">
+                                            <coral-icon class="globalnav-homecard-icon" icon="project" size="XL"></coral-icon><div class="globalnav-homecard-title">Projects</div>
+                                        </div>
+                                    </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/sites" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/sites" data-datasource-index="1">
+                                        <div  class="foundation-collection-navigator globalnav-homecard" data-foundation-collection-navigator-href="/sites.html/content">
+                                            <coral-icon class="globalnav-homecard-icon" icon="pages" size="XL"></coral-icon><div class="globalnav-homecard-title">Sites</div>
+                                        </div>
+                                    </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/experiencefragments" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/experiencefragments" data-datasource-index="2">
+                                        <div  class="foundation-collection-navigator globalnav-homecard" data-foundation-collection-navigator-href="/aem/experience-fragments.html/content/experience-fragments">
+                                            <coral-icon class="globalnav-homecard-icon" icon="filingCabinet" size="XL"></coral-icon><div class="globalnav-homecard-title">Experience Fragments</div>
+                                        </div>
+                                    </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/assets" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/assets" data-datasource-index="3">
+                                        <div  class="foundation-collection-navigator globalnav-homecard">
+                                            <coral-icon class="globalnav-homecard-icon" icon="asset" size="XL"></coral-icon><coral-icon class="globalnav-homecard-chevron" icon="chevronRight" size="S"></coral-icon><div class="globalnav-homecard-title">Assets</div>
+                                        </div>
+                                    </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/forms" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/forms" data-datasource-index="4">
+                                        <div  class="foundation-collection-navigator globalnav-homecard">
+                                            <coral-icon class="globalnav-homecard-icon" icon="form" size="XL"></coral-icon><coral-icon class="globalnav-homecard-chevron" icon="chevronRight" size="S"></coral-icon><div class="globalnav-homecard-title">Forms</div>
+                                        </div>
+                                    </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/screens" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/screens" data-datasource-index="5">
+                                        <div  class="foundation-collection-navigator globalnav-homecard" data-foundation-collection-navigator-href="/screens.html">
+                                            <coral-icon class="globalnav-homecard-icon" icon="railBottom" size="XL"></coral-icon><div class="globalnav-homecard-title">Screens</div>
+                                        </div>
+                                    </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/personalization" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/personalization" data-datasource-index="6">
+                                        <div  class="foundation-collection-navigator globalnav-homecard">
+                                            <coral-icon class="globalnav-homecard-icon" icon="imageProfile" size="XL"></coral-icon><coral-icon class="globalnav-homecard-chevron" icon="chevronRight" size="S"></coral-icon><div class="globalnav-homecard-title">Personalization</div>
+                                        </div>
+                                    </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/commerce" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/commerce" data-datasource-index="7">
+                                        <div  class="foundation-collection-navigator globalnav-homecard">
+                                            <coral-icon class="globalnav-homecard-icon" icon="shoppingCart" size="XL"></coral-icon><coral-icon class="globalnav-homecard-chevron" icon="chevronRight" size="S"></coral-icon><div class="globalnav-homecard-title">Commerce</div>
+                                        </div>
+                                    </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/communities" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/communities" data-datasource-index="8">
+                                        <div  class="foundation-collection-navigator globalnav-homecard">
+                                            <coral-icon class="globalnav-homecard-icon" icon="users" size="XL"></coral-icon><coral-icon class="globalnav-homecard-chevron" icon="chevronRight" size="S"></coral-icon><div class="globalnav-homecard-title">Communities</div>
+                                        </div>
+                                    </coral-masonry-item><meta  class="foundation-collection-meta" data-foundation-collection-meta-title="Navigation"></coral-masonry>
+                                    <div class="granite-collection-loading-title-wrapper">
+                                        <div class="granite-collection-loading-title">
+                                            <div class="granite-collection-loading-container">
+                                                <coral-wait class="granite-collection-loading-wait"></coral-wait>
+                                                <span>Loading more items</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </coral-panel><coral-panel>
+                                <div class="foundation-layout-panel">
+                                    <div class="foundation-layout-panel-header">
+                                        <betty-titlebar>
+                                            <betty-titlebar-title>
+                                                <span class="granite-title" role="heading" aria-level="1">Tools</span>
+                                            </betty-titlebar-title>
+                                            <betty-titlebar-primary></betty-titlebar-primary>
+                                            <betty-titlebar-secondary></betty-titlebar-secondary>
+                                        </betty-titlebar>
+                                    </div>
+                                    <div class="foundation-layout-panel-bodywrapper">
+                                        <div class="foundation-layout-panel-body">
+                                            <div class="foundation-layout-panel-rail foundation-layout-panel-rail-active"><coral-columnview  class="foundation-collection-masterdetail globalnav-tools-navigation foundation-collection foundation-layout-columnview" data-foundation-collection-masterdetail-target="#globalnav-start-tools-content-collection" data-foundation-collection-id="/mnt/overlay/cq/core/content/nav/tools" data-foundation-collection-src="/mnt/overlay/granite/ui/content/shell/start/content/cq/items/tabs/items/tools/navigation{.offset,limit}.html{+id}" data-foundation-selections-mode="multiple" data-foundation-layout="{&#34;name&#34;:&#34;foundation-layout-columnview&#34;,&#34;limit&#34;:40,&#34;previewSrc&#34;:null,&#34;previewMaximized&#34;:false,&#34;layoutId&#34;:&#34;navigation&#34;,&#34;trackingFeature&#34;:null,&#34;trackingElement&#34;:null}" selectionmode="none"><coral-columnview-column  data-foundation-layout-columnview-columnid="/mnt/overlay/cq/core/content/nav/tools" data-foundation-layout-columnview-hasmore="false"><coral-columnview-column-content><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general" data-datasource-index="0" active="">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="General">General</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/workflow" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/workflow" data-datasource-index="1">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Workflow">Workflow</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/operations" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/operations" data-datasource-index="2">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Operations">Operations</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/sites" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/sites" data-datasource-index="3">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Sites">Sites</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/assets" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/assets" data-datasource-index="4">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Assets">Assets</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/resources" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/resources" data-datasource-index="5">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Resources">Resources</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/deployment" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/deployment" data-datasource-index="6">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Deployment">Deployment</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/security" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/security" data-datasource-index="7">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Security">Security</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/cloudservices" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/cloudservices" data-datasource-index="8">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Cloud Services">Cloud Services</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/communities" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/communities" data-datasource-index="9">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Communities">Communities</coral-columnview-item-content>
+                                            </coral-columnview-item><coral-columnview-item  class="foundation-collection-item globalnav-tools-navigation-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/commerce" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/commerce" data-datasource-index="10">
+                                                <coral-columnview-item-content class="foundation-collection-item-title" title="Commerce">Commerce</coral-columnview-item-content>
+                                            </coral-columnview-item></coral-columnview-column-content>
+                                                <div class="granite-collection-loading-title-wrapper">
+                                                    <div class="granite-collection-loading-title">
+                                                        <div class="granite-collection-loading-container">
+                                                            <coral-wait class="granite-collection-loading-wait"></coral-wait>
+                                                            <span>Loading more items</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </coral-columnview-column></coral-columnview>
+                                                <div class="granite-collection-loading-title-wrapper">
+                                                    <div class="granite-collection-loading-title">
+                                                        <div class="granite-collection-loading-container">
+                                                            <coral-wait class="granite-collection-loading-wait"></coral-wait>
+                                                            <span>Loading</span>
+                                                        </div>
+                                                    </div>
+                                                </div></div>
+                                            <div class="foundation-layout-panel-content">
+
+
+
+                                                <coral-masonry  id="globalnav-start-tools-content-collection" class="foundation-collection foundation-layout-masonry" data-foundation-collection-id="/mnt/overlay/cq/core/content/nav/tools/general" data-foundation-collection-src="/mnt/overlay/granite/ui/content/shell/start/content/cq/items/tabs/items/tools/content{.offset,limit}.html{+id}" layout="fixed-centered" columnwidth="242" spacing="15" data-foundation-layout-masonry-hasmore="false" data-foundation-layout="{&#34;name&#34;:&#34;foundation-layout-masonry&#34;,&#34;selectionMode&#34;:false,&#34;limit&#34;:40,&#34;itemReorderAction&#34;:null,&#34;layoutId&#34;:&#34;content&#34;,&#34;autoDefaultMode&#34;:true,&#34;trackingFeature&#34;:null,&#34;trackingElement&#34;:null}"><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/crxdelite" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/crxdelite" data-datasource-index="0">
+                                                    <coral-card  colorhint="#ffffff" class="globalnav-anchor globalnav-toolcard" data-globalnav-anchor-href="/crx/de" data-globalnav-anchor-target="_blank">
+                                                        <coral-card-content>
+                                                            <coral-card-asset>
+                                                                <div class="globalnav-toolcard-icon">
+                                                                    <coral-icon icon="gearsEdit" size="XL"></coral-icon>
+                                                                </div>
+                                                            </coral-card-asset>
+                                                            <coral-card-title>CRXDE Lite</coral-card-title>
+                                                            <coral-card-description>Full repository access with code editor and nodes/properties management</coral-card-description>
+                                                        </coral-card-content>
+                                                    </coral-card>
+                                                </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/customsearchfacets" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/customsearchfacets" data-datasource-index="1">
+                                                    <coral-card  colorhint="#ffffff" class="globalnav-anchor globalnav-toolcard" data-globalnav-anchor-href="/libs/cq/core/content/tools/customsearch/searchfacetformlister.html">
+                                                        <coral-card-content>
+                                                            <coral-card-asset>
+                                                                <div class="globalnav-toolcard-icon">
+                                                                    <coral-icon icon="search" size="XL"></coral-icon>
+                                                                </div>
+                                                            </coral-card-asset>
+                                                            <coral-card-title>Search Forms</coral-card-title>
+                                                            <coral-card-description>Customize your search forms</coral-card-description>
+                                                        </coral-card-content>
+                                                    </coral-card>
+                                                </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/tagging" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/tagging" data-datasource-index="2">
+                                                    <coral-card  colorhint="#ffffff" class="globalnav-anchor globalnav-toolcard" data-globalnav-anchor-href="/aem/tags">
+                                                        <coral-card-content>
+                                                            <coral-card-asset>
+                                                                <div class="globalnav-toolcard-icon">
+                                                                    <coral-icon icon="tag" size="XL"></coral-icon>
+                                                                </div>
+                                                            </coral-card-asset>
+                                                            <coral-card-title>Tagging</coral-card-title>
+                                                            <coral-card-description>Organize your tags and their namespaces</coral-card-description>
+                                                        </coral-card-content>
+                                                    </coral-card>
+                                                </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/templates" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/templates" data-datasource-index="3">
+                                                    <coral-card  colorhint="#ffffff" class="globalnav-anchor globalnav-toolcard" data-globalnav-anchor-href="/libs/wcm/core/content/sites/templates.html/conf">
+                                                        <coral-card-content>
+                                                            <coral-card-asset>
+                                                                <div class="globalnav-toolcard-icon">
+                                                                    <coral-icon icon="mBox" size="XL"></coral-icon>
+                                                                </div>
+                                                            </coral-card-asset>
+                                                            <coral-card-title>Templates</coral-card-title>
+                                                            <coral-card-description>Manage page templates and content policies</coral-card-description>
+                                                        </coral-card-content>
+                                                    </coral-card>
+                                                </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/components" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/components" data-datasource-index="4">
+                                                    <coral-card  colorhint="#ffffff" class="globalnav-anchor globalnav-toolcard" data-globalnav-anchor-href="/libs/wcm/core/content/sites/components.html">
+                                                        <coral-card-content>
+                                                            <coral-card-asset>
+                                                                <div class="globalnav-toolcard-icon">
+                                                                    <coral-icon icon="viewGrid" size="XL"></coral-icon>
+                                                                </div>
+                                                            </coral-card-asset>
+                                                            <coral-card-title>Components</coral-card-title>
+                                                            <coral-card-description>Manage components and content policies</coral-card-description>
+                                                        </coral-card-content>
+                                                    </coral-card>
+                                                </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/configuration-browser" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/configuration-browser" data-datasource-index="5">
+                                                    <coral-card  colorhint="#ffffff" class="globalnav-anchor globalnav-toolcard" data-globalnav-anchor-href="/libs/granite/configurations/content/view.html/conf">
+                                                        <coral-card-content>
+                                                            <coral-card-asset>
+                                                                <div class="globalnav-toolcard-icon">
+                                                                    <coral-icon icon="folderSearch" size="XL"></coral-icon>
+                                                                </div>
+                                                            </coral-card-asset>
+                                                            <coral-card-title>Configuration Browser</coral-card-title>
+                                                            <coral-card-description>Browse and manage your configurations</coral-card-description>
+                                                        </coral-card-content>
+                                                    </coral-card>
+                                                </coral-masonry-item><coral-masonry-item  class="foundation-collection-item" data-foundation-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/translationRules" data-granite-collection-item-id="/mnt/overlay/cq/core/content/nav/tools/general/translationRules" data-datasource-index="6">
+                                                    <coral-card  colorhint="#ffffff" class="globalnav-anchor globalnav-toolcard" data-globalnav-anchor-href="/libs/cq/translation/translationrules/contexts.html">
+                                                        <coral-card-content>
+                                                            <coral-card-asset>
+                                                                <div class="globalnav-toolcard-icon">
+                                                                    <coral-icon icon="gear" size="XL"></coral-icon>
+                                                                </div>
+                                                            </coral-card-asset>
+                                                            <coral-card-title>Translation Configuration</coral-card-title>
+                                                            <coral-card-description>Configure translatable content and translation rules</coral-card-description>
+                                                        </coral-card-content>
+                                                    </coral-card>
+                                                </coral-masonry-item></coral-masonry>
+                                                <div class="granite-collection-loading-title-wrapper">
+                                                    <div class="granite-collection-loading-title">
+                                                        <div class="granite-collection-loading-container">
+                                                            <coral-wait class="granite-collection-loading-wait"></coral-wait>
+                                                            <span>Loading more items</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </coral-panel></coral-panelstack>
+                        </coral-tabview></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </coral-shell-content>
+</coral-shell>
+<a class="foundation-toggleable-control u-coral-screenReaderOnly" aria-hidden="true" data-foundation-command="?" data-foundation-toggleable-control-src="/mnt/overlay/granite/ui/content/shell/shortcutsdialog.html">
+</a></body>
+</html>
