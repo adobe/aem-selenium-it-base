@@ -297,10 +297,10 @@ public final class TestContentBuilder {
 
     private void createDefaultPageTemplate() throws ClientException, InterruptedException {
         TemplateEditorManagerClient tmplClient = client.adaptTo(TemplateEditorManagerClient.class);
-        pageTemplatePath = tmplClient.createHTML5(getConfigPath(), pageTemplateTitle, pageTemplateDescription);
+        pageTemplatePath = tmplClient.createDefaultTemplate(getConfigPath(), pageTemplateTitle, pageTemplateDescription);
         tmplClient.enable(pageTemplatePath);
         if (!withEmptyTemplateEnabled) {
-            topLevelResponsiveGridPath = tmplClient.createTopLevelResponsiveGrid(pageTemplatePath,null);
+            topLevelResponsiveGridPath = tmplClient.createTopLevelDefaultContainer(pageTemplatePath,null);
             tmplClient.unlockStructureComponent(topLevelResponsiveGridPath);
             if (withDefaultPoliciesEnabled) {
                 tmplClient.setComponentPolicy(topLevelResponsiveGridPath, "wcm/foundation/components/responsivegrid/default");

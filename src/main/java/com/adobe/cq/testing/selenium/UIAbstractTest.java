@@ -17,6 +17,7 @@
 package com.adobe.cq.testing.selenium;
 
 import com.adobe.cq.testing.selenium.junit.annotations.UITest;
+import com.adobe.cq.testing.selenium.junit.annotations.SlingClientContext;
 import com.adobe.cq.testing.selenium.junit.extensions.BrowserProxyExtension;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
@@ -44,6 +45,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.adobe.cq.testing.selenium.Constants.DEFAUT_WEBDRIVER_TIMEOUT;
 
+@SlingClientContext
 @UITest
 public abstract class UIAbstractTest implements LogEventListener {
 
