@@ -21,7 +21,7 @@ import java.lang.annotation.*;
 import static com.adobe.cq.testing.selenium.Constants.DEFAUT_AEM_AUTHOR_RUNMODE;
 
 /**
- * {@code @JSCoverage} is an JUnit5 Extension to setup Javascript Coverage on AEM before running test
+ * {@code @JSCoverageConfig} is an JUnit5 Extension to setup Javascript Coverage on AEM before running test
  * and collect coverage after each test.
  */
 

@@ -32,6 +32,9 @@ import java.util.Set;
 import static com.adobe.cq.testing.selenium.Constants.RUNMODE_AUTHOR;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
+/**
+ * JUnit extensions to store the coverage of Test Execution
+ */
 public final class JSCoverageExtension implements AfterTestExecutionCallback {
 
     private static final Logger LOG = LoggerFactory.getLogger(JSCoverageExtension.class);

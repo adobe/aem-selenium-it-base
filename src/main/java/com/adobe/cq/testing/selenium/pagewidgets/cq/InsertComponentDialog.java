@@ -34,20 +34,36 @@ public class InsertComponentDialog extends Dialog {
 
     public InsertComponentDialog() { super(CSS_SELECTOR); }
 
+    /**
+     * select the specific component based on resource type
+     * @param resourceType resource type to select a component
+     */
     public void selectComponent(String resourceType) {
         clickableClick(componentList.getItemByValue(resourceType));
         element().shouldNotBe(Condition.visible);
     }
 
+    /**
+     *
+     * @return collections of available components
+     */
     public ElementsCollection getComponentList() {
         return componentList.items();
     }
 
+    /**
+     * closes the Current Dialg
+     */
     public void close() {
         clickableClick(element().find(CLOSE_BUTTON));
         element().shouldNotBe(Condition.visible);
     }
 
+    /**
+     * filters the list of the components bases on search text
+     * @param searchText search text
+     * @return
+     */
     public ElementsCollection search(String searchText) {
         int initialSize = getComponentList().size();
         element().find(SEARCH_FIELD).setValue(searchText);

@@ -37,7 +37,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Base page class for inheritance.
  */
-public class BasePage {
+public abstract class BasePage {
 
     private static final int NETWORK_POLLING_INTERVAL = 250;
     private static final SelenideElement UI_MASK = $("div.foundation-ui-mask");

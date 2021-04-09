@@ -34,7 +34,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Base component class for inheritance.
  */
-public class BaseComponent {
+public abstract class BaseComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(BaseComponent.class);
 

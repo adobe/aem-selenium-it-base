@@ -105,6 +105,11 @@ public class RichTextToolbar extends BaseComponent {
     public RichTextToolbar clickListsOutdentButton() { return clickButton(Action.LISTS_OUTDENT); }
     public RichTextToolbar clickListsIndentdButton() { return clickButton(Action.LISTS_INDENT); }
 
+    /**
+     * clicks the button for a specific action {@link Action}
+     * @param action Action object which is being clicked
+     * @return
+     */
     public RichTextToolbar clickButton(Action action) {
         SelenideElement button = element().find(action.getSelector());
         button.shouldBe(Condition.visible);
@@ -112,6 +117,11 @@ public class RichTextToolbar extends BaseComponent {
         return this;
     }
 
+    /**
+     * provides the button for a specific action {@link Action}
+     * @param action Action object for which clickable buttons is require
+     * @return
+     */
     public SelenideElement getButton(Action action) {
         SelenideElement button = element().find(action.getSelector());
         button.should(Condition.exist);

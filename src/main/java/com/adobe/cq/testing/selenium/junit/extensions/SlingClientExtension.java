@@ -139,6 +139,9 @@ public final class SlingClientExtension implements BeforeAllCallback, AfterAllCa
         return returnedObject;
     }
 
+    /**
+     * {@link SlingClientExtension.Store} provides the SlingClient Based on the Instance and User Information
+     */
     public static final class Store {
 
         private static final Logger LOGGER = LoggerFactory.getLogger(Store.class);

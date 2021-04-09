@@ -89,20 +89,62 @@ public abstract class EditorPage extends BasePage {
         super(null, getEditedPagePath(pagePath));
     }
 
+    /**
+     *
+     * @return returns the current page name
+     */
     public String getPageName() {
         return pageName;
     }
 
+    /**
+     * Provides the {@link PageInfo} object of page opened in the editor.
+     * @return {@link PageInfo} Object
+     */
     public PageInfo getPageInfo() { return pageInfo; }
 
+    /**
+     * @return the {@link SelenideElement} for the OverlayWrapper of Editor
+     */
     public SelenideElement getOverlayWrapper() { return $(OVERLAY_WRAPPER); }
+
+    /**
+     * @return the {@link SelenideElement} for the ContentWrapper of Editor
+     */
     public SelenideElement getContentWrapper() { return $(CONTENT_WRAPPER); }
+
+    /**
+     * @return the {@link SelenideElement} for the ContentFrame of Editor
+     */
     public SelenideElement getContentFrame() { return $(CONTENT_FRAME); }
 
+    /**
+     * @return the {@link SelenideElement} for the Undo Button of Editor
+     */
     public SelenideElement getUndoButton() { return undoButton; }
+
+    /**
+     * @return the {@link SelenideElement} for the Redo Button of Editor
+     */
     public SelenideElement getRedoButton() { return redoButton; }
+
+    /**
+     * @return the {@link SelenideElement} for the Styles Button of Editor
+     */
     public SelenideElement getStylesButton() { return stylesButton.element(); }
+
+    /**
+     * provides the available Styles in form of {@link StylesSelector} object after clicking style drop down
+     * @return {@link StylesSelector} object
+     */
     public StylesSelector clickStyles() { return clickBaseComponentAction(stylesButton); }
+
+    /**
+     * closes the style drop down
+     * @param stylesSelector {@link StylesSelector}
+     * @param <T> type of {@link EditorPage}
+     * @return Instance of current {@link EditorPage}
+     */
     public <T extends EditorPage> T closeStyles(StylesSelector stylesSelector) {
         if (stylesSelector != null && stylesSelector.element().is(Condition.visible)) {
             clickableClick(stylesButton.element());
@@ -111,6 +153,9 @@ public abstract class EditorPage extends BasePage {
         return (T) this;
     }
 
+    /**
+     * @return list of avaiable Text Components available on the page
+     */
     public ElementsCollection getTextComponents() {
         return textComponents;
     }
@@ -122,12 +167,18 @@ public abstract class EditorPage extends BasePage {
         return (T) this;
     }
 
+    /**
+     * To enter the preview mode.
+     */
     public <T extends EditorPage> T enterPreviewMode() {
         clickableClick(previewButton);
         $(OVERLAY_WRAPPER).shouldNotBe(Condition.visible);
         return (T) this;
     }
 
+    /**
+     * To check if the Editor page in preview mode.
+     */
     public boolean isInPreviewMode() {
         return hasWithPolling(previewButton, Condition.visible) &&
                 hasWithPolling(previewButton, Condition.cssClass("is-selected")) &&
@@ -135,12 +186,23 @@ public abstract class EditorPage extends BasePage {
                 hasWithPolling(getOverlayWrapper(), Condition.cssClass("is-hidden"));
     }
 
+    /**
+     * Opens the editor tool bar for a resource
+     * @param resourcePath path of the resource
+     * @return {@link EditableToolbar} instance
+     * @throws TimeoutException
+     */
     public EditableToolbar openEditableToolbar(final String resourcePath) throws TimeoutException {
         SelenideElement targetActionBar = getComponentOverlay(resourcePath);
         clickUntil(targetActionBar, editableToolbar.element(), Condition.visible, DEFAULT_CLICK_UNTIL_RETRIES, 1);
         return editableToolbar;
     }
 
+    /**
+     * Provides the {@link SelenideElement} object for the overlay of  editable component on editor page.
+     * @param resourcePath path of the component resource
+     * @return
+     */
     public SelenideElement getComponentOverlay(final String resourcePath) {
         return $(getComponentOverlaySelector(resourcePath)).should(Condition.exist);
     }
@@ -149,22 +211,42 @@ public abstract class EditorPage extends BasePage {
         return String.format(COMPONENT_OVERLAY, resourcePath);
     }
 
+    /**
+     * Provides the {@link SelenideElement} object for the overlay of  Inspectable component on editor page.
+     * @param resourcePath path of the component resource
+     * @return
+     */
     public SelenideElement getInspectableComponentOverlay(final String resourcePath) {
         return $(String.format(INSPECTABLE_COMPONENT_OVERLAY, resourcePath)).should(Condition.exist);
     }
 
+    /**
+     * confirms of component overlay has been selected
+     * @param componentOverlay {@link SelenideElement} object for ComponentOverlay
+     * @return
+     */
     public boolean isComponentOverlaySelected(SelenideElement componentOverlay) {
         return componentOverlay.has(Condition.cssClass("is-selected"));
     }
 
+    /**
+     * @return collections of all the editable components
+     */
     public ElementsCollection getEditables() {
         return $$(EDITABLE);
     }
 
+    /**
+     * @return collections of all the inspectable components
+     */
     public ElementsCollection getInspectables() {
         return $$(INSPECTABLE);
     }
 
+    /**
+     *
+     * @return {@link CoralActionBar} object
+     */
     public CoralActionBar actionBar() {
         return actionBar;
     }

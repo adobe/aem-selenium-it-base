@@ -16,12 +16,11 @@
 
 package com.adobe.cq.testing.selenium.junit.annotations;
 
-import java.lang.annotation.*;
-
-/**
- * {@code @JSCoverage} is an JUnit5 Extension to setup Javascript Coverage on AEM before running test
- * and collect coverage after each test.
- */
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

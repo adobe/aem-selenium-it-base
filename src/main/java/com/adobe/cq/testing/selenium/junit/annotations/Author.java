@@ -20,6 +20,9 @@ import javax.annotation.meta.TypeQualifier;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+/**
+ * Annotation to identify the runmode of the CQClient
+ */
 @TypeQualifier
 @Retention(RetentionPolicy.RUNTIME)
 @WithClient(runMode = "author")

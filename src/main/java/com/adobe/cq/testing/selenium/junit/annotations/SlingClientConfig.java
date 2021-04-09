@@ -20,6 +20,10 @@ import com.adobe.cq.testing.selenium.Constants;
 
 import java.lang.annotation.*;
 
+/**
+ * {@code @SlingClientConfig} is annotation to define the default configuration of a AEM
+ *
+ */
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

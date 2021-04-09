@@ -21,7 +21,7 @@ import com.adobe.cq.testing.selenium.pageobject.granite.ShellPage;
 import javax.annotation.Nonnull;
 
 /**
- * The sites main page.
+ * The sites main page object.
  */
 public class SitesPage extends ShellPage {
 

@@ -109,6 +109,11 @@ public final class PageEditorPage extends EditorPage {
         return enterMode(timewarpModeButton, timewarpLayerButton);
     }
 
+    /**
+     * Switch to the Annotation Mode of Page Editor.
+     * @return self object
+     * @throws TimeoutException if something wrong occurred
+     */
     public PageEditorPage enterAnnotateMode() {
         if (annotateButton.isDisplayed()) {
             clickableClick(annotateButton);
@@ -117,6 +122,11 @@ public final class PageEditorPage extends EditorPage {
         return this;
     }
 
+    /**
+     * Switch back from Annotation Mode of Page Editor.
+     * @return self object
+     * @throws TimeoutException if something wrong occurred
+     */
     public PageEditorPage leaveAnnotateMode() {
         if (annotateCloseButton.isDisplayed()) {
             clickableClick(annotateCloseButton);
@@ -126,6 +136,10 @@ public final class PageEditorPage extends EditorPage {
         return this;
     }
 
+    /**
+     * @return {@link TimewarpDialog} object
+     * @throws TimeoutException
+     */
     public TimewarpDialog getTimewarpDialog() throws TimeoutException {
         if (!isInTimewarpMode()) {
             enterTimewarpMode();
@@ -133,24 +147,40 @@ public final class PageEditorPage extends EditorPage {
         return (timewarpDialog == null) ? timewarpDialog = new TimewarpDialog() : timewarpDialog;
     }
 
+    /**
+     * confirms if Editor is in Edit mode
+     * @return
+     */
     public boolean isInEditMode() {
         return hasWithPolling(editLayerButton, Condition.visible) &&
                 hasWithPolling(getOverlayWrapper(), Condition.visible) &&
                 !getOverlayWrapper().is(Condition.cssClass("is-hidden"));
     }
 
+    /**
+     * confirms if Editor is in Layout mode
+     * @return
+     */
     public boolean isInLayoutMode() {
         return hasWithPolling(layoutLayerButton, Condition.visible) &&
                 hasWithPolling(getOverlayWrapper(), Condition.visible) &&
                 !getOverlayWrapper().is(Condition.cssClass("is-hidden"));
     }
 
+    /**
+     * confirms if Editor is in Developer mode
+     * @return
+     */
     public boolean isInDeveloperMode() {
         return hasWithPolling(developerLayerButton, Condition.visible) &&
                 hasWithPolling(getOverlayWrapper(), Condition.visible) &&
                 !getOverlayWrapper().is(Condition.cssClass("is-hidden"));
     }
 
+    /**
+     * confirms if Editor is in Timewarp mode
+     * @return
+     */
     public boolean isInTimewarpMode() {
         return hasWithPolling(timewarpLayerButton, Condition.visible) &&
                 hasWithPolling(getOverlayWrapper(), Condition.hidden) &&
