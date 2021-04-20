@@ -51,6 +51,7 @@ public class ActionComponent<V> extends BaseComponent {
 
     /**
      * Simply click on that object and return the next object.
+     * @return next Object
      */
     public V perform() {
         if (expectNavOnPerform) {

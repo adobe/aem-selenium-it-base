@@ -108,7 +108,7 @@ public class RichTextToolbar extends BaseComponent {
     /**
      * clicks the button for a specific action {@link Action}
      * @param action Action object which is being clicked
-     * @return
+     * @return Instance of current {@link RichTextToolbar}
      */
     public RichTextToolbar clickButton(Action action) {
         SelenideElement button = element().find(action.getSelector());
@@ -120,7 +120,7 @@ public class RichTextToolbar extends BaseComponent {
     /**
      * provides the button for a specific action {@link Action}
      * @param action Action object for which clickable buttons is require
-     * @return
+     * @return Instance of current {@link RichTextToolbar}
      */
     public SelenideElement getButton(Action action) {
         SelenideElement button = element().find(action.getSelector());

@@ -168,7 +168,9 @@ public abstract class EditorPage extends BasePage {
     }
 
     /**
-     * To enter the preview mode.
+     * To enter the preview mode
+     * @param <T> type of {@link EditorPage}
+     * @return Instance of current {@link EditorPage}
      */
     public <T extends EditorPage> T enterPreviewMode() {
         clickableClick(previewButton);
@@ -177,7 +179,8 @@ public abstract class EditorPage extends BasePage {
     }
 
     /**
-     * To check if the Editor page in preview mode.
+     * To check if the Editor page in preview mode
+     * @return true if EditorPage is in Preview Mode, else false
      */
     public boolean isInPreviewMode() {
         return hasWithPolling(previewButton, Condition.visible) &&
@@ -190,7 +193,7 @@ public abstract class EditorPage extends BasePage {
      * Opens the editor tool bar for a resource
      * @param resourcePath path of the resource
      * @return {@link EditableToolbar} instance
-     * @throws TimeoutException
+     * @throws TimeoutException if component is not visible before Timeout
      */
     public EditableToolbar openEditableToolbar(final String resourcePath) throws TimeoutException {
         SelenideElement targetActionBar = getComponentOverlay(resourcePath);
@@ -201,7 +204,7 @@ public abstract class EditorPage extends BasePage {
     /**
      * Provides the {@link SelenideElement} object for the overlay of  editable component on editor page.
      * @param resourcePath path of the component resource
-     * @return
+     * @return {@link SelenideElement} object for overlay
      */
     public SelenideElement getComponentOverlay(final String resourcePath) {
         return $(getComponentOverlaySelector(resourcePath)).should(Condition.exist);
@@ -214,7 +217,7 @@ public abstract class EditorPage extends BasePage {
     /**
      * Provides the {@link SelenideElement} object for the overlay of  Inspectable component on editor page.
      * @param resourcePath path of the component resource
-     * @return
+     * @return {@link SelenideElement} object for overlay
      */
     public SelenideElement getInspectableComponentOverlay(final String resourcePath) {
         return $(String.format(INSPECTABLE_COMPONENT_OVERLAY, resourcePath)).should(Condition.exist);
@@ -223,7 +226,7 @@ public abstract class EditorPage extends BasePage {
     /**
      * confirms of component overlay has been selected
      * @param componentOverlay {@link SelenideElement} object for ComponentOverlay
-     * @return
+     * @return true if ComponentOverlay has been selected, false otherwise
      */
     public boolean isComponentOverlaySelected(SelenideElement componentOverlay) {
         return componentOverlay.has(Condition.cssClass("is-selected"));

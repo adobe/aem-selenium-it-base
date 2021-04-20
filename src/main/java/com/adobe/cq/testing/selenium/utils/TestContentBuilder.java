@@ -182,8 +182,8 @@ public final class TestContentBuilder {
      * - It will clean from all the root paths created, and it will also include the related /var/audits/... .
      * To make sure it doesn't leave garbages there as well.
      *
-     * @throws ClientException
-     * @throws InterruptedException
+     * @throws ClientException if the request fails
+     * @throws InterruptedException if waiting was interrupted
      */
     public void dispose() throws ClientException, InterruptedException {
         if (cqConfigPath != null) {
@@ -240,9 +240,9 @@ public final class TestContentBuilder {
     /**
      * Perform the write operations to the AEM instance via provided CQClient to build up the **TestContent**.
      * See constructor [TestContentBuilder](#TestContentBuilder-com.adobe.cq.testing.client.CQClient-java.lang.String-).
-     * @throws ClientException
-     * @throws InterruptedException
-     * @throws IOException
+     * @throws ClientException if the request fails
+     * @throws InterruptedException if waiting was interrupted
+     * @throws IOException if json parsing fails
      */
     public void build() throws ClientException, InterruptedException, IOException {
         createConfig();
@@ -407,7 +407,7 @@ public final class TestContentBuilder {
 
     /**
      * @return client based on the generated authorizable. See also [withUser](#withUser-java.lang.String-java.util.List-).
-     * @throws ClientException
+     * @throws ClientException if the request fails
      */
     public CQClient getDefaultUserClient() throws ClientException {
         if (userClient == null) {
@@ -417,8 +417,10 @@ public final class TestContentBuilder {
     }
 
     /**
+     * @param user {@link User} instance for the user for which {@link CQClient} needs to be generated
+     * @param password password for the user
      * @return client based on the generated authorizable. See also [withUser](#withUser-java.lang.String-java.util.List-).
-     * @throws ClientException
+     * @throws ClientException if the request fails
      */
     public CQClient getUserClient(final User user, final String password) throws ClientException {
         return CQClient.Builder.create(client.getUrl(), user.getId(), password).build();
@@ -426,7 +428,7 @@ public final class TestContentBuilder {
 
     /**
      * @return client based on the constructor CQClient.
-     * @throws ClientException
+     * @throws ClientException if the request fails
      */
     public CQSecurityClient getCqSecurityClient() throws ClientException {
         return client.adaptTo(CQSecurityClient.class);

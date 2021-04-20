@@ -170,6 +170,7 @@ public final class Helpers {
    *
    * @param button The button to click on and the dialog is expected to open
    * @param dialog The dialog that should be opened by button click
+   * @param <T> type of {@link Dialog}
    * @return The provided dialog when it was opened by button click
    */
   public static <T extends Dialog> T clickDialogAction(SelenideElement button, T dialog) {

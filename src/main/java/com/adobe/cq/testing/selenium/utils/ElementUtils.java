@@ -68,7 +68,7 @@ public final class ElementUtils {
      * @param expectedCondition the condition to be fulfilled for the conditional element
      * @param maxRetries the max number of retries
      * @param pacing the pacing in millisec
-     * @throws TimeoutException
+     * @throws TimeoutException if element is not visible before Timeout
      */
     public static void clickUntil(final SelenideElement element, final SelenideElement conditionalElement,
                                   final Condition expectedCondition, final long maxRetries,
