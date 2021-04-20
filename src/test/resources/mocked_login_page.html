@@ -1,0 +1,157 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2021 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" /><meta name="granite.login.imsLoginUrl" content=""><title>AEM Sign In</title>
+    <style type="text/css">.visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
+    .visuallyshow{clip:auto;width:auto;height:auto;margin:0;position:inherit}
+    .hidden{position:absolute !important;clip:rect(0,0,0,0) !important;visibility:hidden !important}
+    html,body{background-color:#000 !important}
+    #login-box{position:absolute;z-index:200;background-color:#000;background-color:rgba(17,17,17,0.8);top:50%;right:0;margin-top:-152px;color:#fff;padding:28px;min-width:400px;max-width:700px;text-align:left;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#AA171717',endColorstr='#AA171717');border-bottom-left-radius:.250rem;border-top-left-radius:.250rem}
+    #login-box p{font-size:17px;font-size:1rem;line-height:1.3;margin-top:0;margin-bottom:12px}
+    #submit-button-ims{margin-left:16px;width:calc(100% - 32px)}
+    .header{margin-bottom:18px}
+    .header h1{font-size:32px;font-size:2rem;line-height:1;color:#fff}
+    .box{width:42%;float:left}
+    #leftbox{padding:0;margin:0 20px 0 0}
+    .rightbox{padding:0 0 0 30px;margin:0;border-left:1px solid rgba(255,255,255,0.2)}
+    #login .coral-Button,#login .coral-Wait,#login #forgotpwd{vertical-align:middle}
+    #login #forgotpwd{font-size:12px;font-weight:bold}
+    #login label[for="username"],#login label[for="password"],#login label[for="new_password"],#login label[for="confirm_password"]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
+    #login.coral-Form--vertical .coral-Form-field{margin:0 0 .625rem}
+    #wrap{min-height:100%;height:auto !important;height:100%;margin:0 auto -34px}
+    #footer{z-index:110;width:100%;padding:0;margin:0;height:auto;position:absolute;bottom:0;background-color:#000;background-color:rgba(0,0,0,0.8);border-top-color:#333;color:#ccc;font-size:11px;font-size:.70rem;font-weight:normal}
+    .legal-footer{padding:7px 20px 8px;border-top-color:#333}
+    .legal-footer span{margin-top:2px;float:right;margin-bottom:10px;margin-left:30px;font-size:11px;font-size:.70rem}
+    .legal-footer ul{list-style:none;margin:0;padding:0}
+    .legal-footer ul li{display:inline-block;margin-right:20px;font-size:11px;font-size:.70rem;margin-top:3px}
+    .legal-footer a,.legal-footer a:visited{color:#ccc;text-decoration:none}
+    .legal-footer a.lang,.legal-footer a.lang:visited{color:#449fdf}
+    @media all and (max-width:634px){#tag{right:1rem}
+        #login-box .header,#login-box .box{float:none;width:auto;max-width:400px}
+        #login-box{position:relative;top:0;left:0;margin:0;padding:1rem;min-width:100px;max-width:100%;background-color:transparent}
+        #leftbox{float:none;display:block;margin:0 0 .5rem 0}
+        .rightbox{float:none;display:block;margin:.5rem 0 0 0;padding:1rem 0 0 0;border-left:0;border-top:1px solid rgba(255,255,255,0.2)}
+        #backgrounds{opacity:.4}
+        #wrap{margin:0 auto -99px}
+        #push,#footer{height:99px;bottom:auto;position:relative}
+        .legal-footer ul li{width:100%;display:block}
+        .legal-footer span{float:none;display:block;margin-bottom:10px;margin-left:0}
+    }
+    .background{position:absolute;top:0;left:0;bottom:0;right:0;background-size:cover;background-position:bottom right;background-repeat:no-repeat;background-color:transparent}
+    #bg_default{background-color:#352e40}
+    </style>
+    <script type="text/javascript" src="/etc.clientlibs/clientlibs/mocked_coral.js"></script>
+
+</head>
+<body class="coral--light">
+<div id="wrap" role="main">
+    <div id="backgrounds">
+
+        <div id="bg_default" class="background"></div>
+    </div>
+    <div id="tag"></div><div id="login-box" class="coral--dark">
+    <div id="leftbox" class="box">
+        <div class="header">
+            <h1 class="coral-Heading coral-Heading--1">Welcome to Adobe Experience Manager</h1>
+        </div>
+        <p>
+            An Adobe Experience Cloud solution: All the tools you need to solve these complex digital business challenges.
+            <a class="coral-Link" id="learnmore" href="http://www.adobe.com/go/marketingcloud_learn_more">Learn More</a>
+        </p>
+    </div>
+
+
+
+    <div id="rightbox" class="box">
+
+
+        <form class="coral-Form coral-Form--vertical" name="login" method="POST" id="login" action="/libs/granite/core/content/login.html/j_security_check" novalidate="novalidate">
+            <input type="hidden" name="_charset_" value="UTF-8">
+            <input type="hidden" name="errorMessage" value="User name and password do not match">
+            <input type="hidden" name="resource" id="resource" value="/">
+
+            <p id="sign-in-title">Sign In</p>
+            <div class="coral-Form-fieldwrapper">
+                <input is="coral-textfield" aria-label="User name" class="coral-Form-field" id="username" name="j_username" type="text" autofocus="autofocus" pattern=".*" placeholder="User name" spellcheck="false" autocomplete="off">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <input is="coral-textfield" aria-label="Password" class="coral-Form-field" id="password" name="j_password" type="password"  placeholder="Password" spellcheck="false" autocomplete="off">
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <input is="coral-textfield" aria-label="New password" class="coral-Form-field" id="new_password" name="" type="password"  placeholder="New password" spellcheck="false" autocomplete="false" hidden>
+            </div>
+            <div class="coral-Form-fieldwrapper">
+                <input is="coral-textfield" aria-label="Confirm new password" class="coral-Form-field" id="confirm_password" name="" type="password"  placeholder="Confirm new password" spellcheck="false" autocomplete="false" hidden>
+            </div>
+            <coral-alert id="error" variant="error" hidden>
+                <coral-alert-content></coral-alert-content>
+            </coral-alert>
+            <button is="coral-button" id="submit-button" variant="primary" type="submit">Sign In</button>
+            <button is="coral-button" id="back-button" hidden>Back</button>
+        </form>
+        <input id="login_title" type="hidden" value="Sign In">
+        <input id="change_title" type="hidden" value="Change Password">
+        <input id="login_password_placeholder" type="hidden" value="Password">
+        <input id="change_password_placeholder" type="hidden" value="Old password">
+        <input id="login_submit_text" type="hidden" value="Sign In">
+        <input id="change_submit_text" type="hidden" value="Submit">
+        <input id="invalid_message" type="hidden" value="User name and password do not match"/>
+        <input id="expired_message" type="hidden" value="Your password has expired"/>
+        <input id="in_history_message" type="hidden" value="New password was found in password history"/>
+        <input id="not_match_message" type="hidden" value="New passwords do not match"/>
+        <input id="empty_message" type="hidden" value="New password must not be blank"/>
+
+    </div>
+
+</div>
+    <div id="push"></div>
+</div>
+<div id="footer" role="contentinfo">
+    <div class="legal-footer"><span>© 2019 Adobe. All Rights Reserved.</span><ul id="usage-box">
+        <li><a href="https://marketing.adobe.com/resources/help/en_US/home/">Help</a></li>
+        <li><a href="http://www.adobe.com/go/marketingcloud_terms_of_use">Terms of Use</a></li>
+        <li><a href="http://www.adobe.com/go/marketingcloud_privacy">Privacy Policy and Cookies</a></li>
+    </ul>
+    </div>
+</div><coral-dialog id="success-dialog" variant="success" closable="true">
+    <coral-dialog-header>Password Changed</coral-dialog-header>
+    <coral-dialog-content>
+        Your password has been changed successfully.
+    </coral-dialog-content>
+    <coral-dialog-footer>
+        <button is="coral-button" variant="primary" coral-close>Ok</button>
+    </coral-dialog-footer>
+</coral-dialog>
+<script type="text/javascript">
+    // try to append the current hash/fragment to the redirect resource
+    if (window.location.hash) {
+        var resource = document.getElementById("resource");
+        if (resource) {
+            resource.value += window.location.hash;
+        }
+    }
+</script>
+
+<!-- QUICKSTART_HOMEPAGE - (string used for readyness detection, do not remove) -->
+</body>
+</html>
