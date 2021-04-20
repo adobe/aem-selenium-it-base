@@ -84,6 +84,8 @@ public abstract class BaseComponent {
 
     /**
      * Wait on the element for the animation to finish and Condition.visible to be true with default timeout.
+     * @param <T> Component extending {@link BaseComponent}
+     * @return Instance of Current Component
      */
     @SuppressWarnings({"unchecked"})
     public <T extends BaseComponent> T waitVisible() {
@@ -94,6 +96,8 @@ public abstract class BaseComponent {
 
     /**
      * Wait on the element for the Condition.visible to be false with default timeout.
+     * @param <T> Component extending {@link BaseComponent}
+     * @return Instance of Current Component
      */
     @SuppressWarnings({"unchecked"})
     public <T extends BaseComponent> T waitVanish() {
@@ -103,6 +107,8 @@ public abstract class BaseComponent {
 
     /**
      * Wait on the element for the Condition.enabled to be true with default timeout.
+     * @param <T> Component extending {@link BaseComponent}
+     * @return Instance of Current Component
      */
     @SuppressWarnings({"unchecked"})
     public  <T extends BaseComponent> T waitEnabled() {
@@ -112,6 +118,8 @@ public abstract class BaseComponent {
 
     /**
      * Wait on the element for the Condition.disabled to be true with default timeout.
+     * @param <T> Component extending {@link BaseComponent}
+     * @return Instance of Current Component
      */
     @SuppressWarnings({"unchecked"})
     public <T extends BaseComponent> T waitDisabled() {
@@ -137,6 +145,8 @@ public abstract class BaseComponent {
      * Wait for the element to finish rendering.
      * This method might get extended with custom rules for
      * complex Components.
+     * @param <T> Component extending {@link BaseComponent}
+     * @return Instance of Current Component
      */
     @SuppressWarnings({"unchecked"})
     public <T extends BaseComponent> T render() {
@@ -147,6 +157,8 @@ public abstract class BaseComponent {
 
     /**
      * Simply click on that object.
+     * @param <T> Component extending {@link BaseComponent}
+     * @return Instance of Current Component
      */
     @SuppressWarnings({"unchecked"})
     public <T extends BaseComponent> T click() {
@@ -164,6 +176,8 @@ public abstract class BaseComponent {
 
     /**
      * shortcut on the element().scrollTo().
+     * @param <T> Component extending {@link BaseComponent}
+     * @return Instance of Current Component
      */
     @SuppressWarnings({"unchecked"})
     public <T extends BaseComponent> T scrollTo() {
@@ -180,6 +194,8 @@ public abstract class BaseComponent {
 
     /**
      * wait ready (coral wize).
+     * @param <T> Component extending {@link BaseComponent}
+     * @return Instance of Current Component
      */
     @SuppressWarnings({"unchecked"})
     public <T extends BaseComponent> T waitReady() {

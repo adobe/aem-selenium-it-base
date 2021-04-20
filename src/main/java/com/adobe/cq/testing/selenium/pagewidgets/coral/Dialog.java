@@ -83,6 +83,8 @@ public class Dialog extends BaseComponent {
 
     /**
      * Close this dialog with default action button.
+     * @param <T> type of Dialog
+     * @return Instance of current {@link Dialog}
      */
     @SuppressWarnings({"unchecked"})
     public <T extends Dialog> T clickDefault() {
@@ -92,6 +94,8 @@ public class Dialog extends BaseComponent {
 
     /**
      * Click on primary action.
+     * @param <T> type of Dialog
+     * @return Instance of current {@link Dialog}
      */
     @SuppressWarnings({"unchecked"})
     public <T extends Dialog> T clickPrimary() {
@@ -101,6 +105,8 @@ public class Dialog extends BaseComponent {
 
     /**
      * Click on secondary action.
+     * @param <T> type of Dialog
+     * @return Instance of current {@link Dialog}
      */
     @SuppressWarnings({"unchecked"})
     public <T extends Dialog> T clickSecondary() {
@@ -110,6 +116,8 @@ public class Dialog extends BaseComponent {
 
     /**
      * Click on warning action.
+     * @param <T> type of Dialog
+     * @return Instance of current {@link Dialog}
      */
     @SuppressWarnings({"unchecked"})
     public <T extends Dialog> T clickWarning() {

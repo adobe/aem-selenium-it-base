@@ -112,7 +112,6 @@ public final class PageEditorPage extends EditorPage {
     /**
      * Switch to the Annotation Mode of Page Editor.
      * @return self object
-     * @throws TimeoutException if something wrong occurred
      */
     public PageEditorPage enterAnnotateMode() {
         if (annotateButton.isDisplayed()) {
@@ -125,7 +124,6 @@ public final class PageEditorPage extends EditorPage {
     /**
      * Switch back from Annotation Mode of Page Editor.
      * @return self object
-     * @throws TimeoutException if something wrong occurred
      */
     public PageEditorPage leaveAnnotateMode() {
         if (annotateCloseButton.isDisplayed()) {
@@ -138,7 +136,7 @@ public final class PageEditorPage extends EditorPage {
 
     /**
      * @return {@link TimewarpDialog} object
-     * @throws TimeoutException
+     * @throws TimeoutException TimeoutException if component is not visible before Timeout
      */
     public TimewarpDialog getTimewarpDialog() throws TimeoutException {
         if (!isInTimewarpMode()) {
@@ -149,7 +147,7 @@ public final class PageEditorPage extends EditorPage {
 
     /**
      * confirms if Editor is in Edit mode
-     * @return
+     * @return true if Editor is in Edit Mode, false otherwise
      */
     public boolean isInEditMode() {
         return hasWithPolling(editLayerButton, Condition.visible) &&
@@ -159,7 +157,7 @@ public final class PageEditorPage extends EditorPage {
 
     /**
      * confirms if Editor is in Layout mode
-     * @return
+     * @return true if Editor is in Layout Mode, false otherwise
      */
     public boolean isInLayoutMode() {
         return hasWithPolling(layoutLayerButton, Condition.visible) &&
@@ -169,7 +167,7 @@ public final class PageEditorPage extends EditorPage {
 
     /**
      * confirms if Editor is in Developer mode
-     * @return
+     * @return true if Editor is in Developer Mode, false otherwise
      */
     public boolean isInDeveloperMode() {
         return hasWithPolling(developerLayerButton, Condition.visible) &&
@@ -179,7 +177,7 @@ public final class PageEditorPage extends EditorPage {
 
     /**
      * confirms if Editor is in Timewarp mode
-     * @return
+     * @return true if Editor is in Timewarp Mode, false otherwise
      */
     public boolean isInTimewarpMode() {
         return hasWithPolling(timewarpLayerButton, Condition.visible) &&

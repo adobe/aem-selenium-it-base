@@ -62,7 +62,7 @@ public class InsertComponentDialog extends Dialog {
     /**
      * filters the list of the components bases on search text
      * @param searchText search text
-     * @return
+     * @return Collection of Elements which met the search
      */
     public ElementsCollection search(String searchText) {
         int initialSize = getComponentList().size();

@@ -51,6 +51,7 @@ public final class CoralSelectList extends BaseComponent {
     }
 
     /**
+     * @param group coral-selectist-group element for which all the items needs to be returned
      * @return all the items of a group in this list.
      */
     public ElementsCollection items(SelenideElement group) {

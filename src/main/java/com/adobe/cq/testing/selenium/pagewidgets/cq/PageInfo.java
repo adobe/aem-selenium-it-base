@@ -104,6 +104,7 @@ public final class PageInfo extends BaseComponent {
 
     /**
      * Opens the PageInfo panel if not already opened
+     * @return Instance of current {@link PageInfo}
      */
     public PageInfo open() {
         if (isClosed()) {
@@ -115,6 +116,7 @@ public final class PageInfo extends BaseComponent {
 
     /**
      * Close the PageInfo panel if not already closed
+     * @return Instance of current {@link PageInfo}
      */
     public PageInfo close() {
         if (isOpen()) {
