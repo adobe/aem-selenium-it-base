@@ -25,5 +25,5 @@ public final class TestConstants {
     /**
      * Port used for the mocked AEM instance.
      */
-    public static final int DEFAULT_MOCKED_AEM_PORT = 5502;
+    public static final int DEFAULT_MOCKED_AEM_PORT = 4502;
 }

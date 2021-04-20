@@ -17,6 +17,8 @@
 package com.adobe.cq.testing.selenium.client;
 
 import com.adobe.cq.testing.selenium.mock.MockedAEMServer;
+import com.adobe.cq.testing.selenium.junit.annotations.SlingClientContext;
+import com.adobe.cq.testing.selenium.junit.annotations.SlingClientConfig;
 import com.adobe.cq.testing.selenium.utils.DisableTour;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -33,6 +35,8 @@ import java.io.UnsupportedEncodingException;
 
 import static com.adobe.cq.testing.selenium.TestConstants.DEFAULT_MOCKED_AEM_PORT;
 
+@SlingClientConfig(port = DEFAULT_MOCKED_AEM_PORT, username = "test-user")
+@SlingClientContext
 public class DisableTourTest {
 
     private static final String TEST_USER_HASH_NODE = RandomStringUtils.randomAlphanumeric(32);

@@ -27,6 +27,7 @@ import org.apache.sling.testing.clients.ClientException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -241,8 +242,9 @@ public final class TestContentBuilder {
      * See constructor [TestContentBuilder](#TestContentBuilder-com.adobe.cq.testing.client.CQClient-java.lang.String-).
      * @throws ClientException
      * @throws InterruptedException
+     * @throws IOException
      */
-    public void build() throws ClientException, InterruptedException {
+    public void build() throws ClientException, InterruptedException, IOException {
         createConfig();
         createDefaultPageTemplate();
         createDamRoot();
@@ -295,7 +297,7 @@ public final class TestContentBuilder {
 
 
 
-    private void createDefaultPageTemplate() throws ClientException, InterruptedException {
+    private void createDefaultPageTemplate() throws ClientException, IOException {
         TemplateEditorManagerClient tmplClient = client.adaptTo(TemplateEditorManagerClient.class);
         pageTemplatePath = tmplClient.createDefaultTemplate(getConfigPath(), pageTemplateTitle, pageTemplateDescription);
         tmplClient.enable(pageTemplatePath);
