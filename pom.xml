@@ -27,6 +27,36 @@
 
 	<name>Testing with Selenium Base classes</name>
 	<description>Base for testing using Selenium, using Selenide + Selenium-Jupiter</description>
+	<url>https://github.com/adobe/aem-selenium-it-base</url>
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Ankit Agarwal</name>
+			<email>anagarwa@adobe.com</email>
+			<organization>Adobe</organization>
+			<organizationUrl>http://opensource.adobe.com/</organizationUrl>
+		</developer>
+		<developer>
+			<name>Abhinav Saraswat</name>
+			<email>absarasw@adobe.com</email>
+			<organization>Adobe</organization>
+			<organizationUrl>http://opensource.adobe.com/</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/adobe/aem-selenium-it-base.git</connection>
+		<developerConnection>scm:git:https://github.com/adobe/aem-selenium-it-base.git</developerConnection>
+		<url>https://github.com/adobe/aem-selenium-it-base</url>
+		<tag>HEAD</tag>
+	</scm>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
