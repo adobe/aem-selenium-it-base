@@ -112,7 +112,6 @@ public final class PageEditorPage extends EditorPage {
     /**
      * Switch to the Annotation Mode of Page Editor.
      * @return self object
-     * @throws TimeoutException if something wrong occurred
      */
     public PageEditorPage enterAnnotateMode() {
         if (annotateButton.isDisplayed()) {
@@ -125,7 +124,6 @@ public final class PageEditorPage extends EditorPage {
     /**
      * Switch back from Annotation Mode of Page Editor.
      * @return self object
-     * @throws TimeoutException if something wrong occurred
      */
     public PageEditorPage leaveAnnotateMode() {
         if (annotateCloseButton.isDisplayed()) {
