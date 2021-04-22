@@ -66,14 +66,15 @@
 	</properties>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
 		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			<id>${releaseRepository-Id}</id>
+			<url>${releaseRepository-URL}</url>
 		</repository>
+		<snapshotRepository>
+			<id>${snapshotRepository-Id}</id>
+			<url>${snapshotRepository-URL}</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
 	</distributionManagement>
 
 	<dependencies>
