@@ -122,5 +122,11 @@
         }
       }
     }
+  },
+  "core-component": {
+    "jcr:primaryType": "nt:unstructured",
+    "components" : {
+      "jcr:primaryType": "nt:unstructured"
+    }
   }
 }
