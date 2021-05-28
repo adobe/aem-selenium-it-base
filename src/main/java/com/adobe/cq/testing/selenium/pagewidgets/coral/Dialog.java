@@ -125,6 +125,17 @@ public class Dialog extends BaseComponent {
         return (T) this;
     }
 
+    /**
+     * Click on quietaction action.
+     * @param <T> type of Dialog
+     * @return Instance of current {@link Dialog}
+     */
+    @SuppressWarnings({"unchecked"})
+    public <T extends Dialog> T clickQuietAction() {
+        variantAccessor.clickVariant(QUIETACTION);
+        return (T) this;
+    }
+
     public SelenideElement button(final VariantAccessor.VariantType variantType) {
         return variantAccessor.find(variantType);
     }

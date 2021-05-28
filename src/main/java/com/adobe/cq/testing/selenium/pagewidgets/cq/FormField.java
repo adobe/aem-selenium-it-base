@@ -33,6 +33,11 @@ public final class FormField {
   public static final FormField HIDE_IN_NAV = new FormField("./hideInNav");
 
   /**
+   * The usual page properties Sling Redirect.
+   */
+  public static final FormField SLING_REDIRECT = new FormField("./sling:redirect");
+
+  /**
    * The usual page properties Title field.
    */
   public static final FormField TITLE = new FormField("./jcr:title");
@@ -46,6 +51,11 @@ public final class FormField {
    * Page Title name when creating a page.
    */
   public static final FormField PAGE_TITLE = new FormField("./pageTitle");
+
+  /**
+   *  Subtitle when creating a page.
+   */
+  public static final FormField SUBTITLE = new FormField("./subtitle");
 
   /**
    * Navigation Title.
@@ -73,9 +83,14 @@ public final class FormField {
   public static final FormField DESIGN_PATH = new FormField("./cq:designPath");
 
   /**
-   * The usual design path field.
+   * The usual vanity path field.
    */
   public static final FormField VANITY_PATH = new FormField("./sling:vanityPath");
+
+  /**
+   * he usual page properties Sling Alias
+   */
+  public static final FormField SLING_ALIAS = new FormField("./sling:alias");
 
   private final String name;
   private final String selector;
