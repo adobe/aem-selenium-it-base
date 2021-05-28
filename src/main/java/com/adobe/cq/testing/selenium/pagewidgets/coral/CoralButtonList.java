@@ -57,6 +57,7 @@ public final class CoralButtonList extends BaseComponent {
     }
     
     /**
+     * @param text
      * @return the element or null if it doesn't exist.
      */
     public SelenideElement getItemByText(final String text) {
