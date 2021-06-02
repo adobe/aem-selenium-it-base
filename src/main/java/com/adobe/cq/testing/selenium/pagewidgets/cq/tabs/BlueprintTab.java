@@ -76,13 +76,13 @@ public class BlueprintTab extends BaseComponent {
         }
 
         public void close() {
-            this.clickDefault();
+            clickableClick($("button[title='Cancel']"));
         }
 
         public void rolloutNow() {
-            this.clickPrimary();
+            clickableClick($("button[title='Rollout']"));
             // new dialog opens for scheduling
-            new Dialog().clickPrimary();
+            clickableClick($("button[trackingelement='continue']"));
         }
 
     }
