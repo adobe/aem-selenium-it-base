@@ -33,7 +33,7 @@ public class ImageTab extends BaseComponent {
     private SelenideElement revert = $("button[type='reset']");
 
     /**
-     * Construct a wrapper on ThumbnailTab panel content.
+     * Construct a wrapper on ImageTab panel content.
      * @param panelId the associated element id.
      */
     public ImageTab(final String panelId) {
