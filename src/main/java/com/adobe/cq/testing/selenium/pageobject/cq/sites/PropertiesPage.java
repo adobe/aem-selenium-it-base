@@ -233,7 +233,7 @@ public final class PropertiesPage extends BasePage {
 
             /**
              * Check if tag is selected for the page
-             * @param tag
+             * @param tag Tag name
              * @return true is tag is selected for page otherwise false
              */
             public boolean isTagPresent(String tag) {

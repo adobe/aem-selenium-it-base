@@ -27,6 +27,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import io.github.bonigarcia.seljup.Options;
 import io.github.bonigarcia.seljup.SeleniumExtension;
+import org.apache.commons.lang.StringUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -75,6 +76,10 @@ public abstract class UIAbstractTest implements LogEventListener {
             final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
             desiredCapabilities.setCapability(CapabilityType.PROXY, browserProxyExtension.getSeleniumProxy());
             chromeOptions.merge(desiredCapabilities);
+
+            if (!StringUtils.isEmpty(getUserTimeZone())) {
+                seleniumExtension.getConfig().setDockerTimeZone(getUserTimeZone());
+            }
         }
     }
 
@@ -113,5 +118,14 @@ public abstract class UIAbstractTest implements LogEventListener {
     @Override
     public void beforeEvent(final LogEvent logEvent) {
         logger.info("subject={} element={}", logEvent.getSubject(), logEvent.getElement());
+    }
+
+    /**
+     * If a Test requires to run in a different timezone, then this method can be overridden in the TestClass.
+     * Note :- This works only when test is running in docker
+     * @return return the User Time Zone
+     */
+    public String getUserTimeZone() {
+        return StringUtils.EMPTY;
     }
 }

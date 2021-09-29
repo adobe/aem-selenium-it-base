@@ -17,12 +17,14 @@
 package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
 
 import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralCheckbox;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.Dialog;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.getSelectedRadio;
 
 public class BlueprintTab extends BaseComponent {
 
@@ -75,15 +77,67 @@ public class BlueprintTab extends BaseComponent {
             return livecopyRow.$$("td").get(0).find("coral-checkbox").has(Condition.attribute("checked", "true"));
         }
 
+        /**
+         * Select a livecopy
+         * @param livecopyPath path of the livecopy
+         */
+        public void selectLivecopy(String livecopyPath) {
+            if(isLiveCopySelected(livecopyPath)) {
+                return;
+            } else {
+                SelenideElement livecopyRow =  getLivecopy(livecopyPath);
+                livecopyRow.$$("td").get(0).find("coral-checkbox").click();
+             }
+        }
+
+        /**
+         * Deselect a livecopy
+         * @param livecopyPath path of the livecopy
+         */
+        public void deselectLivecopy(String livecopyPath) {
+            if(isLiveCopySelected(livecopyPath)) {
+                SelenideElement livecopyRow =  getLivecopy(livecopyPath);
+                livecopyRow.$$("td").get(0).find("coral-checkbox").click();
+            } else {
+                return;
+            }
+        }
+
+        /**
+         * Click the SelectAll livecopy button
+         */
+        public void clickSelectAllLivecopy() {
+            getSelectAll().click();
+        }
+
+        public boolean isSelectAllChecked() {
+            CoralCheckbox selectAll = getSelectAll();
+            return selectAll.isChecked() && !selectAll.isIndeterminate();
+        }
+
+
+        /**
+         * Close the rollout dialog
+         */
         public void close() {
             clickableClick($("button[title='Cancel']"));
         }
 
+        /**
+         * Perform rollout operation now
+         */
         public void rolloutNow() {
             clickableClick($("button[title='Rollout']"));
             // new dialog opens for scheduling
             clickableClick($("button[trackingelement='continue']"));
         }
 
+        private SelenideElement getLivecopy(String livecopyPath) {
+            return content().$$("[handle=table] tbody tr").filter(Condition.attribute("data-path", livecopyPath)).first();
+        }
+
+        private CoralCheckbox getSelectAll() {
+            return new CoralCheckbox("[labelled='Select All']");
+        }
     }
 }

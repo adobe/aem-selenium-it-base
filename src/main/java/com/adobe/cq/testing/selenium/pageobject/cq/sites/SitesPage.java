@@ -16,14 +16,14 @@
 
 package com.adobe.cq.testing.selenium.pageobject.cq.sites;
 
-import com.adobe.cq.testing.selenium.pageobject.granite.ShellPage;
+import com.adobe.cq.testing.selenium.pageobject.granite.CollectionPage;
 
 import javax.annotation.Nonnull;
 
 /**
  * The sites main page object.
  */
-public class SitesPage extends ShellPage {
+public class SitesPage extends CollectionPage {
 
     private static final String BASE_PATH = "/sites.html";
 
@@ -31,7 +31,7 @@ public class SitesPage extends ShellPage {
      * Default constructor.
      */
     public SitesPage() {
-        super(null, BASE_PATH);
+        super(BASE_PATH);
     }
 
     /**

@@ -14,47 +14,33 @@
  * limitations under the License.
  */
 
-
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
 import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
-public class CoralCheckbox extends BaseComponent {
+public class CoralColumnviewItemThumbnail extends BaseComponent {
 
-  /**
-   * @param selector wrapping on this direct selector.
-   */
-  public CoralCheckbox(final String selector) {
-    super(selector);
-  }
+    /**
+     * @param selector wrapping on this direct selector.
+     */
+    public CoralColumnviewItemThumbnail(final String selector) {
+        super(selector);
+    }
 
-  /**
-   * @param parent element in which the coral-checkbox is found.
-   */
-  public CoralCheckbox(final SelenideElement parent) {
-    super(parent.getSearchCriteria() + " coral-checkbox");
-  }
+    /**
+     * @param parent element in which the coral-columnview-item-thumbnail is found.
+     */
+    public CoralColumnviewItemThumbnail(final SelenideElement parent) {
+        super(parent.getSearchCriteria() + " coral-columnview-item-thumbnail");
+    }
 
-  /**
-   * @return true if checked is true.
-   */
-  public boolean isChecked() {
-    return element().has(Condition.attribute("checked", "true"));
-  }
-
-  /**
-   * @return true if checked is true.
-   */
-  public boolean isIndeterminate() {
-    return element().has(Condition.attribute("indeterminate", "true"));
-  }
-
-
-  public CoralCheckbox setSelected(boolean selected) {
-	  this.element().$("input").setSelected(selected);
-	return this;
-  }
+    /**
+     * @return true if the parent element has the "is-selected" class
+     */
+    public boolean isSelected() {
+        return element().parent().has(Condition.cssClass("is-selected"));
+    }
 
 }
