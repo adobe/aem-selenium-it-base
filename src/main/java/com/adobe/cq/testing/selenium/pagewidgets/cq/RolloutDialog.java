@@ -111,8 +111,20 @@ public class RolloutDialog extends Dialog {
         CoralRadio scheduleOptions = new CoralRadio($("coral-dialog[id='aem-sites-rollout-schedule-dialog']"), "reportSchedule");
         //"Now"
         assertTrue(scheduleOptions.elementByValue("now") != null,"Schedule Now should be present");
+
         clickableClick(scheduleOptions.elementByValue("now"));
         clickableClick($("button[trackingelement='continue']"));
+    }
+
+    public void submitRollout() {
+        clickableClick($("button[title='Rollout']"));
+    }
+
+    /**
+     *
+     */
+    public boolean isContinueEnabled() {
+        return $("button[trackingelement='continue']").isEnabled();
     }
 
     private SelenideElement getLivecopy(String livecopyPath) {
