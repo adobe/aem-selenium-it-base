@@ -14,36 +14,33 @@
  * limitations under the License.
  */
 
-package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
+package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
 import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
-import com.adobe.cq.testing.selenium.pagewidgets.cq.RolloutDialog;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
-import static com.codeborne.selenide.Selenide.$;
-
-public class BlueprintTab extends BaseComponent {
-
-    private static final SelenideElement ROLLOUT = $("coral-actionbar-item a[trackingelement='rollout']");
+public class CoralColumnviewItemThumbnail extends BaseComponent {
 
     /**
-     * Construct a wrapper on BlueprintTab panel content.
-     * @param panelId the associated element id.
+     * @param selector wrapping on this direct selector.
      */
-
-    public BlueprintTab(final String panelId) {
-        super("#" + panelId);
+    public CoralColumnviewItemThumbnail(final String selector) {
+        super(selector);
     }
 
     /**
-     * Click on rollout button
-     * @return the rollout dialog
+     * @param parent element in which the coral-columnview-item-thumbnail is found.
      */
-    public RolloutDialog rollout() {
-        clickableClick(ROLLOUT);
-        return new RolloutDialog();
+    public CoralColumnviewItemThumbnail(final SelenideElement parent) {
+        super(parent.getSearchCriteria() + " coral-columnview-item-thumbnail");
     }
 
+    /**
+     * @return true if the parent element has the "is-selected" class
+     */
+    public boolean isSelected() {
+        return element().parent().has(Condition.cssClass("is-selected"));
+    }
 
 }
