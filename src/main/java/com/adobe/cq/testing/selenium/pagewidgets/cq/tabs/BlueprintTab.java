@@ -25,7 +25,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class BlueprintTab extends BaseComponent {
 
-    private static final SelenideElement ROLLOUT = $("coral-actionbar-item a[trackingelement='rollout']");
+    private static final SelenideElement ROLLOUT = $("coral-actionbar-item .cq-siteadmin-admin-properties-actions-blueprint[href*='rollout']");
 
     /**
      * Construct a wrapper on BlueprintTab panel content.
