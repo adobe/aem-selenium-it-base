@@ -21,6 +21,7 @@ import com.adobe.cq.testing.selenium.pagewidgets.coral.Dialog;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 
 public class LiveCopyTab extends BaseComponent {
@@ -89,5 +90,45 @@ public class LiveCopyTab extends BaseComponent {
     public Dialog detach() {
         DETACH.click();
         return new Dialog();
+    }
+
+    /**
+     * Returns check if Synchronize button is visible
+     * @return true if Synchronize button is visible otherwise false
+     */
+    public boolean isSynchronizeButtonVisible() {
+        return SYNCHRONIZE.isDisplayed();
+    }
+
+    /**
+     * Returns check if Reset button is visible
+     * @return true if Reset button is visible otherwise false
+     */
+    public boolean isResetButtonVisible() {
+        return RESET.isDisplayed();
+    }
+
+    /**
+     * Returns check if Resume button is visible
+     * @return true if Resume button is visible otherwise false
+     */
+    public boolean isResumeButtonVisible() {
+        return RESUME.isDisplayed();
+    }
+
+    /**
+     * Returns check if Suspend button is visible
+     * @return true if Suspend button is visible otherwise false
+     */
+    public boolean isSuspendButtonVisible() {
+        return SUSPEND.isDisplayed();
+    }
+
+    /**
+     * Returns check if Detach button is visible
+     * @return true if Detach button is visible otherwise false
+     */
+    public boolean isDetachButtonVisible() {
+        return DETACH.isDisplayed();
     }
 }

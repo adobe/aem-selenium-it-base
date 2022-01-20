@@ -22,10 +22,12 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class BlueprintTab extends BaseComponent {
 
-    private static final SelenideElement ROLLOUT = $("coral-actionbar-item .cq-siteadmin-admin-properties-actions-blueprint[href*='rollout']");
+    private static final SelenideElement ROLLOUT = $x("//coral-actionbar-item/a/coral-anchorbutton-label[contains(text(), 'Rollout')]");
+    private static final SelenideElement LIVECOPY_OVERVIEW = $x("//coral-actionbar-item/a/coral-anchorbutton-label[contains(text(), 'Live Copy Overview')]");
 
     /**
      * Construct a wrapper on BlueprintTab panel content.
@@ -45,5 +47,20 @@ public class BlueprintTab extends BaseComponent {
         return new RolloutDialog();
     }
 
+    /**
+     * Returns check if Rollout button is visible
+     * @return true if Rollout button is visible otherwise false
+     */
+    public boolean isRolloutButtonVisible() {
+        return ROLLOUT.isDisplayed();
+    }
+
+    /**
+     * Returns true if livecopy Overview button is visible
+     * @return true if livecopy Overview button is visible otherwise false
+     */
+    public boolean isLivecopyOverviewButtonVisible() {
+        return LIVECOPY_OVERVIEW.isDisplayed();
+    }
 
 }
