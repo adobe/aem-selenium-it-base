@@ -56,6 +56,9 @@ public final class Helpers {
   private static final String JS_METRICS_IDLE = "return performance.getEntriesByName(arguments[0]).length";
   private static final String JS_FCP = "return performance.getEntriesByType(\"paint\").length";
   private static final String CK_AFFINITY = "affinity";
+  private static final String CK_SUDO = "sling.sudo";
+  private static final String US_AEM_FRAME = "Main Content";
+  private static final SelenideElement AEM_FRAME = $(String.format("iframe[name='%s']", US_AEM_FRAME));
 
   private Helpers() {
 
@@ -388,5 +391,29 @@ public final class Helpers {
     }
     return result;
   }
+
+  public static void setImpersonateCookie(String impUser) {
+    if (impUser != null) {
+      Cookie existingCookie = getCookie(CK_AFFINITY);
+      Cookie newCookie = new Builder(CK_SUDO, impUser).domain(existingCookie.getDomain())
+              .expiresOn(existingCookie.getExpiry()).isHttpOnly(existingCookie.isHttpOnly())
+              .isSecure(existingCookie.isSecure()).path(existingCookie.getPath()).build();
+      WebDriverRunner.getWebDriver().manage().addCookie(newCookie);
+      LOG.info("Setting browser impersonate cookie with value {}", newCookie.getValue());
+    }
+  }
+
+  public static void switchToAemContentFrame() {
+    Selenide.switchTo().defaultContent();
+    if (isUnifiedShellFrame() && AEM_FRAME.exists()) {
+      Selenide.switchTo().frame(US_AEM_FRAME);
+    }
+  }
+
+    public static boolean isUnifiedShellFrame() {
+      String currentURL = WebDriverRunner.getWebDriver().getCurrentUrl();
+      LOG.info("isUnifiedShellFrame {}", currentURL);
+      return currentURL.contains("/ui#/aem/");
+    }
 
 }

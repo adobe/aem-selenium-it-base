@@ -43,7 +43,7 @@ public final class UITest extends UIAbstractTest {
     protected static MockedAEMServer mockedAEMServer = MockedAEMServer.getInstance(DEFAULT_MOCKED_AEM_PORT);
 
     @BeforeEach
-    public void loginBeforeEach(final CQClient client, final URI baseURI) {
+    public void loginBeforeEach(final CQClient client, final URI baseURI) throws InterruptedException {
         LoginPage loginPage = new LoginPage(baseURI);
         loginPage.loginAs(client.getUser(), client.getPassword());
     }
