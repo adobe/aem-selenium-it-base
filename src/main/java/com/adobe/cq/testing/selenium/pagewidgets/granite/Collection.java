@@ -17,7 +17,7 @@
 package com.adobe.cq.testing.selenium.pagewidgets.granite;
 
 import com.adobe.cq.testing.selenium.Constants;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralCheckbox;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralColumnPreview;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralColumnviewItemThumbnail;
@@ -33,8 +33,9 @@ import static com.codeborne.selenide.Selenide.Wait;
 /**
  * The Collection component wrapper.
  */
-public class Collection extends BaseComponent {
+public class Collection extends AEMBaseComponent {
 
+    public static final String COLLECTION_ITEM_ID_ATTRIBUTE = "data-foundation-collection-item-id";
     public static final String DEFAULT_ITEM_SELECTOR_PATTERN = "%s .foundation-collection-item[data-foundation-collection-item-id='%s']";
     public static final String DEFAULT_ALLITEMS_SELECTOR = ".foundation-collection-item";
     private static final UnsupportedOperationException UNSUPPORTED_OPERATION = new UnsupportedOperationException("Unsupported operation");

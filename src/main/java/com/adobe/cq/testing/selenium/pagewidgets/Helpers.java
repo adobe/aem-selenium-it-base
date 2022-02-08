@@ -26,6 +26,32 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.net.URLCodec;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.sling.testing.clients.util.ResourceUtil;
+import org.awaitility.core.ConditionTimeoutException;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Cookie.Builder;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Cookie.Builder;
 import org.openqa.selenium.JavascriptExecutor;
@@ -130,13 +156,17 @@ public final class Helpers {
 
   /**
    * @param expectedUrl the pattern to find in the url.
+   * @param disableExpectedURLRewriting to switch of Unified Shell rewriting if possible (i.e. publish URL).
    * @return true if switchTo the window with the given URL matcher happened.
    */
-  public static boolean switchToURL(final String expectedUrl) {
+  public static boolean switchToURL(String expectedUrl, boolean disableExpectedURLRewriting) {
     final WebDriver webDriver = WebDriverRunner.getWebDriver();
     final String currentWindowHandle = webDriver.getWindowHandle();
     final Set<String> windowHandles = webDriver.getWindowHandles();
     boolean found = false;
+    if (!disableExpectedURLRewriting) {
+      expectedUrl = getExpectedURL(expectedUrl);
+    }
     for (String h : windowHandles) {
       webDriver.switchTo().window(h);
       found = webDriver.getCurrentUrl().contains(expectedUrl);
@@ -148,6 +178,28 @@ public final class Helpers {
       webDriver.switchTo().window(currentWindowHandle);
     }
     return found;
+  }
+
+  /**
+   * @param expectedUrl the pattern to find in the url.
+   * @return true if switchTo the window with the given URL matcher happened.
+   */
+  public static boolean switchToURL(String expectedUrl) {
+    return switchToURL(expectedUrl, false);
+  }
+
+  /**
+   * Rewrite provided url in case it is an adobeaemcloud URL depending on being on Unified Shell or not.
+   *
+   * @param url The URL to be adapted in case being on Unified Shell
+   * @return The adpated URL
+   */
+  public static String getExpectedURL(String url) {
+    if (isUnifiedShellFrame() && !url.contains("/ui#/aem/")) {
+      url = url.replace(".adobeaemcloud.com/", ".adobeaemcloud.com/ui#/aem/");
+      url = url.replace(".adobeaemcloud.net/", ".adobeaemcloud.net/ui#/aem/");
+    }
+    return url;
   }
 
   /**
@@ -350,24 +402,22 @@ public final class Helpers {
     Wait().until(webdriver -> assertMetricsIdled(pollingInterval, name));
   }
 
-  /**
-   * @param client force to set the affinity cookie on the browser to match the client one.
-   */
   public static void setAffinityCookie(final CQClient client) {
-    final org.apache.http.cookie.Cookie affinity = client.getCookieStore().getCookies().stream()
-        .filter(cookie -> cookie.getName().equals(CK_AFFINITY)).findFirst().orElse(null);
+    client.getCookieStore().getCookies().stream()
+            .filter(cookie -> cookie.getName().equals(CK_AFFINITY)).findFirst().ifPresent(c -> setAffinityCookie(c.getValue()));
+  }
+
+  /**
+   * @param affinity force to set the affinity cookie on the browser to match the client one.
+   */
+  public static void setAffinityCookie(final String affinity) {
     if (affinity != null) {
-      final Cookie existingCookie = WebDriverRunner.getWebDriver().manage()
-          .getCookieNamed(CK_AFFINITY);
-      if (existingCookie != null && !existingCookie.getValue().equals(affinity.getValue())) {
+      final Cookie existingCookie = getCookie(CK_AFFINITY);
+      if (existingCookie != null && !existingCookie.getValue().equals(affinity)) {
         LOG.info("Client affinity cookie and browser cookie have different value, synching ...");
-        Cookie newCookie = new Builder(CK_AFFINITY, affinity.getValue())
-            .domain(existingCookie.getDomain())
-            .expiresOn(existingCookie.getExpiry())
-            .isHttpOnly(existingCookie.isHttpOnly())
-            .isSecure(existingCookie.isSecure())
-            .path(existingCookie.getPath())
-            .build();
+        Cookie newCookie = new Builder(CK_AFFINITY, affinity).domain(existingCookie.getDomain())
+                .expiresOn(existingCookie.getExpiry()).isHttpOnly(existingCookie.isHttpOnly())
+                .isSecure(existingCookie.isSecure()).path(existingCookie.getPath()).build();
         WebDriverRunner.getWebDriver().manage().deleteCookieNamed(CK_AFFINITY);
         WebDriverRunner.getWebDriver().manage().addCookie(newCookie);
         LOG.info("Setting browser affinity cookie with value {}", newCookie.getValue());
@@ -403,6 +453,10 @@ public final class Helpers {
     }
   }
 
+  public static void removeImpersonateCookie() {
+    WebDriverRunner.getWebDriver().manage().deleteCookieNamed(CK_SUDO);
+  }
+
   public static void switchToAemContentFrame() {
     Selenide.switchTo().defaultContent();
     if (isUnifiedShellFrame() && AEM_FRAME.exists()) {
@@ -416,4 +470,22 @@ public final class Helpers {
       return currentURL.contains("/ui#/aem/");
     }
 
+  public static boolean waitIfPresentAtMost(final SelenideElement element, final long pacing, final long maxRetries) {
+    boolean present = false;
+    for (int i=0; i < maxRetries; i++) {
+      if(element.exists()) {
+        present = true;
+        break;
+      }
+      Selenide.sleep(pacing);
+    }
+    return present;
+  }
+
+  public static void executeIfPresent(final SelenideElement element, final long pacing, final long maxRetries,
+                                      final Runnable runnableCode) {
+    if (waitIfPresentAtMost(element, pacing, maxRetries) && runnableCode != null) {
+      runnableCode.run();
+    }
+  }
 }

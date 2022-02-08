@@ -16,7 +16,7 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.NoSuchElementException;
@@ -27,7 +27,7 @@ import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 
-public class InlineEditor extends BaseComponent {
+public class InlineEditor extends AEMBaseComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(InlineEditor.class);
 

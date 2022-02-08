@@ -38,10 +38,9 @@ public class BaseComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(BaseComponent.class);
 
-    private final String cssSelector;
-    private static final SelenideElement UI_MASK = $("div.foundation-ui-mask");
+    protected final String cssSelector;
 
-    private SelenideElement currentElement;
+    protected SelenideElement currentElement;
 
     /**
      * @param selector The full CSS selector that leads to the HTML element.
@@ -128,20 +127,6 @@ public class BaseComponent {
     }
 
     /**
-     * Wait that the foundation UI mask exist.
-     */
-    public void waitPageMasked() {
-        UI_MASK.should(Condition.exist);
-    }
-
-    /**
-     * Wait that the foundation UI mask doesn't exist.
-     */
-    public void waitPageUnmasked() {
-        UI_MASK.shouldNot(Condition.exist);
-    }
-
-    /**
      * Wait for the element to finish rendering.
      * This method might get extended with custom rules for
      * complex Components.
@@ -199,7 +184,7 @@ public class BaseComponent {
      */
     @SuppressWarnings({"unchecked"})
     public <T extends BaseComponent> T waitReady() {
-        CoralReady.waitCoralReady(cssSelector);
+        waitEnabled();
         return (T) this;
     }
 

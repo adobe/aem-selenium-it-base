@@ -16,15 +16,14 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.cq.RolloutDialog;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
-public class BlueprintTab extends BaseComponent {
+public class BlueprintTab extends AEMBaseComponent {
 
     private static final SelenideElement ROLLOUT = $("coral-actionbar-item .cq-siteadmin-admin-properties-actions-blueprint[href*='rollout']");
     private static final SelenideElement LIVECOPY_OVERVIEW = $("coral-actionbar-item .cq-siteadmin-admin-properties-actions-blueprint[href*='livecopies']");

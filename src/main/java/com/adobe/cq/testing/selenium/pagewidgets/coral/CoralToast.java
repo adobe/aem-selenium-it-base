@@ -17,10 +17,10 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.SelenideElement;
 
-public class CoralToast extends BaseComponent {
+public class CoralToast extends AEMBaseComponent {
 
 
   /**

@@ -16,7 +16,7 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralClock;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralPopOver;
 import com.codeborne.selenide.SelenideElement;
@@ -25,7 +25,7 @@ import com.codeborne.selenide.SelenideElement;
 /**
  * Page Object Model for Calendar Picker widget. (i.e when opening a Date/Time field).
  */
-public final class CalendarPicker extends BaseComponent {
+public final class CalendarPicker extends AEMBaseComponent {
 
     /**
      * @param name "name" attribute value of the corresponding picker element.

@@ -16,15 +16,14 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.Dialog;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 
-public class LiveCopyTab extends BaseComponent {
+public class LiveCopyTab extends AEMBaseComponent {
 
     private static final SelenideElement SYNCHRONIZE = $("coral-actionbar-item button[trackingelement='synchronize']");
     private static final SelenideElement RESET = $("coral-actionbar-item button[trackingelement='reset']");

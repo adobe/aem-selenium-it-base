@@ -16,13 +16,13 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.sidepanel;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 
 /**
  * Component class representing the side panel in editor page.
  */
-public class BaseSidePanel<V extends BaseSidePanel> extends BaseComponent {
+public class BaseSidePanel<V extends BaseSidePanel> extends AEMBaseComponent {
 
     private static final String SIDE_PANEL_OPENED_CLASS = "sidepanel-opened";
     private static final String SIDE_PANEL_CLOSED_CLASS = "sidepanel-closed";

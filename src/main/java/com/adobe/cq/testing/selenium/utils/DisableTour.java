@@ -20,6 +20,7 @@ import com.adobe.cq.testing.client.SecurityClient;
 import com.adobe.cq.testing.client.security.CQAuthorizableManager;
 import com.adobe.cq.testing.client.security.CQPreferences;
 import com.adobe.cq.testing.client.security.User;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
@@ -28,7 +29,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.sling.testing.clients.ClientException;
 import org.apache.sling.testing.clients.SlingClient;
-import org.codehaus.jackson.JsonNode;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;

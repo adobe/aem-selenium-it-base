@@ -16,10 +16,10 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralCheckbox;
 
-public class SocialMediaTab extends BaseComponent {
+public class SocialMediaTab extends AEMBaseComponent {
 
     /**
      * Construct a wrapper on SocialMediaTab panel content.

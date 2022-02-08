@@ -17,11 +17,13 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
-public class CoralCheckbox extends BaseComponent {
+import static com.codeborne.selenide.Selenide.$;
+
+public class CoralCheckbox extends AEMBaseComponent {
 
   /**
    * @param selector wrapping on this direct selector.
@@ -34,7 +36,15 @@ public class CoralCheckbox extends BaseComponent {
    * @param parent element in which the coral-checkbox is found.
    */
   public CoralCheckbox(final SelenideElement parent) {
-    super(parent.getSearchCriteria() + " coral-checkbox");
+    this(parent, "");
+  }
+
+  /**
+   * @param parent element in which the coral-checkbox is found.
+   * @param suffix a suffix to the default selector for coral-checkbox.
+   */
+  public CoralCheckbox(final SelenideElement parent, String suffix) {
+    super(parent.$("coral-checkbox"+suffix));
   }
 
   /**
@@ -51,10 +61,9 @@ public class CoralCheckbox extends BaseComponent {
     return element().has(Condition.attribute("indeterminate", "true"));
   }
 
-
   public CoralCheckbox setSelected(boolean selected) {
-	  this.element().$("input").setSelected(selected);
-	return this;
+    this.element().$("input").setSelected(selected);
+    return this;
   }
 
 }

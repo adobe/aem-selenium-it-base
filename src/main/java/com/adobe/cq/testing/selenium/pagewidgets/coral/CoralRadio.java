@@ -19,14 +19,14 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 
-public class CoralRadio extends BaseComponent {
+public class CoralRadio extends AEMBaseComponent {
 
   private final ElementsCollection radioElements;
 

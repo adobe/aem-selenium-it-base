@@ -17,11 +17,12 @@
 package com.adobe.cq.testing.selenium.pageobject.cq.sites;
 
 import com.adobe.cq.testing.selenium.pageobject.granite.BasePage;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralCheckbox;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralMultiField;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralPopOver;
 import com.adobe.cq.testing.selenium.pagewidgets.cq.sites.PageSelector;
+import com.adobe.cq.testing.selenium.utils.ExpectNav;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -83,12 +84,12 @@ public final class PropertiesPage extends BasePage {
         return sb.toString();
     }
 
-    public <T extends Object> T clickTab(final String tabName, final Class<T> clazz) {
+    public <T> T clickTab(final String tabName, final Class<T> clazz) {
         Optional<SelenideElement> tabElement = coralTabs.stream()
                 .filter(selenideElement -> selenideElement.getAttribute("data-foundation-tracking-event")
                         .contains(getTrackingElementName(tabName)))
                 .findFirst();
-        if (!tabElement.isPresent()) {
+        if (tabElement.isEmpty()) {
             throw new AssertionError("Couldn't find " + tabName);
         }
         final SelenideElement tElement = tabElement.get();
@@ -120,7 +121,7 @@ public final class PropertiesPage extends BasePage {
     }
 
     public void saveAndClose() {
-        clickableClick(saveCloseButton);
+        ExpectNav.on(() -> clickableClick(saveCloseButton));
     }
 
     public SelenideElement getBulkForm() {
@@ -199,7 +200,7 @@ public final class PropertiesPage extends BasePage {
              * @return the title field input element.
              */
             public SelenideElement toggleTitleInheritance() {
-                return new BaseComponent("a.cq-msm-property-toggle-inheritance[data-toggle-property-inheritance='jcr:title'] coral-icon").element();
+                return new AEMBaseComponent("a.cq-msm-property-toggle-inheritance[data-toggle-property-inheritance='jcr:title'] coral-icon").element();
             }
 
             /**

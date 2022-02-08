@@ -18,12 +18,12 @@ package com.adobe.cq.testing.selenium.pagewidgets.granite;
 
 import com.adobe.cq.testing.selenium.Constants;
 import com.adobe.cq.testing.selenium.pagewidgets.Helpers;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public final class Breadcrumbs extends BaseComponent {
+public final class Breadcrumbs extends AEMBaseComponent {
 
     private final String buttonSelector;
     private final String popoverSelector;

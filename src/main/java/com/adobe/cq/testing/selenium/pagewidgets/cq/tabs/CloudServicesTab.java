@@ -16,13 +16,13 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralSelect;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralSelectList;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class CloudServicesTab extends BaseComponent {
+public class CloudServicesTab extends AEMBaseComponent {
 
     private String addConfiguration = "placeholder='Add Configuration'";
 

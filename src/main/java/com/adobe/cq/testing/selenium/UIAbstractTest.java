@@ -16,114 +16,24 @@
 
 package com.adobe.cq.testing.selenium;
 
-import com.adobe.cq.testing.selenium.junit.annotations.UITest;
 import com.adobe.cq.testing.selenium.junit.annotations.SlingClientContext;
-import com.adobe.cq.testing.selenium.junit.extensions.BrowserProxyExtension;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
-import com.codeborne.selenide.logevents.LogEvent;
-import com.codeborne.selenide.logevents.LogEventListener;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import io.github.bonigarcia.seljup.Options;
-import io.github.bonigarcia.seljup.SeleniumExtension;
-import org.apache.commons.lang.StringUtils;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.RegisterExtension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.net.SocketException;
-import java.net.URISyntaxException;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import static com.adobe.cq.testing.selenium.Constants.DEFAUT_WEBDRIVER_TIMEOUT;
+import com.adobe.cq.testing.selenium.junit.annotations.AEMITBase;
+import org.apache.commons.lang3.StringUtils;
 
 @SlingClientContext
-@UITest
-public abstract class UIAbstractTest implements LogEventListener {
-
-    private static final AtomicInteger CAPTURE_COUNT = new AtomicInteger(0);
-    private Logger logger = LoggerFactory.getLogger(getClass());
-
-    @RegisterExtension
-    protected static BrowserProxyExtension browserProxyExtension = new BrowserProxyExtension();
-
-    @RegisterExtension
-    protected static SeleniumExtension seleniumExtension = new SeleniumExtension();
-
-    @BeforeAll
-    public static void setUpOnce() throws URISyntaxException, SocketException {
-    }
-
-    static {
-        Configuration.timeout = DEFAUT_WEBDRIVER_TIMEOUT;
-    }
-
-    @Options
-    ChromeOptions chromeOptions = new ChromeOptions();
-
-    public UIAbstractTest() {
-        if (browserProxyExtension.isEnabled()) {
-            chromeOptions.addArguments("--ignore-certificate-errors", "--user-data-dir=/tmp/insecurechrome");
-            final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-            desiredCapabilities.setCapability(CapabilityType.PROXY, browserProxyExtension.getSeleniumProxy());
-            chromeOptions.merge(desiredCapabilities);
-
-            if (!StringUtils.isEmpty(getUserTimeZone())) {
-                seleniumExtension.getConfig().setDockerTimeZone(getUserTimeZone());
-            }
-        }
-    }
-
-    @BeforeEach
-    @SuppressFBWarnings
-    public final void setUp(final WebDriver driver) {
-        WebDriverRunner.setWebDriver(driver);
-        driver.manage().window().maximize();
-        if (!SelenideLogger.hasListener("uitest")) {
-            SelenideLogger.addListener("uitest", this);
-        }
-    }
-
-    @AfterEach
-    public final void tearDown() {
-        dumpBrowserLogs();
-    }
-
-    @AfterAll
-    public static final void tearDownOnce() {
-    }
-
-    private void dumpBrowserLogs() {
-//        List<String> logs = Selenide.getWebDriverLogs(LogType.BROWSER);
-//        logger.error("================== BROWSER LOGS =======================");
-//        logs.forEach(entry -> logger.error(entry));
-//        logger.error("=======================================================");
-    }
-
-    @Override
-    public void afterEvent(final LogEvent logEvent) {
-        logger.info("subject={} element={} duration={} status={} error={}",
-            logEvent.getSubject(), logEvent.getElement(), logEvent.getDuration(), logEvent.getStatus(), logEvent.getError());
-    }
-
-    @Override
-    public void beforeEvent(final LogEvent logEvent) {
-        logger.info("subject={} element={}", logEvent.getSubject(), logEvent.getElement());
-    }
+@AEMITBase
+/**
+ * @deprecated Should no longer be used, instead classes should leverage the annotation AEMITBase
+ */
+@Deprecated(since="3.0", forRemoval = true)
+@SuppressWarnings({"java:S1610", "java:S1123", "java:S1133"})
+public abstract class UIAbstractTest {
 
     /**
      * If a Test requires to run in a different timezone, then this method can be overridden in the TestClass.
      * Note :- This works only when test is running in docker
-     * @return return the User Time Zone
+     * @return a string representing the selected timezone (i.e Europe/Amsterdam etc..)
+     * @deprecated Please use new UserTimeZone annotation to annotate your test class or test method
      */
     public String getUserTimeZone() {
         return StringUtils.EMPTY;

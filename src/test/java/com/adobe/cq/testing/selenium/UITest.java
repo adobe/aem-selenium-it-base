@@ -17,7 +17,10 @@
 package com.adobe.cq.testing.selenium;
 
 import com.adobe.cq.testing.client.CQClient;
+import com.adobe.cq.testing.selenium.junit.annotations.SlingClientConfig;
 import com.adobe.cq.testing.selenium.junit.annotations.DisableTourConfig;
+import com.adobe.cq.testing.selenium.junit.annotations.AEMITBase;
+import com.adobe.cq.testing.selenium.junit.annotations.UserTimeZone;
 import com.adobe.cq.testing.selenium.mock.MockedAEMServer;
 import com.adobe.cq.testing.selenium.pageobject.PageEditorPage;
 import com.adobe.cq.testing.selenium.pageobject.cq.sites.SitesPage;
@@ -35,12 +38,16 @@ import org.mockserver.model.HttpRequest;
 import java.net.URI;
 
 import static com.adobe.cq.testing.selenium.TestConstants.DEFAULT_MOCKED_AEM_PORT;
+import static org.mockserver.model.HttpRequest.request;
 
+@AEMITBase
+@SlingClientConfig(port = DEFAULT_MOCKED_AEM_PORT)
 @DisableTourConfig(includeDefault = false)
+@UserTimeZone(tz = "Asia/Kolkata")
 public final class UITest extends UIAbstractTest {
 
     @RegisterExtension
-    protected static MockedAEMServer mockedAEMServer = MockedAEMServer.getInstance(DEFAULT_MOCKED_AEM_PORT);
+    static MockedAEMServer mockedAEMServer = MockedAEMServer.getInstance(DEFAULT_MOCKED_AEM_PORT);
 
     @BeforeEach
     public void loginBeforeEach(final CQClient client, final URI baseURI) throws InterruptedException {
@@ -61,7 +68,7 @@ public final class UITest extends UIAbstractTest {
     }
 
     private void verifyJSCoverageCalls() {
-        mockedAEMServer.getClient().verify(HttpRequest.request().withPath("/bin/jscover/store"));
+        mockedAEMServer.getClient().verify(request().withPath("/bin/jscover/store"));
     }
 
     @Test
@@ -73,7 +80,7 @@ public final class UITest extends UIAbstractTest {
     }
 
     @Test
-    @DisplayName("EditorPage is ready")
+    @UserTimeZone(tz = "Europe/Amsterdam")
     public void assertEditorPageReady() {
         PageEditorPage editorPage = new PageEditorPage("/content/some/page");
         editorPage.open();

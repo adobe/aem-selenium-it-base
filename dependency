@@ -1,0 +1,228 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.adobe.cq:aem-selenium-it-base:jar:0.2.23-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.commons:commons-exec:jar -> duplicate declaration of version 1.3 @ line 249, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------------< com.adobe.cq:aem-selenium-it-base >------------------
+[INFO] Building Testing with Selenium Base classes 0.2.23-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ aem-selenium-it-base ---
+[INFO] com.adobe.cq:aem-selenium-it-base:jar:0.2.23-SNAPSHOT
+[INFO] +- com.codeborne:selenide:jar:6.1.2:compile
+[INFO] |  +- org.seleniumhq.selenium:selenium-java:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-api:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-chrome-driver:jar:4.1.1:compile
+[INFO] |  |  |  +- com.google.auto.service:auto-service-annotations:jar:1.0.1:compile
+[INFO] |  |  |  +- com.google.auto.service:auto-service:jar:1.0.1:compile
+[INFO] |  |  |  |  \- com.google.auto:auto-common:jar:1.2:compile
+[INFO] |  |  |  +- org.seleniumhq.selenium:selenium-chromium-driver:jar:4.1.1:compile
+[INFO] |  |  |  \- org.seleniumhq.selenium:selenium-json:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-devtools-v85:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-devtools-v94:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-devtools-v95:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-devtools-v96:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-edge-driver:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-firefox-driver:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-firefox-xpi-driver:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-ie-driver:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-opera-driver:jar:4.1.1:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-remote-driver:jar:4.1.1:compile
+[INFO] |  |  |  +- com.beust:jcommander:jar:1.81:compile
+[INFO] |  |  |  +- io.opentelemetry:opentelemetry-api:jar:1.9.1:compile
+[INFO] |  |  |  +- io.opentelemetry:opentelemetry-context:jar:1.9.1:compile
+[INFO] |  |  |  +- io.opentelemetry:opentelemetry-exporter-logging:jar:1.9.1:compile
+[INFO] |  |  |  |  +- io.opentelemetry:opentelemetry-sdk-metrics:jar:1.9.1-alpha:compile
+[INFO] |  |  |  |  \- io.opentelemetry:opentelemetry-sdk-logs:jar:1.9.1-alpha:compile
+[INFO] |  |  |  +- io.opentelemetry:opentelemetry-sdk-common:jar:1.9.1:compile
+[INFO] |  |  |  +- io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:jar:1.9.1:compile
+[INFO] |  |  |  +- io.opentelemetry:opentelemetry-sdk-extension-autoconfigure:jar:1.9.1-alpha:compile
+[INFO] |  |  |  +- io.opentelemetry:opentelemetry-sdk-trace:jar:1.9.1:compile
+[INFO] |  |  |  |  \- io.opentelemetry:opentelemetry-api-metrics:jar:1.9.1-alpha:compile
+[INFO] |  |  |  +- io.opentelemetry:opentelemetry-sdk:jar:1.9.1:compile
+[INFO] |  |  |  +- io.opentelemetry:opentelemetry-semconv:jar:1.9.1-alpha:compile
+[INFO] |  |  |  +- io.ous:jtoml:jar:2.0.0:compile
+[INFO] |  |  |  +- org.asynchttpclient:async-http-client:jar:2.12.3:compile
+[INFO] |  |  |  |  +- org.asynchttpclient:async-http-client-netty-utils:jar:2.12.3:compile
+[INFO] |  |  |  |  +- org.reactivestreams:reactive-streams:jar:1.0.3:compile
+[INFO] |  |  |  |  +- com.typesafe.netty:netty-reactive-streams:jar:2.0.4:compile
+[INFO] |  |  |  |  \- com.sun.activation:jakarta.activation:jar:1.2.2:compile
+[INFO] |  |  |  \- org.seleniumhq.selenium:selenium-http:jar:4.1.1:compile
+[INFO] |  |  |     \- net.jodah:failsafe:jar:2.4.4:compile
+[INFO] |  |  +- org.seleniumhq.selenium:selenium-safari-driver:jar:4.1.1:compile
+[INFO] |  |  \- org.seleniumhq.selenium:selenium-support:jar:4.1.1:compile
+[INFO] |  \- com.codeborne:selenide-core:jar:6.1.2:compile
+[INFO] |     +- org.opentest4j:opentest4j:jar:1.2.0:compile
+[INFO] |     \- org.apache.commons:commons-compress:jar:1.21:compile
+[INFO] +- net.lightbody.bmp:browsermob-core:jar:2.1.5:compile
+[INFO] |  +- net.lightbody.bmp:littleproxy:jar:1.1.0-beta-bmp-17:compile
+[INFO] |  +- dnsjava:dnsjava:jar:2.1.8:compile
+[INFO] |  +- org.slf4j:jcl-over-slf4j:jar:1.7.25:compile
+[INFO] |  +- com.jcraft:jzlib:jar:1.1.3:compile
+[INFO] |  +- org.bouncycastle:bcprov-jdk15on:jar:1.58:compile
+[INFO] |  +- org.bouncycastle:bcpkix-jdk15on:jar:1.58:compile
+[INFO] |  \- net.lightbody.bmp:mitm:jar:2.1.5:compile
+[INFO] +- io.netty:netty-all:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-buffer:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-dns:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-haproxy:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-http:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-http2:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-memcache:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-mqtt:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-redis:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-smtp:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-socks:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-stomp:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-codec-xml:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-common:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-handler:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-tcnative-classes:jar:2.0.46.Final:compile
+[INFO] |  +- io.netty:netty-handler-proxy:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-resolver:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-resolver-dns:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport-rxtx:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport-sctp:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport-udt:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport-classes-epoll:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport-native-unix-common:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport-classes-kqueue:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-resolver-dns-classes-macos:jar:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport-native-epoll:jar:linux-aarch_64:4.1.72.Final:runtime
+[INFO] |  +- io.netty:netty-transport-native-kqueue:jar:osx-x86_64:4.1.72.Final:compile
+[INFO] |  +- io.netty:netty-transport-native-kqueue:jar:osx-aarch_64:4.1.72.Final:runtime
+[INFO] |  +- io.netty:netty-resolver-dns-native-macos:jar:osx-x86_64:4.1.72.Final:runtime
+[INFO] |  \- io.netty:netty-resolver-dns-native-macos:jar:osx-aarch_64:4.1.72.Final:runtime
+[INFO] +- org.junit.jupiter:junit-jupiter:jar:5.7.2:compile
+[INFO] |  +- org.junit.jupiter:junit-jupiter-api:jar:5.7.2:compile
+[INFO] |  |  \- org.junit.platform:junit-platform-commons:jar:1.7.2:compile
+[INFO] |  \- org.junit.jupiter:junit-jupiter-params:jar:5.7.2:compile
+[INFO] +- org.junit.jupiter:junit-jupiter-engine:jar:5.7.2:compile
+[INFO] |  +- org.apiguardian:apiguardian-api:jar:1.1.0:compile
+[INFO] |  \- org.junit.platform:junit-platform-engine:jar:1.7.2:compile
+[INFO] +- org.slf4j:jul-to-slf4j:jar:1.7.32:test
+[INFO] +- org.slf4j:slf4j-api:jar:2.0.0-alpha0:compile
+[INFO] +- ch.qos.logback:logback-classic:jar:1.2.8:test
+[INFO] |  \- ch.qos.logback:logback-core:jar:1.2.8:test
+[INFO] +- io.github.bonigarcia:webdrivermanager:jar:5.0.4-597abeba-0001:compile
+[INFO] |  +- com.google.code.gson:gson:jar:2.8.9:compile
+[INFO] |  +- org.jsoup:jsoup:jar:1.14.3:compile
+[INFO] |  +- com.github.docker-java:docker-java:jar:3.2.12:compile
+[INFO] |  |  \- com.github.docker-java:docker-java-core:jar:3.2.12:compile
+[INFO] |  |     \- com.github.docker-java:docker-java-api:jar:3.2.12:compile
+[INFO] |  \- org.brotli:dec:jar:0.1.2:compile
+[INFO] +- com.github.docker-java:docker-java-transport-httpclient5:jar:3.2.12-c80d272:compile
+[INFO] |  +- com.github.docker-java:docker-java-transport:jar:3.2.12-c80d272:compile
+[INFO] |  +- org.apache.httpcomponents.client5:httpclient5:jar:5.0.3:compile
+[INFO] |  |  \- org.apache.httpcomponents.core5:httpcore5:jar:5.0.2:compile
+[INFO] |  \- net.java.dev.jna:jna:jar:5.8.0:compile
+[INFO] +- org.mock-server:mockserver-junit-jupiter:jar:5.11.2:test
+[INFO] |  \- org.mock-server:mockserver-netty:jar:5.11.2:test
+[INFO] +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] +- commons-io:commons-io:jar:2.5:compile
+[INFO] +- org.apache.commons:commons-lang3:jar:3.12.0:compile
+[INFO] +- org.mock-server:mockserver-client-java:jar:5.11.2:test
+[INFO] +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] +- org.mock-server:mockserver-core:jar:5.11.2:test
+[INFO] |  +- com.lmax:disruptor:jar:3.4.2:test
+[INFO] |  +- javax.servlet:javax.servlet-api:jar:4.0.1:compile
+[INFO] |  +- com.fasterxml.uuid:java-uuid-generator:jar:4.0.1:test
+[INFO] |  +- org.apache.velocity:velocity-engine-scripting:jar:2.2:test
+[INFO] |  +- org.apache.velocity:velocity-engine-core:jar:2.2:test
+[INFO] |  +- net.javacrumbs.json-unit:json-unit-core:jar:2.19.0:test
+[INFO] |  +- com.github.java-json-tools:json-schema-validator:jar:2.2.14:test
+[INFO] |  |  +- com.github.java-json-tools:jackson-coreutils-equivalence:jar:1.0:test
+[INFO] |  |  |  \- com.github.java-json-tools:jackson-coreutils:jar:2.0:test
+[INFO] |  |  |     \- com.github.java-json-tools:msg-simple:jar:1.2:test
+[INFO] |  |  |        \- com.github.java-json-tools:btf:jar:1.3:test
+[INFO] |  |  +- com.github.java-json-tools:json-schema-core:jar:1.2.14:test
+[INFO] |  |  |  +- com.github.java-json-tools:uri-template:jar:0.10:test
+[INFO] |  |  |  \- org.mozilla:rhino:jar:1.7.7.2:test
+[INFO] |  |  +- com.sun.mail:mailapi:jar:1.6.2:test
+[INFO] |  |  +- com.googlecode.libphonenumber:libphonenumber:jar:8.11.1:test
+[INFO] |  |  \- net.sf.jopt-simple:jopt-simple:jar:5.0.4:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO] |  |  \- net.minidev:json-smart:jar:2.3:test
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.2:test
+[INFO] |  |        \- org.ow2.asm:asm:jar:5.0.4:test
+[INFO] |  +- io.swagger.parser.v3:swagger-parser:jar:2.0.23:test
+[INFO] |  |  +- io.swagger.parser.v3:swagger-parser-v2-converter:jar:2.0.23:test
+[INFO] |  |  |  +- io.swagger:swagger-core:jar:1.6.2:test
+[INFO] |  |  |  |  +- io.swagger:swagger-models:jar:1.6.2:test
+[INFO] |  |  |  |  |  \- io.swagger:swagger-annotations:jar:1.6.2:test
+[INFO] |  |  |  |  \- javax.validation:validation-api:jar:1.1.0.Final:test
+[INFO] |  |  |  +- io.swagger:swagger-parser:jar:1.0.52:test
+[INFO] |  |  |  |  \- org.slf4j:slf4j-ext:jar:1.7.28:test
+[INFO] |  |  |  +- io.swagger:swagger-compat-spec-parser:jar:1.0.52:test
+[INFO] |  |  |  +- io.swagger.core.v3:swagger-models:jar:2.1.5:test
+[INFO] |  |  |  \- io.swagger.parser.v3:swagger-parser-core:jar:2.0.23:test
+[INFO] |  |  \- io.swagger.parser.v3:swagger-parser-v3:jar:2.0.23:test
+[INFO] |  |     +- io.swagger.core.v3:swagger-core:jar:2.1.5:test
+[INFO] |  |     |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.11.1:test
+[INFO] |  |     |  +- io.swagger.core.v3:swagger-annotations:jar:2.1.5:test
+[INFO] |  |     |  \- jakarta.validation:jakarta.validation-api:jar:2.0.2:test
+[INFO] |  |     \- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.11.1:test
+[INFO] |  |        \- org.yaml:snakeyaml:jar:1.26:test
+[INFO] |  +- javax.xml.bind:jaxb-api:jar:2.4.0-b180830.0359:test
+[INFO] |  |  \- javax.activation:javax.activation-api:jar:1.2.0:test
+[INFO] |  +- org.xmlunit:xmlunit-core:jar:2.8.0:test
+[INFO] |  |  \- jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.3:test
+[INFO] |  |     \- jakarta.activation:jakarta.activation-api:jar:1.2.2:test
+[INFO] |  +- org.xmlunit:xmlunit-placeholders:jar:2.8.0:test
+[INFO] |  +- org.apache.commons:commons-text:jar:1.9:test
+[INFO] |  \- commons-codec:commons-codec:jar:1.15:compile
+[INFO] +- org.apache.sling:org.apache.sling.testing.clients:jar:3.0.6:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.4.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpmime:jar:4.4.1:compile
+[INFO] |  +- org.apache.sling:org.apache.sling.xss:jar:2.2.16:compile
+[INFO] |  +- org.ops4j.pax.tinybundles:tinybundles:jar:3.0.0:compile
+[INFO] |  |  +- org.ops4j.base:ops4j-base-store:jar:1.5.0:compile
+[INFO] |  |  |  \- org.ops4j.base:ops4j-base-io:jar:1.5.0:compile
+[INFO] |  |  |     +- org.ops4j.base:ops4j-base-lang:jar:1.5.0:compile
+[INFO] |  |  |     \- org.ops4j.base:ops4j-base-monitors:jar:1.5.0:compile
+[INFO] |  |  \- biz.aQute.bnd:biz.aQute.bndlib:jar:3.5.0:compile
+[INFO] |  +- org.apache.sling:org.apache.sling.hapi.client:jar:1.0.0:compile
+[INFO] |  +- org.apache.sling:org.apache.sling.api:jar:2.23.6:compile
+[INFO] |  |  \- org.jetbrains:annotations:jar:16.0.2:compile
+[INFO] |  +- javax.servlet:servlet-api:jar:2.5:compile
+[INFO] |  \- org.osgi:org.osgi.compendium:jar:5.0.0:compile
+[INFO] +- org.codehaus.jackson:jackson-core-asl:jar:1.5.5:compile
+[INFO] +- com.github.spotbugs:spotbugs-annotations:jar:3.1.12:compile
+[INFO] +- com.deque:axe-selenium:jar:3.0:compile
+[INFO] |  \- org.json:json:jar:20160212:compile
+[INFO] +- com.adobe.cq:aem-cloud-testing-clients:jar:1.0.3:compile
+[INFO] |  +- org.apache.sling:org.apache.sling.testing.rules:jar:2.0.0:compile
+[INFO] |  |  \- org.apache.sling:org.apache.sling.testing.serversetup:jar:1.0.1:compile
+[INFO] |  +- joda-time:joda-time:jar:2.10.13:compile
+[INFO] |  +- org.apache.taglibs:taglibs-standard-impl:jar:1.2.5:compile
+[INFO] |  \- javax.jcr:jcr:jar:2.0:compile
+[INFO] +- junit:junit:jar:4.13.1:compile
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:compile
+[INFO] +- org.apache.commons:commons-exec:jar:1.3:compile
+[INFO] +- com.google.guava:guava:jar:30.0-jre:compile
+[INFO] |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  +- org.checkerframework:checker-qual:jar:3.5.0:compile
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.3.4:compile
+[INFO] |  \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.11.3:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.11.3:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-annotations:jar:2.11.3:compile
+[INFO] \- org.awaitility:awaitility:jar:4.1.1:compile
+[INFO]    \- org.hamcrest:hamcrest:jar:2.1:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.112 s
+[INFO] Finished at: 2022-02-04T17:21:59+05:30
+[INFO] ------------------------------------------------------------------------

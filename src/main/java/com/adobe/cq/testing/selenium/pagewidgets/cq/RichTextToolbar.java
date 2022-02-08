@@ -16,14 +16,14 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class RichTextToolbar extends BaseComponent {
+public class RichTextToolbar extends AEMBaseComponent {
 
     private static final String CSS_SELECTOR = ".rte-toolbar";
 

@@ -16,14 +16,14 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq.sites;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$;
 
-public class PageSelector extends BaseComponent {
+public class PageSelector extends AEMBaseComponent {
 
     private final SelenideElement selectAllButton = $("[labelled='Select All'] [handle='input']");
 

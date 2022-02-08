@@ -17,10 +17,10 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralSelectList;
 
-public class StylesSelector extends BaseComponent {
+public class StylesSelector extends AEMBaseComponent {
 
     private static final String CSS_SELECTOR_PAGE = "coral-popover[data-editor-styleselector-type='page']";
     private static final String CSS_SELECTOR_COMPONENT = "coral-popover[data-editor-styleselector-type='component']";

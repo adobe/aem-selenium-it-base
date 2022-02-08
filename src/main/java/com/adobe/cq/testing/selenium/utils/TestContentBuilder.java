@@ -23,6 +23,7 @@ import com.adobe.cq.testing.client.security.Group;
 import com.adobe.cq.testing.client.security.User;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpStatus;
+import org.apache.http.cookie.Cookie;
 import org.apache.sling.testing.clients.ClientException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -91,6 +92,7 @@ public final class TestContentBuilder {
     private String defaultPassword;
     private User defaultUser;
     private CQClient userClient;
+    private String impersonator;
 
     private boolean withEmptyTemplateEnabled;
     private boolean withDefaultPoliciesEnabled;
@@ -176,44 +178,57 @@ public final class TestContentBuilder {
         return this;
     }
 
+    public TestContentBuilder withImpersonator(final String impersonator) {
+        this.impersonator = impersonator;
+        return this;
+    }
+
     /**
      * - To be called when test content is no longer required. Usually in an after test handler.
      * See also [TestContentExtension](../junit5/extension/TestContentExtension.html).
      * - It will clean from all the root paths created, and it will also include the related /var/audits/... .
      * To make sure it doesn't leave garbages there as well.
      *
-     * @throws ClientException if the request fails
-     * @throws InterruptedException if waiting was interrupted
+     * @throws TestContentBuilderException in case of any issues while disposing of content.
      */
-    public void dispose() throws ClientException, InterruptedException {
-        if (cqConfigPath != null) {
-            LOGGER.info(CLEANING_MSG, cqConfigPath);
-            client.deletePageWithRetry(cqConfigPath, true, false, DEFAULT_TIMEOUT, DEFAULT_RETRY_DELAY, HttpStatus.SC_OK);
-            cleanupAudit(cqConfigPath);
-        }
-        if (damRootPath != null) {
-            LOGGER.info(CLEANING_MSG, damRootPath);
-            client.deletePageWithRetry(damRootPath, true, false, DEFAULT_TIMEOUT, DEFAULT_RETRY_DELAY, HttpStatus.SC_OK);
-            cleanupAudit(damRootPath);
-        }
-        if (contentRootPath != null) {
-            LOGGER.info(CLEANING_MSG, contentRootPath);
-            client.deletePageWithRetry(contentRootPath, true, false, DEFAULT_TIMEOUT, DEFAULT_RETRY_DELAY, HttpStatus.SC_OK);
-            cleanupAudit(contentRootPath);
-        }
-
-        if (parentTag != null) {
-            LOGGER.info(CLEANING_TAG_MSG, parentTag);
-            TagClient tagClient = client.adaptTo(TagClient.class);
-            tagClient.deleteTag(parentTag);
-        }
-        if (defaultUser != null) {
-            deleteGroups();
-            deleteUser(defaultUser, defaultGroups.toArray(new String[0]));
-            deletePathRetries(HOME_USERS + getLabel());
-            deletePathRetries(HOME_GROUPS + getLabel());
+    @SuppressWarnings("java:S2139")
+    public void dispose() throws TestContentBuilderException {
+        try {
+            if (cqConfigPath != null) {
+                LOGGER.info(CLEANING_MSG, cqConfigPath);
+                client.deletePageWithRetry(cqConfigPath, true, false, DEFAULT_TIMEOUT, DEFAULT_RETRY_DELAY, HttpStatus.SC_OK);
+                cleanupAudit(cqConfigPath);
+            }
+            if (damRootPath != null) {
+                LOGGER.info(CLEANING_MSG, damRootPath);
+                client.deletePageWithRetry(damRootPath, true, false, DEFAULT_TIMEOUT, DEFAULT_RETRY_DELAY, HttpStatus.SC_OK);
+                cleanupAudit(damRootPath);
+            }
+            if (contentRootPath != null) {
+                LOGGER.info(CLEANING_MSG, contentRootPath);
+                client.deletePageWithRetry(contentRootPath, true, false, DEFAULT_TIMEOUT, DEFAULT_RETRY_DELAY, HttpStatus.SC_OK);
+                cleanupAudit(contentRootPath);
+            }
+            if (parentTag != null) {
+                LOGGER.info(CLEANING_TAG_MSG, parentTag);
+                TagClient tagClient = client.adaptTo(TagClient.class);
+                tagClient.deleteTag(parentTag);
+            }
+            if (defaultUser != null) {
+                deleteGroups();
+                deleteUser(defaultUser, defaultGroups.toArray(new String[0]));
+                deletePathRetries(HOME_USERS + getLabel());
+                deletePathRetries(HOME_GROUPS + getLabel());
+            }
+        } catch (InterruptedException e) {
+            LOGGER.error("Interrupted while building test content", e);
+            Thread.currentThread().interrupt();
+        } catch (ClientException e) {
+            LOGGER.error("Error while building test content", e);
+            throw new TestContentBuilderException("An error occured while disposing test content", e);
         }
     }
+
 
     private void deletePathRetries(final String path) {
         LOGGER.info("Delete {} with retries", path);
@@ -249,8 +264,16 @@ public final class TestContentBuilder {
         createDefaultPageTemplate();
         createDamRoot();
         createContentRoot();
+        allowImsUserImpersonator();
         createDefaultTags();
         createDefaultUser();
+    }
+
+    private void allowImsUserImpersonator() {
+        String imsUser = System.getenv("IMS_USER");
+        if (imsUser != null) {
+            impersonator = imsUser;
+        }
     }
 
     private void createDamRoot() throws ClientException {
@@ -284,17 +307,28 @@ public final class TestContentBuilder {
 
     public User createUniqueUser(final String username, final String password, final String... groups)
             throws ClientException, InterruptedException {
-        User newUser = getCqSecurityClient().createUser(username + "_" + randomSmallText(), password, getLabel(), null, null, HttpStatus.SC_CREATED);
+        CQSecurityClient sClient = getCqSecurityClient();
+        User newUser = sClient.createUser(
+                username + "_" + randomSmallText(),
+                password,
+                getLabel(),
+                null,
+                null,
+                HttpStatus.SC_CREATED
+        );
         LOGGER.info("Created user {} at path {}", newUser.getId(), newUser.getHomePath());
-        final CQAuthorizableManager manager = getCqSecurityClient().getManager();
+        final CQAuthorizableManager manager = sClient.getManager();
         for (String groupName : groups) {
             final Group group = manager.getGroup(groupName);
             await().ignoreExceptions().untilAsserted(() -> group.addMember(newUser));
             LOGGER.info("added {} to group {}", newUser.getId(), group.getId());
         }
+        if (impersonator != null) {
+            User[] impersonators = { new User(sClient, this.impersonator) };
+            newUser.addImpersonators(impersonators);
+        }
         return newUser;
     }
-
 
 
     private void createDefaultPageTemplate() throws ClientException, IOException {
@@ -427,6 +461,25 @@ public final class TestContentBuilder {
     }
 
     /**
+     * @return the current affinity cookie if available on client, null otherwise.
+     */
+    public Cookie getAffinityCookie() {
+        return client.getCookieStore().getCookies()
+                .stream()
+                .filter(c -> c.getName().equals("affinity"))
+                .findFirst()
+                .orElse(null);
+    }
+
+    /**
+     * @return the current affinity value if available on client, null otherwise.
+     */
+    public String getAffinity() {
+        Cookie affinityCookie = getAffinityCookie();
+        return affinityCookie != null ? affinityCookie.getValue():null;
+    }
+
+    /**
      * @return client based on the constructor CQClient.
      * @throws ClientException if the request fails
      */
@@ -434,5 +487,11 @@ public final class TestContentBuilder {
         return client.adaptTo(CQSecurityClient.class);
     }
 
+    public static class TestContentBuilderException extends Exception {
+
+        public TestContentBuilderException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
 
 }

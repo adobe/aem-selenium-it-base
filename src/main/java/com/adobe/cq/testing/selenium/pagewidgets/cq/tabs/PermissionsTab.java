@@ -16,7 +16,7 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralCheckbox;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.Dialog;
 import com.adobe.cq.testing.selenium.pagewidgets.cq.AutoCompleteField;
@@ -28,7 +28,7 @@ import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public final class PermissionsTab extends BaseComponent {
+public final class PermissionsTab extends AEMBaseComponent {
 
   private static final SelenideElement ADD_PERMISSION = $("button.js-cq-sites-AddPermissionsDialog-show");
   private static final SelenideElement EDIT_CUG = $("button.js-cq-sites-ClosedUserGroupDialog-show");

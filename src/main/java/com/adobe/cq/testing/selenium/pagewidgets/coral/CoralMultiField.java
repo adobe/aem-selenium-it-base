@@ -17,7 +17,7 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
@@ -27,7 +27,7 @@ import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.actions;
 import static com.codeborne.selenide.Selenide.sleep;
 
-public class CoralMultiField extends BaseComponent {
+public class CoralMultiField extends  AEMBaseComponent {
 
   private static final String SELECTOR_PATTERN = "coral-multifield[data-granite-coral-multifield-name=\"%s\"]";
   private static final int SMALL_DELAY = 250;
@@ -68,7 +68,7 @@ public class CoralMultiField extends BaseComponent {
     return items.stream().map(i -> new MultiFieldItem(i));
   }
 
-  public final class MultiFieldItem extends BaseComponent {
+  public final class MultiFieldItem extends AEMBaseComponent {
     /**
      * @param itemElement the item element to wrap this on.
      */

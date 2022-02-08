@@ -23,6 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.*;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 public final class Network {
@@ -41,13 +42,19 @@ public final class Network {
      * @throws SocketException    exception
      * @throws URISyntaxException exception
      */
+    @SuppressWarnings({"java:S5304"})
     public static URI getRebasedURL(final URI originalURI) throws SocketException, URISyntaxException {
         URIBuilder uriBuilder = new URIBuilder(originalURI);
         String host = originalURI.getHost();
         if ("localhost".equals(host) || host.indexOf('.') < 0) {
-            String firstLocalIP = System.getProperty(USE_IP_PROPERTY, getFirstLocalIP());
-            if (firstLocalIP != null) {
-                uriBuilder.setHost(firstLocalIP);
+            String envIP = System.getenv("IP");
+            if (envIP != null) {
+                uriBuilder.setHost(envIP);
+            } else {
+                String firstLocalIP = System.getProperty(USE_IP_PROPERTY, getFirstLocalIP());
+                if (firstLocalIP != null) {
+                    uriBuilder.setHost(firstLocalIP);
+                }
             }
         }
         uriBuilder.setPath(StringUtils.removeEnd(originalURI.getPath(), "/"));
@@ -70,21 +77,24 @@ public final class Network {
     }
 
     private static String getFirstLocalIP() throws SocketException {
-        String firstIP = null;
         Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-        while (firstIP == null && networkInterfaces.hasMoreElements()) {
+        ArrayList<String> possibleIPs = new ArrayList<>();
+        while (networkInterfaces.hasMoreElements()) {
             NetworkInterface networkInterface = networkInterfaces.nextElement();
+            if (!networkInterface.isUp()) {
+                continue;
+            }
             Enumeration<InetAddress> inetAddresses = networkInterface.getInetAddresses();
-            while (firstIP == null && inetAddresses.hasMoreElements()) {
+            while (inetAddresses.hasMoreElements()) {
                 InetAddress inetAddress = inetAddresses.nextElement();
                 if (inetAddress instanceof Inet4Address) {
                     String hostAddress = inetAddress.getHostAddress();
-                    if (hostAddress.startsWith("192.168.")) {
-                        firstIP = hostAddress;
+                    if (hostAddress.startsWith("192.168.")||hostAddress.startsWith("10.")) {
+                        possibleIPs.add(hostAddress);
                     }
                 }
             }
         }
-        return firstIP;
+        return possibleIPs.stream().sorted().findFirst().orElseThrow();
     }
 }

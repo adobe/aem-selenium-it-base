@@ -16,11 +16,11 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-public class CoralColumnPreview extends BaseComponent {
+public class CoralColumnPreview extends AEMBaseComponent {
 
   /**
    * The column preview element.

@@ -18,7 +18,7 @@ package com.adobe.cq.testing.selenium.pagewidgets.granite;
 
 import com.adobe.cq.testing.selenium.Constants;
 import com.adobe.cq.testing.selenium.pageobject.granite.ViewType;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
@@ -27,7 +27,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * The collection switcher component wrapper.
  */
-public class CollectionSwitcher extends BaseComponent {
+public class CollectionSwitcher extends AEMBaseComponent {
 
     private static final String SWITCHER_ICON_PLACEHOLDER = "%icon%";
     private final String viewButtonSelector;

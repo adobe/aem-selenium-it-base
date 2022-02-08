@@ -28,6 +28,7 @@ import org.openqa.selenium.Keys;
 
 import java.net.URI;
 
+import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.setAffinityCookie;
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -121,8 +122,23 @@ public final class LoginPage extends BasePage {
      * @param password Custom valid AEM password.
      * @return this object.
      */
-    public StartPage loginAs(final String username, final String password) throws InterruptedException {
+    public StartPage loginAs(final String username, final String password) {
+        return loginAs(username, password, null);
+    }
+
+    /**
+     * Login with a custom username and password, and forcing affinity cookie.
+     *
+     * @param username Custom valid AEM username.
+     * @param password Custom valid AEM password.
+     * @param affinity Value to set in the cookie store, if null it is ignored.
+     * @return this object.
+     */
+    public StartPage loginAs(final String username, final String password, final String affinity) {
         final StartPage startPage = new StartPage();
+        if (affinity != null) {
+            setAffinityCookie(affinity);
+        }
         if (!LoginPage.isLoggedIn()) {
             open();
             if (IMS_USER != null) {

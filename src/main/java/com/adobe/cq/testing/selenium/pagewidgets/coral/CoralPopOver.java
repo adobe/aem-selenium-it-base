@@ -16,14 +16,14 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.SelenideElement;
 
 import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Selenide.$$;
 
-public final class CoralPopOver extends BaseComponent {
+public final class CoralPopOver extends AEMBaseComponent {
 
     public static final String CORAL_POPOVER_IS_OPEN = "coral-popover.is-open";
 
