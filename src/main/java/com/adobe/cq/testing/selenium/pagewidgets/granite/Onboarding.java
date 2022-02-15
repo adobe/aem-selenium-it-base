@@ -17,14 +17,13 @@
 package com.adobe.cq.testing.selenium.pagewidgets.granite;
 
 import com.adobe.cq.testing.selenium.pagewidgets.Helpers;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.Constants.EXISTS_ENABLED_VISIBLE;
-import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.waitForElementAnimationFinished;
 
-public class Onboarding extends BaseComponent {
+public class Onboarding extends AEMBaseComponent {
 
     /**
      * Construct a OnboardingComponent.

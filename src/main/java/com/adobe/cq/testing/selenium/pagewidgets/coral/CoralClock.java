@@ -16,10 +16,10 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.SelenideElement;
 
-public class CoralClock extends BaseComponent {
+public class CoralClock extends AEMBaseComponent {
 
   private final SelenideElement clock;
   private final SelenideElement hours;

@@ -16,11 +16,11 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
-public class CoralColumnviewItemThumbnail extends BaseComponent {
+public class CoralColumnviewItemThumbnail extends AEMBaseComponent {
 
     /**
      * @param selector wrapping on this direct selector.

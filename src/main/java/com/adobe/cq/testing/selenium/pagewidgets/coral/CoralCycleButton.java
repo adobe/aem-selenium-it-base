@@ -16,12 +16,13 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
 
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.waitForElementAnimationFinished;
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 
-public final class CoralCycleButton extends BaseComponent {
+public final class CoralCycleButton extends AEMBaseComponent {
 
     /**
      * @param selectorSuffix usual selector to find this cycle button.

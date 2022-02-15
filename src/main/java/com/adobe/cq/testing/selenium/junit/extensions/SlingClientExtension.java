@@ -22,11 +22,16 @@ import com.adobe.cq.testing.selenium.junit.annotations.SlingClientConfig;
 import com.adobe.cq.testing.selenium.junit.annotations.SlingClientContext;
 import com.adobe.cq.testing.selenium.junit.annotations.WithClient;
 import com.adobe.cq.testing.selenium.utils.AnnotationHelper;
+import org.apache.commons.lang3.ClassUtils;
+import org.apache.http.auth.AuthSchemeProvider;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.config.Lookup;
+import org.apache.http.config.RegistryBuilder;
 import org.apache.sling.testing.clients.ClientException;
 import org.apache.sling.testing.clients.SlingClient;
 import org.apache.sling.testing.clients.instance.InstanceConfiguration;
 import org.apache.sling.testing.clients.instance.InstanceSetup;
+import org.apache.sling.testing.clients.interceptors.FormBasedAuthInterceptor;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionConfigurationException;
@@ -38,6 +43,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
@@ -146,6 +152,9 @@ public final class SlingClientExtension implements BeforeAllCallback, AfterAllCa
 
         private static final Logger LOGGER = LoggerFactory.getLogger(Store.class);
 
+        private static final String LOGIN_TOKEN_AUTH = "it.logintokenauth";
+        private static final String AGENT = "Sling Testing Client %s";
+
         private static Store instance = new Store();
 
         private static final Map<String, InstanceConfiguration> DEFAULT_CONFIGURATION_MAP = Stream.of(
@@ -167,7 +176,10 @@ public final class SlingClientExtension implements BeforeAllCallback, AfterAllCa
                 )
         ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
+        private final boolean useLoginToken;
+
         private Store() {
+            this.useLoginToken = loginTokenAuth();
         }
 
         private HashMap<String, SlingClient> getClientMapFromStore(final ExtensionContext extensionContext) {
@@ -181,9 +193,16 @@ public final class SlingClientExtension implements BeforeAllCallback, AfterAllCa
             return stringSlingClientHashMap;
         }
 
-        private SlingClient buildClient(final URI url, final String username, final String password, final boolean forceAnonymous) throws ClientException {
-            LOGGER.info("Building client for url={} user={}", url.toString(), username);
-            return SlingClient.Builder.create(url, forceAnonymous ? null : username, password).build();
+        private SlingClient buildClient(final URI url, final String key, final String username, final String password, final boolean forceAnonymous) throws ClientException {
+            LOGGER.info("Building client for url={} user={}", url, username);
+            SlingClient.Builder builder = SlingClient.Builder.create(url, forceAnonymous ? null : username, password);
+            if (useLoginToken) {
+                Lookup<AuthSchemeProvider> authSchemeRegistry = RegistryBuilder.<AuthSchemeProvider>create().build();
+                builder.httpClientBuilder().setDefaultAuthSchemeRegistry(authSchemeRegistry);
+                builder.setPreemptiveAuth(false).addInterceptorFirst(new FormBasedAuthInterceptor("login-token"));
+            }
+            builder.httpClientBuilder().setUserAgent(String.format(AGENT, key));
+            return builder.build();
         }
 
         private InstanceConfiguration getInstanceConfiguration(String runMode) {
@@ -198,6 +217,15 @@ public final class SlingClientExtension implements BeforeAllCallback, AfterAllCa
 
         private String getKeyPrefix() {
             return "_" + Thread.currentThread().getId() + "_";
+        }
+
+        private String getTestInfo(ExtensionContext extensionContext) {
+            StringBuilder testInfo = new StringBuilder();
+            Optional<Class<?>> testClass = extensionContext.getTestClass();
+            testClass.ifPresent(aClass -> testInfo.append(ClassUtils.getAbbreviatedName(aClass, 1)));
+            Optional<Method> testMethod = extensionContext.getTestMethod();
+            testMethod.ifPresent(method -> testInfo.append(".").append(method.getName()));
+            return testInfo.toString();
         }
 
         public static Store getInstance() {
@@ -215,18 +243,19 @@ public final class SlingClientExtension implements BeforeAllCallback, AfterAllCa
             String user = username == null ? conf.getAdminUser():username;
             String pass = password == null ? conf.getAdminPassword():password;
 
-            String key = getKeyPrefix() + runMode + user + forceAnonymous;
-            SlingClient slingClient = clientMapFromStore.get(key);
-            if (slingClient == null) {
+            String testInfo = getTestInfo(extensionContext);
+            String key = String.format(
+                    "%stestInfo:%s_runMode:%s_user:%s_forceAnon:%s",
+                    getKeyPrefix(), testInfo, runMode, user, forceAnonymous
+            );
+            return clientMapFromStore.computeIfAbsent(key, k -> {
                 try {
-                    slingClient = buildClient(conf.getUrl(), user, pass, forceAnonymous);
-                    clientMapFromStore.put(key, slingClient);
+                    return buildClient(conf.getUrl(), key, user, pass, forceAnonymous);
                 } catch (ClientException e) {
                     LOGGER.error(e.getMessage(), e);
                 }
-            }
-            return slingClient;
-
+                return null;
+            });
         }
 
         protected void saveLatest(final ExtensionContext extensionContext, final SlingClient latestClient) {
@@ -251,6 +280,14 @@ public final class SlingClientExtension implements BeforeAllCallback, AfterAllCa
                 }
             });
             getClientMapFromStore(extensionContext).clear();
+        }
+
+        private static boolean loginTokenAuth() {
+            if (System.getProperties().contains(LOGIN_TOKEN_AUTH)) {
+                return Boolean.getBoolean(LOGIN_TOKEN_AUTH);
+            } else {
+                return true;
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ public final class ElementUtils {
 
     public static final long DEFAULT_DELAY_BEFORE = 250;
     private static final String MSG_ERR_CLICK_UNTIL = "Clicking on %s didn’t fullfill the expected condition %s for %s";
-    private static final long SHORT_TIMEOUT = 500;
+    private static final long SHORT_TIMEOUT = 2000;
     private static long delayBefore = DEFAULT_DELAY_BEFORE;
     private static int DEFAULT_TIMEOUT = 4000;
 

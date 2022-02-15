@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Adobe Systems Incorporated
+ * Copyright 2022 Adobe Systems Incorporated
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,28 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.adobe.cq.testing.selenium.junit.annotations;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-package com.adobe.cq.testing.selenium.pagewidgets.coral;
-
-import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
-import com.codeborne.selenide.SelenideElement;
-
-public class CoralToast extends AEMBaseComponent {
-
-
-  /**
-   * Construct the coral-toast object.
-   */
-  public CoralToast() {
-    super("coral-toast");
-  }
-
-  /**
-   * @return the content element for this toast.
-   */
-  public SelenideElement content() {
-    return element().$("coral-toast-content");
-  }
-
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
+public @interface UserTimeZone {
+    String tz() default "none";
 }

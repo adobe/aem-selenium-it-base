@@ -16,7 +16,7 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.granite;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.cq.EnumRail;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
@@ -25,7 +25,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.waitForElementAnimationFinished;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class Rail extends BaseComponent {
+public class Rail extends AEMBaseComponent {
 
     private final String panelsSelector;
     private final String openClass;

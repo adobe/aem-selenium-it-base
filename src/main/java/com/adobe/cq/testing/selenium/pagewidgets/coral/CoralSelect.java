@@ -16,7 +16,7 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -25,7 +25,7 @@ import java.util.concurrent.TimeoutException;
 
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickUntil;
 
-public final class CoralSelect extends BaseComponent {
+public final class CoralSelect extends AEMBaseComponent {
 
     private static final String SELECTOR_ITEM_ELEMENT = "coral-select-item";
     private static final String SELECTOR_BUTTON = "button";

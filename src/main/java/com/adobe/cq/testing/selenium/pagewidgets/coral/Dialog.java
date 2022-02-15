@@ -16,13 +16,13 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.pagewidgets.coral.VariantAccessor.VariantType.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Dialog extends BaseComponent {
+public class Dialog extends AEMBaseComponent {
 
     protected VariantAccessor variantAccessor;
 

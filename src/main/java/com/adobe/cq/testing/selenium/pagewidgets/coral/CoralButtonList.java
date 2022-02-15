@@ -16,14 +16,14 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 
-public final class CoralButtonList extends BaseComponent {
+public final class CoralButtonList extends AEMBaseComponent {
 
     private static final String BUTTON_ITEM_ELEMENT = "button[is=\"coral-buttonlist-item\"]";
 

@@ -39,56 +39,57 @@ import static net.lightbody.bmp.proxy.CaptureType.RESPONSE_COOKIES;
 public class BrowserProxyExtension implements ParameterResolver, BeforeTestExecutionCallback,
     AfterTestExecutionCallback {
 
-  private static BrowserMobProxyServer proxy;
-  private static Proxy seleniumProxy;
-  private static int proxyPort = Integer.parseInt(System.getProperty("useProxyPort", "0"));
+    public static final String BROWSER_PROXY_STORE_ID = "browser-proxy-in-store";
+    private static BrowserMobProxyServer proxy;
+    private static Proxy seleniumProxy;
+    private static int proxyPort = Integer.parseInt(System.getProperty("useProxyPort", "0"));
 
-  static {
-    if (proxyPort > 0) {
-      proxy = new BrowserMobProxyServer();
-      proxy.setTrustAllServers(true);
-      proxy.enableHarCaptureTypes(REQUEST_CONTENT, RESPONSE_CONTENT, REQUEST_COOKIES, RESPONSE_COOKIES);
-      proxy.start(proxyPort);
-      seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
-      String proxyURL = proxyURL(proxy);
-      seleniumProxy.setHttpProxy(proxyURL);
-      seleniumProxy.setSslProxy(proxyURL);
+    static {
+      if (proxyPort > 0) {
+        proxy = new BrowserMobProxyServer();
+        proxy.setTrustAllServers(true);
+        proxy.enableHarCaptureTypes(REQUEST_CONTENT, RESPONSE_CONTENT, REQUEST_COOKIES, RESPONSE_COOKIES);
+        proxy.start(proxyPort);
+        seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
+        String proxyURL = proxyURL(proxy);
+        seleniumProxy.setHttpProxy(proxyURL);
+        seleniumProxy.setSslProxy(proxyURL);
+      }
     }
-  }
 
-  @Override
-  public void afterTestExecution(final ExtensionContext extensionContext) throws Exception {
-    if (isEnabled()) {
-      final Har har = proxy.getHar();
-      har.writeTo(FileUtils.getFile(extensionContext.getTestMethod().get().getName() + ".har"));
-      proxy.endHar();
+    @Override
+    public void afterTestExecution(final ExtensionContext extensionContext) throws Exception {
+      if (isEnabled()) {
+        final Har har = proxy.getHar();
+        har.writeTo(FileUtils.getFile(extensionContext.getTestMethod().get().getName() + ".har"));
+        proxy.endHar();
+      }
     }
-  }
 
-  @Override
-  public void beforeTestExecution(final ExtensionContext extensionContext) throws Exception {
-    if (isEnabled()) {
-      proxy.newHar("Capture " + extensionContext.getTestMethod().get().getName());
+    @Override
+    public void beforeTestExecution(final ExtensionContext extensionContext) throws Exception {
+      if (isEnabled()) {
+        proxy.newHar("Capture " + extensionContext.getTestMethod().get().getName());
+      }
     }
-  }
 
-  public boolean supportsParameter(final ParameterContext parameterContext, final ExtensionContext extensionContext) {
-    return isOfType(parameterContext, Proxy.class, BrowserMobProxyServer.class);
-  }
+    public boolean supportsParameter(final ParameterContext parameterContext, final ExtensionContext extensionContext) {
+      return isOfType(parameterContext, Proxy.class, BrowserMobProxyServer.class);
+    }
 
-  private boolean isOfType(final ParameterContext context, final Class... clazz) {
-    return Arrays.stream(clazz).anyMatch(p -> p.isAssignableFrom(context.getParameter().getType()));
-  }
+    private boolean isOfType(final ParameterContext context, final Class... clazz) {
+      return Arrays.stream(clazz).anyMatch(p -> p.isAssignableFrom(context.getParameter().getType()));
+    }
 
-  public Object resolveParameter(final ParameterContext parameterContext, final ExtensionContext extensionContext) {
-    return isOfType(parameterContext, Proxy.class) ? seleniumProxy : proxy;
-  }
+    public Object resolveParameter(final ParameterContext parameterContext, final ExtensionContext extensionContext) {
+      return isOfType(parameterContext, Proxy.class) ? seleniumProxy : proxy;
+    }
 
-  public boolean isEnabled() {
-    return proxyPort > 0;
-  }
+    public static boolean isEnabled() {
+      return proxyPort > 0;
+    }
 
-  public Proxy getSeleniumProxy() {
-    return seleniumProxy;
-  }
+    public static Proxy getSeleniumProxy() {
+      return seleniumProxy;
+    }
 }

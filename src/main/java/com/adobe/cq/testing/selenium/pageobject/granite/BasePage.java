@@ -29,6 +29,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.switchToAemContentFrame;
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.waitNetworkIdled;
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.waitDocumentLoadCompleted;
 import static com.adobe.cq.testing.selenium.pagewidgets.coral.CoralReady.waitCoralReady;
@@ -186,6 +187,8 @@ public abstract class BasePage {
      * Wait that the page is ready (according to coral).
      */
     public void waitReady() {
+        // ensure frame on unified shell
+        switchToAemContentFrame();
         waitNetworkIdled(NETWORK_POLLING_INTERVAL);
         waitDocumentLoadCompleted();
         waitCoralReady();

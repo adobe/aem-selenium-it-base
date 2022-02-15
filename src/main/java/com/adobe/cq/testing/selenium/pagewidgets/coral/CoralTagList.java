@@ -16,12 +16,12 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-public class CoralTagList extends BaseComponent {
+public class CoralTagList extends AEMBaseComponent {
 
     public CoralTagList(SelenideElement element) {
         super(element);

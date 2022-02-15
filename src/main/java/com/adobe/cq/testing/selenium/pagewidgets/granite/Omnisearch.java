@@ -16,8 +16,10 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.granite;
 
+import com.adobe.cq.testing.selenium.pagewidgets.Helpers;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.Constants;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
@@ -31,14 +33,16 @@ import static com.adobe.cq.testing.selenium.Constants.DEFAULT_WAIT_TIME;
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.isElementTopMost;
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.waitForElementAnimationFinished;
 import static com.adobe.cq.testing.selenium.pagewidgets.I18N.geti18nString;
+import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickUntil;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.switchTo;
 
 /**
  * The Omnisearch component wrapper.
  */
-public final class Omnisearch extends BaseComponent {
+public final class Omnisearch extends AEMBaseComponent {
 
     private static final String BUTTON_GRANITE_OMNISEARCH_TYPEAHEAD_CLOSE = "button.granite-omnisearch-typeahead-close";
     private static final String DIV_GRANITE_OMNISEARCH_TYPEAHEAD = "div.granite-omnisearch-typeahead";
@@ -78,7 +82,7 @@ public final class Omnisearch extends BaseComponent {
      */
     public ElementsCollection resultMultiRows() {
         ElementsCollection collection = $$("#granite-omnisearch-result .granite-omnisearch-multiresult-row");
-        collection.stream().forEach(item -> item.should(Constants.EXISTS_ENABLED_VISIBLE));
+        collection.forEach(item -> item.should(Constants.EXISTS_ENABLED_VISIBLE));
         return collection;
     }
 
@@ -96,7 +100,13 @@ public final class Omnisearch extends BaseComponent {
      * Open the omnisearch integration.
      */
     public void open() {
-        $("#granite-omnisearch-trigger").should(Constants.EXISTS_ENABLED_VISIBLE).click();
+        if (Helpers.isUnifiedShellFrame()) {
+            switchTo().defaultContent();
+            clickableClick($(".spectrum-Tool.spectrum-Tool--quiet"));
+            Helpers.switchToAemContentFrame();
+        } else {
+            clickableClick($("#granite-omnisearch-trigger"));
+        }
         $(BUTTON_GRANITE_OMNISEARCH_TYPEAHEAD_CLOSE).should(Constants.EXISTS_ENABLED_VISIBLE);
     }
 

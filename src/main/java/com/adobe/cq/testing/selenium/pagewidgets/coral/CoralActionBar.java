@@ -16,12 +16,13 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.coral;
 
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
 import com.codeborne.selenide.SelenideElement;
 
 import java.util.stream.Stream;
 
-public final class CoralActionBar extends BaseComponent {
+public final class CoralActionBar extends AEMBaseComponent {
 
     /**
      * Constructor to get the actionbar.
@@ -44,7 +45,7 @@ public final class CoralActionBar extends BaseComponent {
         return element().$$("coral-actionbar-item").stream().map(Item::new);
     }
 
-    public class Item extends BaseComponent {
+    public class Item extends AEMBaseComponent {
 
         public Item(SelenideElement element) {
             super(element);

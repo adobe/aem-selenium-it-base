@@ -30,6 +30,7 @@ public class AutoCompleteField<V> extends ActionComponent<V> {
 
   private static final String FOUNDATION_AUTOCOMPLETE = "foundation-autocomplete";
   private static final String SELECTOR_CSS = "css:";
+  public static final String ARIA_CONTROLS = "aria-controls";
   private SelenideElement inputField;
   private CoralButtonList buttonList;
 
@@ -99,7 +100,8 @@ public class AutoCompleteField<V> extends ActionComponent<V> {
    * @return associated button list.
    */
   public CoralButtonList buttonlist() {
-    return buttonList;
+    String buttonId = inputField.shouldHave(Condition.attribute(ARIA_CONTROLS)).getAttribute(ARIA_CONTROLS);
+    return new CoralButtonList(String.format("#%s", buttonId));
   }
 
   /**

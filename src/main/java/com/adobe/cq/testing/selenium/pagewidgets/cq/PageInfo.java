@@ -16,10 +16,9 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq;
 
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.common.ActionComponent;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.Dialog;
-import com.adobe.cq.testing.selenium.utils.ExpectNav;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.clickDialogAction;
@@ -32,7 +31,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Component class representing the page info in editor page.
  */
-public final class PageInfo extends BaseComponent {
+public final class PageInfo extends AEMBaseComponent {
 
     private static final String PAGEINFO_IDENTIFIER = "#pageinfo-data";
     private static final String BUTTON_SELECTOR = "#pageinfo-trigger";

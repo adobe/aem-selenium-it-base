@@ -34,6 +34,7 @@ import javax.annotation.Nonnull;
 import java.io.UnsupportedEncodingException;
 
 import static com.adobe.cq.testing.selenium.TestConstants.DEFAULT_MOCKED_AEM_PORT;
+import static org.mockserver.model.HttpRequest.request;
 
 @SlingClientConfig(port = DEFAULT_MOCKED_AEM_PORT, username = "test-user")
 @SlingClientContext
@@ -76,14 +77,14 @@ public class DisableTourTest {
     public void restoreDefaultsSucceed(final SlingClient client) throws ClientException {
         DisableTour disableTour = new DisableTour(client);
         disableTour.restoreDefaults();
-        mockedAEMServer.getClient().verify(HttpRequest.request().withPath(".*/preferences").withMethod("POST"));
+        mockedAEMServer.getClient().verify(request().withPath(".*/preferences").withMethod("POST"));
     }
 
     @Test
     public void disableDefaultToursSucceed(final SlingClient client) throws ClientException, UnsupportedEncodingException {
         DisableTour disableTour = new DisableTour(client);
         disableTour.disableDefaultTours();
-        mockedAEMServer.getClient().verify(HttpRequest.request().withPath(".*/preferences").withMethod("POST"));
+        mockedAEMServer.getClient().verify(request().withPath(".*/preferences").withMethod("POST"));
     }
 
 }

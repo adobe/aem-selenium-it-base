@@ -17,7 +17,7 @@
 package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
 
 import com.adobe.cq.testing.selenium.Constants;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +26,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class ImageTab extends BaseComponent {
+public class ImageTab extends AEMBaseComponent {
     private SelenideElement thumbnailGeneratePreviewActivator = $(".cq-wcm-pagethumbnail-activator");
     private SelenideElement thumbnailImg = $("img.cq-wcm-pagethumbnail-image");
     private SelenideElement defaultThumbnailImg = $("img.cq-wcm-pagethumbnail-image[alt='Page thumbnail']");

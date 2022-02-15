@@ -18,7 +18,7 @@ package com.adobe.cq.testing.selenium.pagewidgets.cq;
 
 import com.adobe.cq.testing.selenium.pageobject.EditorPage;
 import com.adobe.cq.testing.selenium.pagewidgets.common.ActionComponent;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.Dialog;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
@@ -29,7 +29,7 @@ import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.clickDialogActio
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$;
 
-public class EditableToolbar extends BaseComponent {
+public class EditableToolbar extends AEMBaseComponent {
 
     private static final String EDITABLETOOLBAR_IDENTIFIER = "#EditableToolbar";
 

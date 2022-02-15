@@ -33,12 +33,14 @@ import java.util.concurrent.TimeoutException;
 
 import static com.adobe.cq.testing.selenium.Constants.DEFAULT_CLICK_UNTIL_RETRIES;
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.clickBaseComponentAction;
+import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.switchToAemContentFrame;
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.*;
 import static com.codeborne.selenide.Selenide.*;
 
 /**
  * Base editor page class for inheritance.
  */
+@SuppressWarnings("java:S1075")
 public abstract class EditorPage extends BasePage {
 
     private static final Logger LOG = LoggerFactory.getLogger(EditorPage.class);
@@ -82,10 +84,10 @@ public abstract class EditorPage extends BasePage {
 
     private String pageName;
 
-    public EditorPage(final URI base, final String pagePath) {
+    protected EditorPage(final URI base, final String pagePath) {
         super(base, getEditedPagePath(pagePath));
     }
-    public EditorPage(final String pagePath) {
+    protected EditorPage(final String pagePath) {
         super(null, getEditedPagePath(pagePath));
     }
 
@@ -264,6 +266,7 @@ public abstract class EditorPage extends BasePage {
 
     @Override
     public void waitReady() {
+        switchToAemContentFrame();
         LOG.info("waitPageReady");
         Wait().until(webdriver -> isReadyCondition());
         LOG.info("precondition checked");

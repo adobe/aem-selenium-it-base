@@ -17,7 +17,7 @@
 package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
 
 import com.adobe.cq.testing.selenium.pagewidgets.DesignPicker;
-import com.adobe.cq.testing.selenium.pagewidgets.common.BaseComponent;
+import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralCheckbox;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralMultiField;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralSelect;
@@ -36,7 +36,7 @@ import static com.adobe.cq.testing.selenium.pagewidgets.cq.FormField.SLING_ALIAS
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.codeborne.selenide.Selenide.$;
 
-public final class AdvancedTab extends BaseComponent {
+public final class AdvancedTab extends AEMBaseComponent {
     private SelenideElement designFieldButton = $(DESIGN_PATH + " button");
     private String languageSelect = "./jcr:language";
     public static final FormField authenticationRequired = new FormField("./cq:authenticationRequired");
