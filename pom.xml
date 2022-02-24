@@ -150,7 +150,7 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>5.0.4-597abeba-0001</version>
+			<version>5.1.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>com.github.docker-java</groupId>
