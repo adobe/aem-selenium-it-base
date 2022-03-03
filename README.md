@@ -1,3 +1,5 @@
+![Maven Central](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fcom%2Fadobe%2Fcq%2Faem-selenium-it-base%2Fmaven-metadata.xml)
+
 # AEM Selenium IT Base
 
 Base IT tooling to quickly write Selenium IT tests for Adobe Experience Manager.
