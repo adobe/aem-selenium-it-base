@@ -83,7 +83,7 @@ public final class FormField {
   public static final FormField DESIGN_PATH = new FormField("./cq:designPath");
 
   /**
-   * The usual design path field.
+   * The usual vanity path field.
    */
   public static final FormField VANITY_PATH = new FormField("./sling:vanityPath");
 
