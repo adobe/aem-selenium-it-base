@@ -22,7 +22,7 @@
 
 	<groupId>com.adobe.cq</groupId>
 	<artifactId>aem-selenium-it-base</artifactId>
-	<version>0.2.29-SNAPSHOT</version>
+	<version>0.2.30</version>
 	<packaging>jar</packaging>
 
 	<name>Testing with Selenium Base classes</name>
@@ -55,7 +55,7 @@
 		<connection>scm:git:https://github.com/adobe/aem-selenium-it-base.git</connection>
 		<developerConnection>scm:git:https://github.com/adobe/aem-selenium-it-base.git</developerConnection>
 		<url>https://github.com/adobe/aem-selenium-it-base</url>
-		<tag>HEAD</tag>
+		<tag>aem-selenium-it-base-0.2.30</tag>
 	</scm>
 
 	<properties>
