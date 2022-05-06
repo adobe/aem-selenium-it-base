@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import static com.adobe.cq.testing.selenium.Constants.*;
 import static com.adobe.cq.testing.client.CQConfigManagerClient.CQConfigCapability.CONTENT_FRAGMENT_MODEL;
@@ -259,7 +260,7 @@ public final class TestContentBuilder {
      * @throws InterruptedException if waiting was interrupted
      * @throws IOException if json parsing fails
      */
-    public void build() throws ClientException, InterruptedException, IOException {
+    public void build() throws ClientException, InterruptedException, IOException, TimeoutException {
         createConfig();
         createDefaultPageTemplate();
         createDamRoot();
@@ -349,7 +350,7 @@ public final class TestContentBuilder {
         LOGGER.info("Created Default Page Template {}", pageTemplatePath);
     }
 
-    private void createConfig() throws ClientException {
+    private void createConfig() throws ClientException, TimeoutException, InterruptedException {
         CQConfigManagerClient configManagerClient = client.adaptTo(CQConfigManagerClient.class);
         cqConfig = configManagerClient.create(label, cqConfigCapabilities);
         cqConfigPath = cqConfig.getPath();
