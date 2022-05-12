@@ -24,8 +24,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import java.util.stream.Stream;
-
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.waitForListSizeChange;
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
 import static com.adobe.cq.testing.selenium.utils.AEMTestingUtils.isAEMVersionSelected;

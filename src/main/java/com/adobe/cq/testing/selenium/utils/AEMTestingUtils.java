@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.adobe.qe.selenium.utils;
+package com.adobe.cq.testing.selenium.utils;
 
 import org.apache.commons.lang.StringUtils;
-
-import static com.adobe.qe.selenium.Constants.AEM_VERSION_PROPERTY_KEY;
+import static com.adobe.cq.testing.selenium.Constants.AEM_VERSION_PROPERTY_KEY;
 
 public final class AEMTestingUtils {
 
