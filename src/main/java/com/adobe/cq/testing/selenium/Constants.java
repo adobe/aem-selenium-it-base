@@ -53,6 +53,6 @@ public final class Constants {
   public static final String PROP_CQ_CONF = "cq:conf";
   public static final String PROP_CQ_ALLOWED_TEMPLATES = "cq:allowedTemplates";
 
-
+  public static final String AEM_VERSION_6_5 = "6.5";
 
 }
