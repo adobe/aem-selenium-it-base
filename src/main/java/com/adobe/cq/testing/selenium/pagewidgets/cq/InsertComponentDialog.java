@@ -16,7 +16,6 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq;
 
-import com.adobe.cq.testing.selenium.Constants;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralList;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.CoralSelectList;
 import com.adobe.cq.testing.selenium.pagewidgets.coral.Dialog;
@@ -26,17 +25,17 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.adobe.cq.testing.selenium.pagewidgets.Helpers.waitForListSizeChange;
 import static com.adobe.cq.testing.selenium.utils.ElementUtils.clickableClick;
-import static com.adobe.cq.testing.selenium.utils.AEMTestingUtils.isAEMVersionSelected;
 
 public class InsertComponentDialog extends Dialog {
 
     private static final String CSS_SELECTOR = "coral-dialog.InsertComponentDialog";
     private static final String LIST_SELECTOR = ".InsertComponentDialog-list";
+    private static final String SELECT_LIST_SELECTOR = "coral-selectlist" + LIST_SELECTOR;
     private static final String SEARCH_FIELD = "input[type='search']";
     private static final String CLOSE_BUTTON = "button[handle='closeButton']";
     private static final String SELECTOR_ITEM_ELEMENT = "coral-list-item";
 
-    private CoralSelectList componentSelectList = new CoralSelectList(element());
+    private CoralSelectList componentSelectList = new CoralSelectList(SELECT_LIST_SELECTOR);
     private CoralList componentList = new CoralList(LIST_SELECTOR);
 
     public InsertComponentDialog() { super(CSS_SELECTOR); }
@@ -54,7 +53,7 @@ public class InsertComponentDialog extends Dialog {
      * @param resourceType resource type to select a component
      */
     public void selectComponent(String resourceType) {
-        if (isAEMVersionSelected(Constants.AEM_VERSION_6_5)) {
+        if (componentSelectList.isExisting()) {
             clickableClick(componentSelectList.getItemByValue(resourceType));
         } else {
             clickableClick(this.getItemByValue(resourceType));
@@ -68,7 +67,7 @@ public class InsertComponentDialog extends Dialog {
      * @return collections of available components
      */
     public ElementsCollection getComponentList() {
-        if (isAEMVersionSelected(Constants.AEM_VERSION_6_5)) {
+        if (componentSelectList.isExisting()) {
             return componentSelectList.items();
         } else {
             return componentList.itemsCollection();
