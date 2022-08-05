@@ -31,7 +31,7 @@ public final class CoralButtonList extends AEMBaseComponent {
      * @param parent the parent element containing this select list.
      */
     public CoralButtonList(final SelenideElement parent) {
-        super(parent.getSearchCriteria() + " coral-buttonlist");
+        super(parent.getSearchCriteria().replaceAll("/", " ") + " coral-buttonlist");
     }
 
     /**
