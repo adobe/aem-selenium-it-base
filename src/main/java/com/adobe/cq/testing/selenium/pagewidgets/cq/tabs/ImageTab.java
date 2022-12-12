@@ -16,6 +16,8 @@
 
 package com.adobe.cq.testing.selenium.pagewidgets.cq.tabs;
 
+import java.time.Duration;
+
 import com.adobe.cq.testing.selenium.Constants;
 import com.adobe.cq.testing.selenium.pagewidgets.common.AEMBaseComponent;
 import com.codeborne.selenide.SelenideElement;
@@ -59,14 +61,14 @@ public class ImageTab extends AEMBaseComponent {
     public void generateThumbnailPreview() {
         thumbnailGeneratePreviewActivator.click();
         final WebDriver webDriver = WebDriverRunner.getWebDriver();
-        new WebDriverWait(webDriver, Constants.DEFAUT_WEBDRIVER_TIMEOUT)
+        new WebDriverWait(webDriver, Duration.ofMillis(Constants.DEFAUT_WEBDRIVER_TIMEOUT))
                 .until(ExpectedConditions.invisibilityOf(getDefaultThumbnailImg().toWebElement()));
     }
 
     public void revertThumbnailPreview() {
         revert.click();
         final WebDriver webDriver = WebDriverRunner.getWebDriver();
-        new WebDriverWait(webDriver, Constants.DEFAUT_WEBDRIVER_TIMEOUT)
+        new WebDriverWait(webDriver, Duration.ofMillis(Constants.DEFAUT_WEBDRIVER_TIMEOUT))
                 .until(ExpectedConditions.visibilityOf(getDefaultThumbnailImg().toWebElement()));
     }
 }
