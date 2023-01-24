@@ -45,7 +45,11 @@ public class InsertComponentDialog extends Dialog {
      * @return the element or null if it doesn't exist.
      */
     public SelenideElement getItemByValue(final String value) {
-        return element().$(String.format("%s[value=\"%s\"]", SELECTOR_ITEM_ELEMENT, value));
+        if (this.componentSelectList.isExisting()) {
+            return componentSelectList.getItemByValue(value);
+        } else {
+            return element().$(String.format("%s[value=\"%s\"]", SELECTOR_ITEM_ELEMENT, value));
+        }
     }
 
     /**
