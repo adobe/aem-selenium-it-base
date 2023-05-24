@@ -189,9 +189,10 @@ public class WebdriverSetupExtension implements BeforeAllCallback, BeforeEachCal
         // Backward compatibility
         String userTimeZone = getUserTimeZone(ec);
         WebDriverManager wdm = WebDriverManager.getInstance();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        wdm.capabilities(chromeOptions);
+        chromeOptions.addArguments("--remote-allow-origins=*");
         if (BrowserProxyExtension.isEnabled()) {
-            ChromeOptions chromeOptions = new ChromeOptions();
-            wdm.capabilities(chromeOptions);
             chromeOptions.addArguments("--ignore-certificate-errors", "--user-data-dir=/tmp/insecurechrome");
             final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
             desiredCapabilities.setCapability(CapabilityType.PROXY, BrowserProxyExtension.getSeleniumProxy());
