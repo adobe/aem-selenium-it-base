@@ -34,7 +34,7 @@ public final class DesignPicker {
     public List<String> getRoots() {
         List<String> actualRoots = new ArrayList<>();
         ElementsCollection rootsElements = wcmDesignPicker.$$("coral-columnview-item");
-        rootsElements.stream()
+        rootsElements.asFixedIterable().stream()
                 .forEach(se -> actualRoots.add(se.getAttribute("data-foundation-collection-item-id")));
         return actualRoots;
     }

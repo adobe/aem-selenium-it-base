@@ -59,7 +59,7 @@ public class VariantAccessor extends AEMBaseComponent {
 
     public void clickVariant(final VariantType variantType) {
         ElementsCollection variantElements = findAll(variantType);
-        SelenideElement clickableVariantElement = variantElements.stream()
+        SelenideElement clickableVariantElement = variantElements.asFixedIterable().stream()
                 .filter(selenideElement -> selenideElement.getTagName().equals("button") ||
                         selenideElement.getTagName().equals("a"))
                 .findFirst().get();

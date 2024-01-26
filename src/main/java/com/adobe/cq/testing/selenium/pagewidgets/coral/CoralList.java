@@ -66,7 +66,7 @@ public final class CoralList extends AEMBaseComponent {
      * @return a stream of CoralListItem from this list.
      */
     public Stream<CoralListItem> items() {
-        return element().$$(SELECTOR_ITEM_ELEMENT).stream().map(CoralListItem::new);
+        return element().$$(SELECTOR_ITEM_ELEMENT).asFixedIterable().stream().map(CoralListItem::new);
     }
 
     /**

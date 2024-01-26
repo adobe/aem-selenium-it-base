@@ -65,7 +65,7 @@ public class CoralMultiField extends  AEMBaseComponent {
    */
   public Stream<MultiFieldItem> items() {
     ElementsCollection items = element().$$("coral-multifield-item");
-    return items.stream().map(i -> new MultiFieldItem(i));
+    return items.asFixedIterable().stream().map(i -> new MultiFieldItem(i));
   }
 
   public final class MultiFieldItem extends AEMBaseComponent {

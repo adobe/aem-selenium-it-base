@@ -47,7 +47,7 @@ public final class CoralPopOver extends AEMBaseComponent {
      * @return a stream with all the coral popover currently opened.
      */
     public static Stream<CoralPopOver> listOpened() {
-        return $$(CORAL_POPOVER_IS_OPEN).stream().map(CoralPopOver::new);
+        return $$(CORAL_POPOVER_IS_OPEN).asFixedIterable().stream().map(CoralPopOver::new);
     }
 
     /**

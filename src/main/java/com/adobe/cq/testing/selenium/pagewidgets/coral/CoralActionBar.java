@@ -42,7 +42,7 @@ public final class CoralActionBar extends AEMBaseComponent {
      * @return all the items elements in the action bar.
      */
     public Stream<Item> items() {
-        return element().$$("coral-actionbar-item").stream().map(Item::new);
+        return element().$$("coral-actionbar-item").asFixedIterable().stream().map(Item::new);
     }
 
     public class Item extends AEMBaseComponent {

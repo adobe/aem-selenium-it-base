@@ -85,7 +85,7 @@ public final class PropertiesPage extends BasePage {
     }
 
     public <T> T clickTab(final String tabName, final Class<T> clazz) {
-        Optional<SelenideElement> tabElement = coralTabs.stream()
+        Optional<SelenideElement> tabElement = coralTabs.asFixedIterable().stream()
                 .filter(selenideElement -> selenideElement.getAttribute("data-foundation-tracking-event")
                         .contains(getTrackingElementName(tabName)))
                 .findFirst();

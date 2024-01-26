@@ -77,7 +77,7 @@ public final class CoralAnchorList extends AEMBaseComponent {
     }
 
     public void selectByTrackingValue(final String trackingValue) {
-        items().stream()
+        items().asFixedIterable().stream()
             .map(AEMBaseComponent::new)
             .filter(e -> trackingValue.equals(e.getTrackingElement()))
             .findFirst()
