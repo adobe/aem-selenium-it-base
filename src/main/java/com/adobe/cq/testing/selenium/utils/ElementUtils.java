@@ -19,6 +19,8 @@ package com.adobe.cq.testing.selenium.utils;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebElementCondition;
+
 import org.awaitility.core.ConditionTimeoutException;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -56,7 +58,7 @@ public final class ElementUtils {
     }
 
     public static void clickableClick(final SelenideElement element, final long delay) {
-        Condition clickable = and("can be clicked", Condition.visible, Condition.enabled);
+        WebElementCondition clickable = and("can be clicked", Condition.visible, Condition.enabled);
         element.shouldBe(clickable);
         delayBefore(delay);
         actions().moveToElement(element).click().perform();
@@ -71,7 +73,7 @@ public final class ElementUtils {
      * @throws TimeoutException if element is not visible before Timeout
      */
     public static void clickUntil(final SelenideElement element, final SelenideElement conditionalElement,
-                                  final Condition expectedCondition, final long maxRetries,
+                                  final WebElementCondition expectedCondition, final long maxRetries,
                                   final long pacing) throws TimeoutException {
         int retries = 0;
         boolean passed = false;
@@ -110,7 +112,7 @@ public final class ElementUtils {
         }
     }
 
-    public static boolean hasWithPolling(final SelenideElement element, final Condition condition, int timeout) {
+    public static boolean hasWithPolling(final SelenideElement element, final WebElementCondition condition, int timeout) {
         boolean result = false;
         try {
             await().pollInSameThread()
@@ -124,7 +126,7 @@ public final class ElementUtils {
         }
     }
 
-    public static boolean hasWithPolling(final SelenideElement element, final Condition condition) {
+    public static boolean hasWithPolling(final SelenideElement element, final WebElementCondition condition) {
         return hasWithPolling(element, condition, DEFAULT_TIMEOUT);
     }
 

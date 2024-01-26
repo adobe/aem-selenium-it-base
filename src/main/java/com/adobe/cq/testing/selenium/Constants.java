@@ -2,6 +2,8 @@
 package com.adobe.cq.testing.selenium;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.WebElementCondition;
+
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.time.Duration;
@@ -14,7 +16,7 @@ public final class Constants {
   /**
    * Define a combo for element to exists, enabled and visible.
    */
-  public static final Condition[] EXISTS_ENABLED_VISIBLE = new Condition[] {
+  public static final WebElementCondition[] EXISTS_ENABLED_VISIBLE = new WebElementCondition[] {
       Condition.exist, Condition.visible, Condition.enabled
   };
 
