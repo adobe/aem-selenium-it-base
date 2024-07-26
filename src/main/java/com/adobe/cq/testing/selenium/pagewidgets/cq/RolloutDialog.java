@@ -108,7 +108,7 @@ public class RolloutDialog extends Dialog {
     public void rolloutNow() {
         clickableClick($("button[title='Rollout']"));
         // new dialog opens for scheduling
-        CoralRadio scheduleOptions = new CoralRadio($("coral-dialog[id='aem-sites-rollout-schedule-dialog']"), "reportSchedule");
+        CoralRadio scheduleOptions = new CoralRadio($("coral-dialog[id='aem-sites-schedule-dialog']"), "reportSchedule");
         //"Now"
         assertTrue(scheduleOptions.elementByValue("now") != null,"Schedule Now should be present");
 
